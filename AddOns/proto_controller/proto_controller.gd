@@ -23,6 +23,17 @@ extends CharacterBody3D
 ## How fast do we freefly?
 @export var freefly_speed : float = 25.0
 
+@export_group("Squash & Stretch")
+## Scale applied the instant we jump (X/Z stretch up, Y squash... or swap per your taste).
+@export var jump_squash_scale : Vector3 = Vector3(0.7, 1.3, 0.7)
+## Scale applied the instant we land.
+@export var land_squash_scale : Vector3 = Vector3(1.3, 0.7, 1.3)
+## How quickly the mesh springs back to normal scale. Higher = snappier.
+@export var squash_stretch_speed : float = 15.0
+
+var base_scale : Vector3
+var target_scale : Vector3
+
 @export_group("Input Actions")
 ## Name of Input Action to move Left.
 @export var input_left : String = "ui_left"
@@ -47,11 +58,14 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var mesh: MeshInstance3D = $Mesh
 
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	base_scale = mesh.scale
+	target_scale = base_scale
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -89,6 +103,7 @@ func _physics_process(delta: float) -> void:
 	if can_jump:
 		if Input.is_action_just_pressed(input_jump) and is_on_floor():
 			velocity.y = jump_velocity
+			_trigger_squash_stretch(jump_squash_scale)
 
 	# Modify speed based on sprinting
 	if can_sprint and Input.is_action_pressed(input_sprint):
@@ -110,9 +125,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.y = 0
 	
+	var was_on_floor := is_on_floor()
+	
 	# Use velocity to actually move
 	move_and_slide()
-
+	
+	# Landing detection: were we airborne last frame, grounded now?
+	if not was_on_floor and is_on_floor():
+		_trigger_squash_stretch(land_squash_scale)
+ 
+	# Spring the mesh scale toward its target every frame
+	mesh.scale = mesh.scale.lerp(target_scale, squash_stretch_speed * delta)
+	if target_scale != base_scale and mesh.scale.distance_to(target_scale) < 0.02:
+		target_scale = base_scale
+	
+func _trigger_squash_stretch(scale_amount: Vector3) -> void:
+	target_scale = scale_amount
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
