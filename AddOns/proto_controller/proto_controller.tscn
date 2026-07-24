@@ -18,8 +18,8 @@ albedo_color = Color(0, 0.8, 0.35686275, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wr06p"]
 material = SubResource("StandardMaterial3D_g2uji")
-top_radius = 0.05
-bottom_radius = 0.05
+top_radius = 0.09
+bottom_radius = 0.09
 
 [node name="ProtoController" type="CharacterBody3D"]
 script = ExtResource("1_ucva2")
@@ -53,6 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0, 0.6444912, 2.3642058)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="StretchedArm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.9303732, 0)
 mesh = SubResource("CylinderMesh_wr06p")

@@ -49,6 +49,23 @@ var target_scale : Vector3
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
+@export var input_grapple : String = "stretch_grapple"
+
+@export_group("Grapple Dash")
+## Can we grapple?
+@export var can_grapple : bool = true
+## Max distance the grapple ray can reach.
+@export var grapple_range : float = 30.0
+## How hard velocity is pulled toward the grapple point.
+@export var grapple_pull_strength : float = 28.0
+## Stop grappling once within this distance of the target (prevents jitter/overshoot).
+@export var grapple_release_distance : float = 2.5
+## Radius of the visual elastic line mesh.
+@export var grapple_line_radius : float = 0.04
+
+var is_grappling : bool = false
+var grapple_target : Vector3
+var grapple_active_hand : Node3D  # whichever hand got randomly picked for this grapple
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -59,6 +76,10 @@ var freeflying : bool = false
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var mesh: MeshInstance3D = $Mesh
+@onready var camera_3d: Camera3D = $Head/Camera3D
+@onready var left_hand: Marker3D = $Mesh/LeftHand
+@onready var right_hand: Marker3D = $Mesh/RightHand
+@onready var grapple_line: MeshInstance3D = $StretchedArm
 
 func _ready() -> void:
 	check_input_mappings()
@@ -66,6 +87,7 @@ func _ready() -> void:
 	look_rotation.x = head.rotation.x
 	base_scale = mesh.scale
 	target_scale = base_scale
+	_setup_grapple_line()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -93,11 +115,17 @@ func _physics_process(delta: float) -> void:
 		motion *= freefly_speed * delta
 		move_and_collide(motion)
 		return
-	
-	# Apply gravity to velocity
-	if has_gravity:
-		if not is_on_floor():
-			velocity += get_gravity() * delta
+		
+	if can_grapple and Input.is_action_just_pressed(input_grapple) and not is_grappling:
+		_try_start_grapple()
+ 
+	if is_grappling:
+		_update_grapple()
+	else:
+		# Apply gravity to velocity
+		if has_gravity:
+			if not is_on_floor():
+				velocity += get_gravity() * delta
 
 	# Apply jumping
 	if can_jump:
@@ -130,6 +158,8 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 	
+	_update_grapple_line()
+	
 	# Landing detection: were we airborne last frame, grounded now?
 	if not was_on_floor and is_on_floor():
 		_trigger_squash_stretch(land_squash_scale)
@@ -141,6 +171,68 @@ func _physics_process(delta: float) -> void:
 	
 func _trigger_squash_stretch(scale_amount: Vector3) -> void:
 	target_scale = scale_amount
+
+func _try_start_grapple() -> void:
+	grapple_active_hand = left_hand if randi() % 2 == 0 else right_hand
+ 
+	var space_state := get_world_3d().direct_space_state
+	var from := grapple_active_hand.global_position
+	var aim_dir := -camera_3d.global_transform.basis.z
+	var to := from + aim_dir * grapple_range
+ 
+	var query := PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]
+	var result := space_state.intersect_ray(query)
+ 
+	if result:
+		grapple_target = result.position
+		is_grappling = true
+		
+func _update_grapple() -> void:
+	var to_target := grapple_target - global_position
+	var dist := to_target.length()
+ 
+	if dist < grapple_release_distance or not Input.is_action_pressed(input_grapple):
+		is_grappling = false
+		return
+ 
+	velocity = to_target.normalized() * grapple_pull_strength
+
+## Builds the elastic line mesh once at startup (a thin cylinder we'll
+## stretch/rotate each frame rather than rebuilding the mesh every time).
+func _setup_grapple_line() -> void:
+	var cylinder := CylinderMesh.new()
+	cylinder.top_radius = grapple_line_radius
+	cylinder.bottom_radius = grapple_line_radius
+	cylinder.height = 1.0
+	grapple_line.mesh = cylinder
+ 
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color(0.2, 1.0, 0.4, 0.85)
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.emission_enabled = true
+	mat.emission = Color(0.2, 1.0, 0.4)
+	mat.emission_energy_multiplier = 1.5
+	grapple_line.material_override = mat
+	grapple_line.visible = false
+ 
+## Stretches/rotates the line mesh between the active hand and the grapple
+## point every frame while grappling; hides it otherwise.
+func _update_grapple_line() -> void:
+	if not is_grappling or grapple_active_hand == null:
+		grapple_line.visible = false
+		return
+ 
+	grapple_line.visible = true
+	var start := grapple_active_hand.global_position
+	var end := grapple_target
+	var mid := (start + end) / 2.0
+	var dist := start.distance_to(end)
+ 
+	grapple_line.global_position = mid
+	grapple_line.look_at_from_position(mid, end, Vector3.UP)
+	grapple_line.rotate_object_local(Vector3.RIGHT, PI / 2.0)
+	grapple_line.scale = Vector3(1.0, dist, 1.0)
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).

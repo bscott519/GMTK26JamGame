@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://s8ucsh6mrrpq"]
+[gd_scene load_steps=7 format=3 uid="uid://s8ucsh6mrrpq"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://d3ahyrd4smrkd" path="res://Assets/City Buildings (GLB format)/building-f.glb" id="2_bo1nx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,6 +15,8 @@ background_mode = 2
 sky = SubResource("Sky_bo1nx")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bo1nx"]
 
 [node name="Main" type="Node3D"]
 
@@ -35,3 +38,55 @@ size = Vector3(20, 1, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8788972, 1.1797905, 0)
 use_collision = true
 size = Vector3(1, 2, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.973536, 1.1797905, 0)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26.973536, 1.1797905, 0)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -41.973534, 1.1797905, 0)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -56.973534, 1.1797905, 6)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -71.97353, 1.1797905, 6)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -86.97353, 1.1797905, -2)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -101.97353, 1.1797905, -2)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -116.97353, 1.1797905, 6)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -131.97354, 1.1797905, 6)
+use_collision = true
+size = Vector3(17, 1, 15)
+
+[node name="OfficeBuidling" parent="." instance=ExtResource("2_bo1nx")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -36, 1.8879051, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeBuidling"]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -2.9802322e-08, 0.33309975, -0.47156954)
+shape = SubResource("BoxShape3D_bo1nx")
