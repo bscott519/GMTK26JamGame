@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdf4bb85sgflt"]
+[gd_scene load_steps=8 format=3 uid="uid://cdf4bb85sgflt"]
 
 [ext_resource type="Script" uid="uid://dkcjtlf7s7742" path="res://Scripts/alien.gd" id="1_mdm8w"]
 
@@ -16,6 +16,14 @@ height = 1.8
 radius = 0.6
 height = 1.8
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr06p"]
+albedo_color = Color(0.3744262, 0.0793645, 0.08180954, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mdm8w"]
+material = SubResource("StandardMaterial3D_wr06p")
+radius = 0.1
+height = 0.2
+
 [node name="alien" type="CharacterBody3D"]
 script = ExtResource("1_mdm8w")
 
@@ -30,3 +38,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013732791, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
 shape = SubResource("CapsuleShape3D_mdm8w")
+
+[node name="Eyeball" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.43, 0.404, 0.179)
+mesh = SubResource("SphereMesh_mdm8w")
+
+[node name="Eyeball2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.430154, 0.4035629, -0.13857639)
+mesh = SubResource("SphereMesh_mdm8w")

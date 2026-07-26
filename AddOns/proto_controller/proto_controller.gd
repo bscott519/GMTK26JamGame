@@ -14,12 +14,14 @@ extends CharacterBody3D
 @export var grapple_pull_strength: float = 28.0
 @export var grapple_release_distance: float = 2.5
 @export var grapple_line_radius: float = 0.04
- 
+
 @export_group("Punch")
 @export var punch_cooldown: float = 0.4
 @export var punch_knockback_force: float = 20.0
 @export var punch_knockback_upward: float = 4.0
 @export var punch_squash_scale: Vector3 = Vector3(1.3, 0.8, 1.3)
+@export var punch_reach: float = 3.0
+@export var punch_visual_duration: float = 0.15
  
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $Collider
@@ -42,6 +44,7 @@ var grapple_target: Vector3
 var grapple_active_hand: Node3D
  
 var can_punch: bool = true
+var _punch_arm_active: bool = false
  
 var _jump_requested: bool = false
 var _grapple_requested: bool = false
@@ -131,7 +134,7 @@ func _trigger_squash_stretch(scale_amount: Vector3) -> void:
 	target_scale = scale_amount
  
 func _try_start_grapple() -> void:
-	grapple_active_hand = left_hand if randi() % 2 == 0 else right_hand
+	grapple_active_hand = _pick_random_hand()
  
 	var space_state := get_world_3d().direct_space_state
 	var from := grapple_active_hand.global_position
@@ -170,6 +173,9 @@ func _setup_grapple_line() -> void:
 	grapple_line.visible = false
  
 func _update_grapple_line() -> void:
+	if _punch_arm_active:
+		return
+	
 	if not is_grappling or grapple_active_hand == null:
 		grapple_line.visible = false
 		return
@@ -203,6 +209,29 @@ func _try_punch() -> void:
 	await get_tree().create_timer(punch_cooldown).timeout
 	can_punch = true
  
+func _show_punch_arm() -> void:
+	_punch_arm_active = true
+
+	var hand := _pick_random_hand()
+	var start := hand.global_position
+	var forward := -global_transform.basis.z
+	var end := start + forward * punch_reach
+	var mid := (start + end) / 2.0
+	var dist := start.distance_to(end)
+
+	grapple_line.global_position = mid
+	grapple_line.look_at_from_position(mid, end, Vector3.UP)
+	grapple_line.rotate_object_local(Vector3.RIGHT, PI / 2.0)
+	grapple_line.scale = Vector3(1.0, dist, 1.0)
+	grapple_line.visible = true
+
+	await get_tree().create_timer(punch_visual_duration).timeout
+	grapple_line.visible = false
+	_punch_arm_active = false
+
+func _pick_random_hand() -> Node3D:
+	return left_hand if randi() % 2 == 0 else right_hand
+
 ## Applies an outward+upward impulse. Prefers a target's own apply_knockback()
 ## method if it has one (lets enemy scripts add a brief "stunned" window so
 ## their own AI doesn't instantly overwrite the knockback velocity next frame).

@@ -2,7 +2,7 @@ extends Node
 
 signal time_changed(time_left: float)
 signal time_out
-signal damage_taken  # UI screen-flash listens for this
+signal damage_taken
  
 const START_TIME: float = 180.0
  
@@ -37,3 +37,10 @@ func format_time() -> String:
 	var minutes := int(time_left) / 60
 	var seconds := int(time_left) % 60
 	return "%02d:%02d" % [minutes, seconds]
+ 
+## Autoloads persist across scene reloads, so this MUST be called explicitly
+## on retry/restart — reload_current_scene() alone won't touch this singleton.
+func reset() -> void:
+	time_left = START_TIME
+	running = true
+	time_changed.emit(time_left)

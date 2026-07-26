@@ -19,10 +19,16 @@ func _win() -> void:
  
 func _on_time_out() -> void:
 	get_tree().paused = true
-	loss_label.text = "YOU'RE FIRED!\n(Press R to Retry)"
+	loss_label.text = "YOU'RE FIRED!\n[Press R to Retry]"
 	loss_label.visible = true
+ 
+var _reloading: bool = false
  
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.physical_keycode == KEY_R:
+		if _reloading:
+			return
+		_reloading = true
+		GlobalTimer.reset()
 		get_tree().paused = false
 		get_tree().reload_current_scene()
