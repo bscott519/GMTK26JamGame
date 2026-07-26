@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=10 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 
@@ -22,6 +22,14 @@ top_radius = 0.15
 bottom_radius = 0.15
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2uji"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr06p"]
+albedo_color = Color(6.256998e-07, 0.41627133, 0.35804656, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5hfox"]
+material = SubResource("StandardMaterial3D_wr06p")
+radius = 0.1
+height = 0.2
 
 [node name="ProtoController" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_ucva2")
@@ -54,7 +62,16 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 mesh = SubResource("CylinderMesh_wr06p")
 
 [node name="PunchArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.7805345)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PunchArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6258264)
 shape = SubResource("SphereShape3D_g2uji")
+
+[node name="Eyeball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15988839, 1.301737, -0.33882928)
+mesh = SubResource("SphereMesh_5hfox")
+
+[node name="Eyeball2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16, 1.302, -0.339)
+mesh = SubResource("SphereMesh_5hfox")
