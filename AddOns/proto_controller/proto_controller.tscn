@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=11 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="AudioStream" uid="uid://bfwuobcdhyb6b" path="res://Sounds/350906__cabled_mess__jump_c_04.wav" id="2_wr06p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -33,6 +34,7 @@ radius = 0.1
 height = 0.2
 
 [node name="ProtoController" type="CharacterBody3D" groups=["player"]]
+collision_mask = 17
 script = ExtResource("1_ucva2")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
@@ -76,3 +78,7 @@ mesh = SubResource("SphereMesh_5hfox")
 [node name="Eyeball2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16, 1.302, -0.339)
 mesh = SubResource("SphereMesh_5hfox")
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wr06p")
+volume_db = -12.881

@@ -14,6 +14,7 @@ extends CharacterBody3D
 @export var grapple_pull_strength: float = 28.0
 @export var grapple_release_distance: float = 2.5
 @export var grapple_line_radius: float = 0.1
+@export_flags_3d_physics var grapple_collision_mask: int = 1
 
 @export_group("Punch")
 @export var punch_cooldown: float = 0.4
@@ -32,6 +33,7 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var grapple_line: MeshInstance3D = $StretchedArm
 @onready var punch_area: Area3D = $PunchArea
+@onready var jump_sfx: AudioStreamPlayer = $JumpSFX
  
 var mouse_captured: bool = true
 var look_rotation: Vector2
@@ -91,6 +93,7 @@ func _physics_process(delta: float) -> void:
 		if _jump_requested and is_on_floor():
 			velocity.y = jump_velocity
 			_trigger_squash_stretch(jump_squash_scale)
+			jump_sfx.play()
  
 		var move := Vector2.ZERO
 		if Input.is_physical_key_pressed(KEY_W): move.y -= 1
@@ -143,6 +146,7 @@ func _try_start_grapple() -> void:
  
 	var query := PhysicsRayQueryParameters3D.create(from, to)
 	query.exclude = [self.get_rid()]
+	query.collision_mask = grapple_collision_mask
 	var result := space_state.intersect_ray(query)
  
 	if result:
