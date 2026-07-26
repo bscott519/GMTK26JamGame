@@ -21,7 +21,8 @@ material = SubResource("StandardMaterial3D_g2uji")
 top_radius = 0.15
 bottom_radius = 0.15
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_g2uji"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2uji"]
+height = 2.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr06p"]
 albedo_color = Color(6.256998e-07, 0.41627133, 0.35804656, 1)
@@ -62,11 +63,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 mesh = SubResource("CylinderMesh_wr06p")
 
 [node name="PunchArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.7805345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2077603)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PunchArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6258264)
-shape = SubResource("SphereShape3D_g2uji")
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1, 1.6258264)
+shape = SubResource("CapsuleShape3D_g2uji")
 
 [node name="Eyeball" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15988839, 1.301737, -0.33882928)

@@ -13,7 +13,7 @@ extends CharacterBody3D
 @export var grapple_range: float = 30.0
 @export var grapple_pull_strength: float = 28.0
 @export var grapple_release_distance: float = 2.5
-@export var grapple_line_radius: float = 0.04
+@export var grapple_line_radius: float = 0.1
 
 @export_group("Punch")
 @export var punch_cooldown: float = 0.4
@@ -64,7 +64,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.physical_keycode == KEY_SPACE:
 			_jump_requested = true
-		if event.physical_keycode == KEY_SHIFT:
+		if event.physical_keycode == KEY_TAB:
 			_grapple_requested = true
 		if event.physical_keycode == KEY_ESCAPE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -200,6 +200,7 @@ func _try_punch() -> void:
 	can_punch = false
  
 	_trigger_squash_stretch(punch_squash_scale)
+	_show_punch_arm()
  
 	for body in punch_area.get_overlapping_bodies():
 		if body == self:
