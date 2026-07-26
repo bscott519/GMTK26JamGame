@@ -3,11 +3,20 @@
 [ext_resource type="Script" uid="uid://dyxxaorer3q0c" path="res://Scripts/countdown.gd" id="1_5oaki"]
 [ext_resource type="Script" uid="uid://bnlc2rwakdyia" path="res://Scripts/screen_flash.gd" id="2_q85f0"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Countdown" type="CanvasLayer"]
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 195.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "
+"
+horizontal_alignment = 1
 script = ExtResource("1_5oaki")
 
 [node name="ScreenFlash" type="ColorRect" parent="."]
@@ -16,5 +25,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.03137255, 0.2784314, 1)
+color = Color(1, 0.03137255, 0.2784314, 0)
 script = ExtResource("2_q85f0")

@@ -218,4 +218,3 @@ func _apply_knockback(body: Node3D) -> void:
 		body.apply_central_impulse(impulse)
 	elif body is CharacterBody3D:
 		body.velocity += impulse
- 

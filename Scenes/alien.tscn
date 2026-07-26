@@ -12,7 +12,9 @@ height = 1.8
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhrgm"]
 height = 1.8
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_mdm8w"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mdm8w"]
+radius = 0.6
+height = 1.8
 
 [node name="alien" type="CharacterBody3D"]
 script = ExtResource("1_mdm8w")
@@ -24,7 +26,7 @@ mesh = SubResource("CapsuleMesh_mdm8w")
 shape = SubResource("CapsuleShape3D_fhrgm")
 
 [node name="HitArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013732791, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66154695, 0, 0.02263844)
-shape = SubResource("SphereShape3D_mdm8w")
+shape = SubResource("CapsuleShape3D_mdm8w")
