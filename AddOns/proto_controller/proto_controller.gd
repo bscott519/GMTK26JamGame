@@ -168,10 +168,10 @@ func _setup_grapple_line() -> void:
 	grapple_line.mesh = cylinder
  
 	var mat := StandardMaterial3D.new()
-	mat.albedo_color = Color(0.2, 1.0, 0.4, 0.85)
+	mat.albedo_color = Color(0, 0, 0)
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	mat.emission_enabled = true
-	mat.emission = Color(0.2, 1.0, 0.4)
+	mat.emission = Color(0, 0, 0)
 	mat.emission_energy_multiplier = 1.5
 	grapple_line.material_override = mat
 	grapple_line.visible = false

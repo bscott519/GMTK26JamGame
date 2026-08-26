@@ -36,7 +36,8 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.8, 0.35686275, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 60
-text = "GELATIN: COMMUTING CHAOS"
+text = "The Warrant"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 1
