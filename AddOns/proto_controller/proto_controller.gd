@@ -1,13 +1,8 @@
 extends CharacterBody3D
 
 @export var speed: float = 9.0
-@export var jump_velocity: float = 6.0
+@export var jump_velocity: float = 5.0
 @export var mouse_sensitivity: float = 0.002
- 
-@export_group("Squash & Stretch")
-@export var jump_squash_scale: Vector3 = Vector3(0.7, 1.3, 0.7)
-@export var land_squash_scale: Vector3 = Vector3(1.3, 0.7, 1.3)
-@export var squash_stretch_speed: float = 15.0
  
 @export_group("Grapple Dash")
 @export var grapple_range: float = 30.0
@@ -92,7 +87,6 @@ func _physics_process(delta: float) -> void:
  
 		if _jump_requested and is_on_floor():
 			velocity.y = jump_velocity
-			_trigger_squash_stretch(jump_squash_scale)
 			jump_sfx.play()
  
 		var move := Vector2.ZERO
@@ -117,10 +111,6 @@ func _physics_process(delta: float) -> void:
  
 	_update_grapple_line()
  
-	if not was_on_floor and is_on_floor():
-		_trigger_squash_stretch(land_squash_scale)
- 
-	mesh.scale = mesh.scale.lerp(target_scale, squash_stretch_speed * delta)
 	if target_scale != base_scale and mesh.scale.distance_to(target_scale) < 0.02:
 		target_scale = base_scale
  
@@ -132,9 +122,6 @@ func rotate_look(rot_input: Vector2) -> void:
 	rotate_y(look_rotation.y)
 	head.transform.basis = Basis()
 	head.rotate_x(look_rotation.x)
- 
-func _trigger_squash_stretch(scale_amount: Vector3) -> void:
-	target_scale = scale_amount
  
 func _try_start_grapple() -> void:
 	grapple_active_hand = _pick_random_hand()
@@ -196,14 +183,13 @@ func _update_grapple_line() -> void:
 	grapple_line.scale = Vector3(1.0, dist, 1.0)
  
 ## Left-click melee: checks whatever's currently overlapping PunchArea and
-## knocks each of them outward from the player, plus a quick squash pose.
+## knocks each of them outward from the player
 ## Has a short cooldown so holding the mouse button doesn't spam-hit.
 func _try_punch() -> void:
 	if not can_punch:
 		return
 	can_punch = false
  
-	_trigger_squash_stretch(punch_squash_scale)
 	_show_punch_arm()
  
 	for body in punch_area.get_overlapping_bodies():
