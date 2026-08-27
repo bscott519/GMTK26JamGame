@@ -11,13 +11,18 @@ extends CharacterBody3D
 @export var grapple_line_radius: float = 0.1
 @export_flags_3d_physics var grapple_collision_mask: int = 1
 
-@export_group("Punch")
+@export_group("Melee")
 @export var punch_cooldown: float = 0.4
 @export var punch_knockback_force: float = 20.0
 @export var punch_knockback_upward: float = 4.0
 @export var punch_squash_scale: Vector3 = Vector3(1.3, 0.8, 1.3)
 @export var punch_reach: float = 3.0
 @export var punch_visual_duration: float = 0.15
+
+@export_group("Firearm Settings")
+var current_gun_ammo : int = 0
+var is_holding_gun : bool = false
+@onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
  
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $Collider
@@ -29,6 +34,7 @@ extends CharacterBody3D
 @onready var grapple_line: MeshInstance3D = $StretchedArm
 @onready var punch_area: Area3D = $PunchArea
 @onready var jump_sfx: AudioStreamPlayer = $JumpSFX
+@export var impact_effect_scene: PackedScene
  
 var mouse_captured: bool = true
 var look_rotation: Vector2
@@ -122,6 +128,64 @@ func rotate_look(rot_input: Vector2) -> void:
 	rotate_y(look_rotation.y)
 	head.transform.basis = Basis()
 	head.rotate_x(look_rotation.x)
+
+func shoot_gun():
+	current_gun_ammo -= 1
+	var flash = get_node_or_null("Head/RightHand/Pistol/MuzzleFlash")
+	
+	if flash:
+		flash.restart()
+		flash.emitting = true
+	print("Gun Fired! Ammo left: ", current_gun_ammo)
+	
+	# 1. Raycast for the bullet
+	var cam = get_viewport().get_camera_3d()
+	var space_state = get_world_3d().direct_space_state
+	var ray_origin = cam.global_position
+	var ray_end = ray_origin + -cam.global_transform.basis.z * 50.0
+	
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	query.exclude = [self.get_rid()]
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		# This calls your function to spawn a SEPARATE impact scene
+		spawn_impact_effect(result.position, result.normal)
+		if result.collider.has_method("take_dmg"):
+			result.collider.take_dmg(40, Vector3.ZERO)
+		if result.collider.has_method("take_hit"):
+			result.collider.take_hit(0.3)
+	
+	# 2. Visuals
+	apply_screen_shake(0.1)
+	if current_gun_ammo == 0:
+		print("OUT OF AMMO - Next attack will throw!")
+		
+func spawn_impact_effect(hit_position: Vector3, hit_normal: Vector3):
+	var impact = impact_effect_scene.instantiate()
+	get_tree().root.add_child(impact)
+	
+	# Position it slightly off the wall surface
+	impact.global_position = hit_position + (hit_normal * 0.05)
+	
+	# Orient the particles to point away from the wall
+	if hit_normal.length() > 0:
+		impact.look_at(hit_position + hit_normal, Vector3.UP)
+	print("DEBUG: Spawned impact at: ", hit_position) # Check your console for this!
+	
+	# Make the debug mesh HUGE just to find it
+	if impact.has_node("MeshInstance3D"):
+		impact.get_node("MeshInstance3D").scale = Vector3(5, 5, 5)
+
+func apply_screen_shake(intensity: float):
+	# Assuming your Camera3D is under 'head'
+	var tween = create_tween()
+	for i in 4:
+		var offset = Vector3(randf_range(-1, 1), randf_range(-1, 1), 0) * intensity
+		tween.tween_property($Head/Camera3D, "h_offset", offset.x, 0.05)
+		tween.tween_property($Head/Camera3D, "v_offset", offset.y, 0.05)
+	tween.tween_property($Head/Camera3D, "h_offset", 0, 0.05)
+	tween.tween_property($Head/Camera3D, "v_offset", 0, 0.05)
  
 func _try_start_grapple() -> void:
 	grapple_active_hand = _pick_random_hand()
