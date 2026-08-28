@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=13 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="AudioStream" uid="uid://bfwuobcdhyb6b" path="res://Sounds/350906__cabled_mess__jump_c_04.wav" id="2_wr06p"]
+[ext_resource type="Shader" uid="uid://dq4rbs3lt7h1p" path="res://addons/proto_controller/proto_controller.gdshader" id="3_5hfox"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -31,6 +32,10 @@ albedo_color = Color(6.256998e-07, 0.41627133, 0.35804656, 1)
 material = SubResource("StandardMaterial3D_wr06p")
 radius = 0.1
 height = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dqce"]
+shader = ExtResource("3_5hfox")
+shader_parameter/thickness = 0.10000000405148
 
 [node name="ProtoController" type="CharacterBody3D" groups=["player"]]
 collision_mask = 17
@@ -82,3 +87,17 @@ mesh = SubResource("SphereMesh_5hfox")
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wr06p")
 volume_db = -12.881
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Reticle" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_6dqce")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 2
