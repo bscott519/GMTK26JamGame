@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=15 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="PackedScene" uid="uid://bbr1noohbsck" path="res://Scenes/muzzle_flash.tscn" id="2_6dqce"]
 [ext_resource type="AudioStream" uid="uid://bfwuobcdhyb6b" path="res://Sounds/350906__cabled_mess__jump_c_04.wav" id="2_wr06p"]
 [ext_resource type="Shader" uid="uid://dq4rbs3lt7h1p" path="res://addons/proto_controller/proto_controller.gdshader" id="3_5hfox"]
 
@@ -14,6 +15,9 @@ albedo_color = Color(0, 0.8, 0.35686275, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_5hfox"]
+size = Vector3(0.2, 0.1, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2uji"]
 albedo_color = Color(0, 0, 0, 1)
@@ -54,10 +58,18 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="RightHand" type="Marker3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33185124, 0.11176777, 0.34908593)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33185124, 0.11176777, -0.58883494)
+
+[node name="Pistol" type="MeshInstance3D" parent="Mesh/RightHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6996074, 0, -0.16444772)
+visible = false
+mesh = SubResource("BoxMesh_5hfox")
+
+[node name="MuzzleFlash" parent="Mesh/RightHand/Pistol" instance=ExtResource("2_6dqce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6996074, 0, 0.16444772)
 
 [node name="LeftHand" type="Marker3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332, 0.112, 0.349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332, 0.11199999, -0.58892083)
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Gelatin: Commuting Chaos"
+config/name="The Warrant"
 run/main_scene="uid://ryho63sf8hsw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

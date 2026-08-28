@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bl8if06tfld0e"]
+
+[node name="ImpactEffect" type="GPUParticles3D"]

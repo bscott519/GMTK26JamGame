@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbr1noohbsck"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_at08c"]
+
+[node name="MuzzleFlash" type="GPUParticles3D"]
+emitting = false
+amount = 6
+lifetime = 0.05
+process_material = SubResource("ParticleProcessMaterial_at08c")
