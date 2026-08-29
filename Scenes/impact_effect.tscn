@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://bl8if06tfld0e"]
+[gd_scene load_steps=2 format=3 uid="uid://bl8if06tfld0e"]
+
+[ext_resource type="Script" uid="uid://455xp2x5gv0e" path="res://Scenes/impact_effect.gd" id="1_ww3pp"]
 
 [node name="ImpactEffect" type="GPUParticles3D"]
+script = ExtResource("1_ww3pp")

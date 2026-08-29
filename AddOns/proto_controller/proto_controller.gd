@@ -22,7 +22,7 @@ extends CharacterBody3D
 @export_group("Firearm Settings")
 var current_gun_ammo : int = 0
 var is_holding_gun : bool = false
-@onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
+@onready var pistol: MeshInstance3D = $Mesh/RightHand/Pistol
  
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $Collider
