@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=16 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
 [ext_resource type="PackedScene" uid="uid://bbr1noohbsck" path="res://Scenes/muzzle_flash.tscn" id="2_6dqce"]
 [ext_resource type="AudioStream" uid="uid://bfwuobcdhyb6b" path="res://Sounds/350906__cabled_mess__jump_c_04.wav" id="2_wr06p"]
 [ext_resource type="Shader" uid="uid://dq4rbs3lt7h1p" path="res://addons/proto_controller/proto_controller.gdshader" id="3_5hfox"]
@@ -45,6 +46,7 @@ shader_parameter/thickness = 0.10000000405148
 collision_mask = 17
 script = ExtResource("1_ucva2")
 grapple_line_radius = 0.05
+impact_effect_scene = ExtResource("2_0rk7u")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
