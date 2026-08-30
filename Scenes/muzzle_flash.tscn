@@ -1,9 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbr1noohbsck"]
+[gd_scene load_steps=5 format=3 uid="uid://bbr1noohbsck"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_at08c"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_at08c"]
+direction = Vector3(1, 0, -1)
+initial_velocity_min = 0.19999999
+initial_velocity_max = 0.5
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_at08c")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21mul"]
+transparency = 1
+albedo_color = Color(1, 1, 0.15294118, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xbt7w"]
+material = SubResource("StandardMaterial3D_21mul")
+top_radius = 0.1
+bottom_radius = 0.04
+height = 0.2
 
 [node name="MuzzleFlash" type="GPUParticles3D"]
 emitting = false
 amount = 6
 lifetime = 0.05
+explosiveness = 1.0
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_at08c")
+draw_pass_1 = SubResource("CylinderMesh_xbt7w")
