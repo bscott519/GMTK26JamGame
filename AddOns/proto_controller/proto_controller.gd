@@ -250,19 +250,20 @@ func _update_grapple_line() -> void:
 ## knocks each of them outward from the player
 ## Has a short cooldown so holding the mouse button doesn't spam-hit.
 func _try_punch() -> void:
-	if not can_punch:
-		return
-	can_punch = false
- 
-	_show_punch_arm()
- 
-	for body in punch_area.get_overlapping_bodies():
-		if body == self:
-			continue
-		_apply_knockback(body)
- 
-	await get_tree().create_timer(punch_cooldown).timeout
-	can_punch = true
+	if not is_holding_gun:
+		if not can_punch:
+			return
+		can_punch = false
+	 
+		_show_punch_arm()
+	 
+		for body in punch_area.get_overlapping_bodies():
+			if body == self:
+				continue
+			_apply_knockback(body)
+	 
+		await get_tree().create_timer(punch_cooldown).timeout
+		can_punch = true
  
 func _show_punch_arm() -> void:
 	_punch_arm_active = true
