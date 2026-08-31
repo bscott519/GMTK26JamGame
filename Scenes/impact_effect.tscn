@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl8if06tfld0e"]
+[gd_scene load_steps=5 format=3 uid="uid://bl8if06tfld0e"]
 
 [ext_resource type="Script" uid="uid://455xp2x5gv0e" path="res://impact_effect.gd" id="1_ww3pp"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ww3pp"]
+direction = Vector3(0, 0, -1)
+spread = 20.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww3pp"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_mltij"]
+material = SubResource("StandardMaterial3D_ww3pp")
+
 [node name="ImpactEffect" type="GPUParticles3D"]
+emitting = false
+lifetime = 0.05
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ww3pp")
+draw_pass_1 = SubResource("SphereMesh_mltij")
 script = ExtResource("1_ww3pp")
