@@ -160,7 +160,7 @@ func shoot_gun():
 			result.collider.take_hit(0.3)
 	
 	# 2. Visuals
-	apply_screen_shake(0.1)
+	apply_screen_shake(0.05)
 	if current_gun_ammo == 0:
 		print("OUT OF AMMO - Next attack will throw!")
 		

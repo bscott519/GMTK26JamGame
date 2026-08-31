@@ -3,22 +3,22 @@
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_at08c"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_at08c"]
-direction = Vector3(1, 0, -1)
+particle_flag_align_y = true
+direction = Vector3(0, 0, -1)
+spread = 0.0
 initial_velocity_min = 0.19999999
 initial_velocity_max = 0.5
 directional_velocity_min = 1.0
 directional_velocity_max = 1.0
 directional_velocity_curve = SubResource("CurveXYZTexture_at08c")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21mul"]
-transparency = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at08c"]
 albedo_color = Color(1, 1, 0.15294118, 1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_xbt7w"]
-material = SubResource("StandardMaterial3D_21mul")
-top_radius = 0.1
-bottom_radius = 0.04
-height = 0.2
+[sub_resource type="SphereMesh" id="SphereMesh_at08c"]
+material = SubResource("StandardMaterial3D_at08c")
+radius = 0.15
+height = 0.3
 
 [node name="MuzzleFlash" type="GPUParticles3D"]
 emitting = false
@@ -27,5 +27,6 @@ lifetime = 0.05
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_at08c")
-draw_pass_1 = SubResource("CylinderMesh_xbt7w")
+draw_pass_1 = SubResource("SphereMesh_at08c")
