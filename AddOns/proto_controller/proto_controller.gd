@@ -45,7 +45,6 @@ var target_scale: Vector3
  
 var is_grappling: bool = false
 var grapple_target: Vector3
-var grapple_active_hand: Node3D
  
 var can_punch: bool = true
 var _punch_arm_active: bool = false
@@ -192,10 +191,8 @@ func apply_screen_shake(intensity: float):
 	tween.tween_property($Head/Camera3D, "v_offset", 0, 0.05)
  
 func _try_start_grapple() -> void:
-	grapple_active_hand = _pick_random_hand()
- 
 	var space_state := get_world_3d().direct_space_state
-	var from := grapple_active_hand.global_position
+	var from := left_hand.global_position
 	var aim_dir := -camera.global_transform.basis.z
 	var to := from + aim_dir * grapple_range
  
@@ -235,12 +232,12 @@ func _update_grapple_line() -> void:
 	if _punch_arm_active:
 		return
 	
-	if not is_grappling or grapple_active_hand == null:
+	if not is_grappling or left_hand == null:
 		grapple_line.visible = false
 		return
  
 	grapple_line.visible = true
-	var start := grapple_active_hand.global_position
+	var start := left_hand.global_position
 	var end := grapple_target
 	var mid := (start + end) / 2.0
 	var dist := start.distance_to(end)
@@ -266,13 +263,6 @@ func _try_punch() -> void:
 	 
 		await get_tree().create_timer(punch_cooldown).timeout
 		can_punch = true
-
-func _pick_random_hand() -> Node3D:
-	return left_hand if randi() % 2 == 0 else right_hand
-
-## Applies an outward+upward impulse. Prefers a target's own apply_knockback()
-## method if it has one (lets enemy scripts add a brief "stunned" window so
-## their own AI doesn't instantly overwrite the knockback velocity next frame).
 
 func _apply_knockback(body: Node3D) -> void:
 	var dir := body.global_position - global_position
