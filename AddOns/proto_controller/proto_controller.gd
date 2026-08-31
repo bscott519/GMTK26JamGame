@@ -78,7 +78,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			mouse_captured = true
 		elif event.button_index == MOUSE_BUTTON_LEFT:
-			_try_punch()
+			if is_holding_gun and current_gun_ammo > 0:
+				shoot_gun()
+			elif not is_holding_gun:
+				_try_punch()
  
 func _physics_process(delta: float) -> void:
 	if _grapple_requested and not is_grappling:

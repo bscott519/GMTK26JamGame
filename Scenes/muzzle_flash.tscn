@@ -24,6 +24,7 @@ height = 0.2
 emitting = false
 amount = 6
 lifetime = 0.05
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_at08c")
