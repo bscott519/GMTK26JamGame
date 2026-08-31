@@ -16,6 +16,9 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	hit_area.body_entered.connect(_on_hit_area_body_entered)
  
+func take_dmg(amount: int, knockback: Vector3) -> void:
+	apply_knockback(knockback)
+
 func apply_knockback(impulse: Vector3) -> void:
 	if is_dying:
 		return

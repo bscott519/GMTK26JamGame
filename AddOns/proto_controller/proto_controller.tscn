@@ -78,7 +78,6 @@ mesh = SubResource("BoxMesh_5hfox")
 
 [node name="MuzzleFlash" parent="Head/RightHand/Pistol" instance=ExtResource("2_6dqce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015615344, 0, -0.26616395)
-visible = false
 
 [node name="StretchedArm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.9303732, 0)
