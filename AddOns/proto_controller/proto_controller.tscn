@@ -46,6 +46,7 @@ shader_parameter/thickness = 0.10000000405148
 collision_mask = 17
 script = ExtResource("1_ucva2")
 grapple_line_radius = 0.05
+punch_knockback_force = 5.0
 impact_effect_scene = ExtResource("2_0rk7u")
 
 [node name="Collider" type="CollisionShape3D" parent="."]

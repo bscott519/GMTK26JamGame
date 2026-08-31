@@ -18,6 +18,7 @@ extends CharacterBody3D
 @export var punch_squash_scale: Vector3 = Vector3(1.3, 0.8, 1.3)
 @export var punch_reach: float = 3.0
 @export var punch_visual_duration: float = 0.15
+@export var punch_damage: float = 33.0
 
 @export_group("Firearm Settings")
 var current_gun_ammo : int = 0
@@ -162,7 +163,7 @@ func shoot_gun():
 	# 2. Visuals
 	apply_screen_shake(0.05)
 	if current_gun_ammo == 0:
-		print("OUT OF AMMO - Next attack will throw!")
+		print("OUT OF AMMO")
 		
 func spawn_impact_effect(hit_position: Vector3, hit_normal: Vector3):
 	var impact = impact_effect_scene.instantiate()
@@ -258,8 +259,6 @@ func _try_punch() -> void:
 			return
 		can_punch = false
 	 
-		_show_punch_arm()
-	 
 		for body in punch_area.get_overlapping_bodies():
 			if body == self:
 				continue
@@ -267,26 +266,6 @@ func _try_punch() -> void:
 	 
 		await get_tree().create_timer(punch_cooldown).timeout
 		can_punch = true
- 
-func _show_punch_arm() -> void:
-	_punch_arm_active = true
-
-	var hand := _pick_random_hand()
-	var start := hand.global_position
-	var forward := -global_transform.basis.z
-	var end := start + forward * punch_reach
-	var mid := (start + end) / 2.0
-	var dist := start.distance_to(end)
-
-	grapple_line.global_position = mid
-	grapple_line.look_at_from_position(mid, end, Vector3.UP)
-	grapple_line.rotate_object_local(Vector3.RIGHT, PI / 2.0)
-	grapple_line.scale = Vector3(1.0, dist, 1.0)
-	grapple_line.visible = true
-
-	await get_tree().create_timer(punch_visual_duration).timeout
-	grapple_line.visible = false
-	_punch_arm_active = false
 
 func _pick_random_hand() -> Node3D:
 	return left_hand if randi() % 2 == 0 else right_hand
@@ -294,13 +273,16 @@ func _pick_random_hand() -> Node3D:
 ## Applies an outward+upward impulse. Prefers a target's own apply_knockback()
 ## method if it has one (lets enemy scripts add a brief "stunned" window so
 ## their own AI doesn't instantly overwrite the knockback velocity next frame).
+
 func _apply_knockback(body: Node3D) -> void:
 	var dir := body.global_position - global_position
 	dir.y = 0.0
 	dir = dir.normalized()
 	var impulse := dir * punch_knockback_force + Vector3.UP * punch_knockback_upward
  
-	if body.has_method("apply_knockback"):
+	if body.has_method("take_dmg"):
+		body.take_dmg(punch_damage, impulse)
+	elif body.has_method("apply_knockback"):
 		body.apply_knockback(impulse)
 	elif body is RigidBody3D:
 		body.apply_central_impulse(impulse)

@@ -5,6 +5,8 @@ extends CharacterBody3D
 @export var damage_seconds: float = 10.0
 @export var knockback_stun_duration: float = 0.5
 @export var death_delay: float = 1.0
+@export var max_health: int = 100
+var cur_health: int
  
 var player: Node3D
 var stun_timer: float = 0.0
@@ -15,18 +17,30 @@ var is_dying: bool = false
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	hit_area.body_entered.connect(_on_hit_area_body_entered)
+	cur_health = max_health
  
 func take_dmg(amount: int, knockback: Vector3) -> void:
-	apply_knockback(knockback)
-
-func apply_knockback(impulse: Vector3) -> void:
 	if is_dying:
 		return
-	velocity += impulse
+	cur_health -= amount
+	print("dmg: ", amount, " | cur health: ", cur_health)
+	apply_knockback(knockback)
+	if cur_health <= 0:
+		die()
+
+func die():
 	is_dying = true
 	hit_area.set_deferred("monitoring", false)
 	await get_tree().create_timer(death_delay).timeout
 	queue_free()
+
+func apply_knockback(impulse: Vector3) -> void:
+	if is_dying:
+		return
+	velocity.x = impulse.x
+	velocity.z = impulse.z
+	velocity.y += impulse.y
+	stun_timer = knockback_stun_duration
  
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -50,4 +64,4 @@ func _physics_process(delta: float) -> void:
  
 func _on_hit_area_body_entered(body: Node3D) -> void:
 	if not is_dying and body.is_in_group("player"):
-		GlobalTimer.subtract_time(damage_seconds)
+		pass
