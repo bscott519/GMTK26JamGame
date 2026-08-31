@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var death_delay: float = 1.0
 @export var max_health: int = 100
 var cur_health: int
+@export var contact_damage: float = 20.0
  
 var player: Node3D
 var stun_timer: float = 0.0
@@ -64,4 +65,4 @@ func _physics_process(delta: float) -> void:
  
 func _on_hit_area_body_entered(body: Node3D) -> void:
 	if not is_dying and body.is_in_group("player"):
-		pass
+		player.take_damage(int(contact_damage))

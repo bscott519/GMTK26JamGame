@@ -3,6 +3,13 @@ extends CharacterBody3D
 @export var speed: float = 9.0
 @export var jump_velocity: float = 5.0
 @export var mouse_sensitivity: float = 0.002
+
+signal health_changed(current: int, max: int)
+signal died
+
+@export_group("Health")
+@export var max_health: int = 150
+var current_health: int
  
 @export_group("Grapple Dash")
 @export var grapple_range: float = 30.0
@@ -53,6 +60,7 @@ var _jump_requested: bool = false
 var _grapple_requested: bool = false
  
 func _ready() -> void:
+	current_health = max_health
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
@@ -278,3 +286,18 @@ func _apply_knockback(body: Node3D) -> void:
 		body.apply_central_impulse(impulse)
 	elif body is CharacterBody3D:
 		body.velocity += impulse
+
+func take_damage(amount: int) -> void:
+	if current_health <= 0:
+		return
+	current_health -= amount
+	health_changed.emit(current_health, max_health)
+	if current_health <= 0:
+		current_health = 0
+		died.emit()
+
+func heal(amount: int) -> void:
+	if current_health <= 0:
+		return
+	current_health = min(current_health + amount, max_health)
+	health_changed.emit(current_health, max_health)
