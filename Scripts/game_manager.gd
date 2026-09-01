@@ -10,6 +10,12 @@ func _ready() -> void:
 	win_label.visible = false
 	loss_label.visible = false
 	GlobalTimer.time_out.connect(_on_time_out)
+	call_deferred("_connect_player_health")
+
+func _connect_player_health() -> void:
+	var player := get_tree().get_first_node_in_group("player")
+	if player:
+		player.died.connect(_on_player_died)
  
 func _on_finish_line_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -23,9 +29,19 @@ func _win() -> void:
  
 func _on_time_out() -> void:
 	get_tree().paused = true
-	loss_label.text = "YOU'RE FIRED!\n(Press R to Retry)"
+	loss_label.text = "FAILED TO STOP BOMB\n(Press R to Retry)"
 	loss_label.visible = true
  
+func _on_player_died() -> void:
+	_lose("YOU DIED\n[Press R to Retry]")
+
+func _lose(message: String) -> void:
+	if get_tree().paused:
+		return  # already showing a fail/win screen, don't double-trigger
+	get_tree().paused = true
+	loss_label.text = message
+	loss_label.visible = true
+
 var _reloading: bool = false
  
 func _unhandled_input(event: InputEvent) -> void:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=18 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
 [ext_resource type="PackedScene" uid="uid://bbr1noohbsck" path="res://Scenes/muzzle_flash.tscn" id="2_6dqce"]
 [ext_resource type="AudioStream" uid="uid://bfwuobcdhyb6b" path="res://Sounds/350906__cabled_mess__jump_c_04.wav" id="2_wr06p"]
 [ext_resource type="Shader" uid="uid://dq4rbs3lt7h1p" path="res://addons/proto_controller/proto_controller.gdshader" id="3_5hfox"]
+[ext_resource type="Script" uid="uid://ckpu6iuyedi0l" path="res://addons/proto_controller/health_bar.gd" id="6_h60nn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -41,6 +42,9 @@ height = 0.2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6dqce"]
 shader = ExtResource("3_5hfox")
 shader_parameter/thickness = 0.10000000405148
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h60nn"]
+bg_color = Color(0.024612911, 0, 0.8937173, 1)
 
 [node name="ProtoController" type="CharacterBody3D" groups=["player"]]
 collision_mask = 17
@@ -116,3 +120,17 @@ offset_left = -20.0
 offset_top = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = -81.0
+offset_right = 394.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_h60nn")
+max_value = 150.0
+value = 150.0
+script = ExtResource("6_h60nn")
