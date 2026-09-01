@@ -5,6 +5,7 @@ func _ready() -> void:
  
 func _connect_player_health() -> void:
 	var player := get_tree().get_first_node_in_group("player")
+	print("HealthBar connected, max_health = ", player.max_health)
 	if not player:
 		push_error("HealthBar: no node in 'player' group found.")
 		return

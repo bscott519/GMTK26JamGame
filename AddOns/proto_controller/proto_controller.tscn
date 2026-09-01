@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=19 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
@@ -42,6 +42,9 @@ height = 0.2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6dqce"]
 shader = ExtResource("3_5hfox")
 shader_parameter/thickness = 0.10000000405148
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujot4"]
+bg_color = Color(0.58103323, 0.5810329, 0.5810329, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h60nn"]
 bg_color = Color(0.024612911, 0, 0.8937173, 1)
@@ -130,7 +133,9 @@ offset_top = -81.0
 offset_right = 394.0
 offset_bottom = -24.0
 grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ujot4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_h60nn")
 max_value = 150.0
 value = 150.0
+show_percentage = false
 script = ExtResource("6_h60nn")
