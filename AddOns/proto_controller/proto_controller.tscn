@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=20 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
@@ -20,6 +20,10 @@ height = 1.8
 
 [sub_resource type="BoxMesh" id="BoxMesh_5hfox"]
 size = Vector3(0.2, 0.1, 0.4)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h60nn"]
+radius = 0.03
+height = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2uji"]
 albedo_color = Color(0, 0, 0, 1)
@@ -86,6 +90,10 @@ mesh = SubResource("BoxMesh_5hfox")
 
 [node name="MuzzleFlash" parent="Head/RightHand/Pistol" instance=ExtResource("2_6dqce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010749698, 0, -0.26616395)
+
+[node name="BatonAxe" type="MeshInstance3D" parent="Head/RightHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13302755, 0)
+mesh = SubResource("CapsuleMesh_h60nn")
 
 [node name="StretchedArm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.9303732, 0)

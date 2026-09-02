@@ -19,6 +19,7 @@ var current_health: int
 @export_flags_3d_physics var grapple_collision_mask: int = 1
 
 @export_group("Melee")
+
 @export var punch_cooldown: float = 0.4
 @export var punch_knockback_force: float = 20.0
 @export var punch_knockback_upward: float = 4.0
@@ -26,6 +27,8 @@ var current_health: int
 @export var punch_reach: float = 3.0
 @export var punch_visual_duration: float = 0.15
 @export var punch_damage: float = 33.0
+@export var swing_angle: float = 90.0
+@export var swing_duration: float = 0.15
 
 @export_group("Firearm Settings")
 var current_gun_ammo : int = 0
@@ -43,7 +46,8 @@ var is_holding_gun : bool = false
 @onready var punch_area: Area3D = $PunchArea
 @onready var jump_sfx: AudioStreamPlayer = $JumpSFX
 @export var impact_effect_scene: PackedScene
- 
+@onready var baton_axe: MeshInstance3D = $Head/RightHand/BatonAxe
+
 var mouse_captured: bool = true
 var look_rotation: Vector2
  
