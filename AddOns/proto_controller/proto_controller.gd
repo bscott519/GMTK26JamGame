@@ -19,7 +19,6 @@ var current_health: int
 @export_flags_3d_physics var grapple_collision_mask: int = 1
 
 @export_group("Melee")
-
 @export var punch_cooldown: float = 0.4
 @export var punch_knockback_force: float = 20.0
 @export var punch_knockback_upward: float = 4.0
@@ -29,6 +28,7 @@ var current_health: int
 @export var punch_damage: float = 33.0
 @export var swing_angle: float = 90.0
 @export var swing_duration: float = 0.15
+@export var swing_position_offset: Vector3 = Vector3(-0.6, 0, 0)
 
 @export_group("Firearm Settings")
 var current_gun_ammo : int = 0
@@ -267,6 +267,8 @@ func _try_punch() -> void:
 		if not can_punch:
 			return
 		can_punch = false
+		
+		_swing_melee_weapon()
 	 
 		for body in punch_area.get_overlapping_bodies():
 			if body == self:
@@ -290,6 +292,17 @@ func _apply_knockback(body: Node3D) -> void:
 		body.apply_central_impulse(impulse)
 	elif body is CharacterBody3D:
 		body.velocity += impulse
+		
+func _swing_melee_weapon() -> void:
+	print("swing called, baton_axe = ", baton_axe)
+	if not baton_axe:
+		return
+	var rest_position := baton_axe.position
+	var swing_position := rest_position + swing_position_offset
+
+	var tween := create_tween()
+	tween.tween_property(baton_axe, "position", swing_position, swing_duration * 0.5)
+	tween.tween_property(baton_axe, "position", rest_position, swing_duration * 0.5)
 
 func take_damage(amount: int) -> void:
 	if current_health <= 0:
