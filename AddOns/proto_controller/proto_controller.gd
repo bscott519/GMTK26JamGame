@@ -31,7 +31,7 @@ var current_health: int
 @export var swing_position_offset: Vector3 = Vector3(-0.6, 0, 0)
 
 @export_group("Firearm Settings")
-var current_gun_ammo : int = 0
+var current_gun_ammo : int = 15
 var is_holding_gun : bool = false
 @onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
  
@@ -65,6 +65,7 @@ var _grapple_requested: bool = false
  
 func _ready() -> void:
 	current_health = max_health
+	_equip_weapon()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
@@ -84,7 +85,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.physical_keycode == KEY_ESCAPE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			mouse_captured = false
- 
+		if event.physical_keycode == KEY_1:
+			_equip_weapon()
+		if event.physical_keycode == KEY_2:
+			_equip_gun()
 	if event is InputEventMouseButton and event.pressed:
 		if not mouse_captured:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -94,6 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				shoot_gun()
 			elif not is_holding_gun:
 				_try_punch()
+				
  
 func _physics_process(delta: float) -> void:
 	if _grapple_requested and not is_grappling:
@@ -303,6 +308,20 @@ func _swing_melee_weapon() -> void:
 	var tween := create_tween()
 	tween.tween_property(baton_axe, "position", swing_position, swing_duration * 0.5)
 	tween.tween_property(baton_axe, "position", rest_position, swing_duration * 0.5)
+
+func _equip_weapon() -> void:
+	is_holding_gun = false
+	if baton_axe:
+		baton_axe.visible = true
+	if pistol:
+		pistol.visible = false
+
+func _equip_gun() -> void:
+	is_holding_gun = true
+	if pistol:
+		pistol.visible = true
+	if baton_axe:
+		baton_axe.visible = false
 
 func take_damage(amount: int) -> void:
 	if current_health <= 0:

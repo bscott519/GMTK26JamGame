@@ -96,6 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010749698, 0, -0.26616395
 
 [node name="BatonAxe" type="MeshInstance3D" parent="Head/RightHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13302755, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_h60nn")
 
 [node name="StretchedArm" type="MeshInstance3D" parent="."]

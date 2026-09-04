@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://s0d73ntjqyfw"]
+[gd_scene load_steps=7 format=3 uid="uid://s0d73ntjqyfw"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_y2yxb"]
-[ext_resource type="PackedScene" uid="uid://bibg6unykn7xb" path="res://Scenes/gun_pickup.tscn" id="2_vijbk"]
 [ext_resource type="PackedScene" uid="uid://cdf4bb85sgflt" path="res://Scenes/alien.tscn" id="3_6sl1r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y2yxb"]
@@ -29,16 +28,37 @@ environment = SubResource("Environment_6sl1r")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Road4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -70, 0, -80)
 use_collision = true
-size = Vector3(40, 0.5, 40)
+size = Vector3(70, 0.5, 20)
+material = SubResource("StandardMaterial3D_y2yxb")
+
+[node name="Road3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -70, 0, 0)
+use_collision = true
+size = Vector3(90, 0.5, 20)
+material = SubResource("StandardMaterial3D_y2yxb")
+
+[node name="Road" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+use_collision = true
+size = Vector3(70, 0.5, 100)
+material = SubResource("StandardMaterial3D_y2yxb")
+
+[node name="Road2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0)
+use_collision = true
+size = Vector3(40, 0.5, 20)
 material = SubResource("StandardMaterial3D_y2yxb")
 
 [node name="ProtoController" parent="." instance=ExtResource("1_y2yxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8239523, 0.25, 0.939875)
 
-[node name="GunPickup" parent="." instance=ExtResource("2_vijbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 5)
-
 [node name="alien" parent="." instance=ExtResource("3_6sl1r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.193152, 1.15, -2.2833567)
+
+[node name="Warehouse" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.275581, 10.253574, 0)
+use_collision = true
+size = Vector3(40, 20, 70)
