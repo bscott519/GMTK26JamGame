@@ -25,7 +25,7 @@ var current_health: int
 @export var punch_squash_scale: Vector3 = Vector3(1.3, 0.8, 1.3)
 @export var punch_reach: float = 3.0
 @export var punch_visual_duration: float = 0.15
-@export var punch_damage: float = 33.0
+@export var punch_damage: float = 34.0
 @export var swing_angle: float = 90.0
 @export var swing_duration: float = 0.15
 @export var swing_position_offset: Vector3 = Vector3(-0.6, 0, 0)
