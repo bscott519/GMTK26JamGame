@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ryho63sf8hsw"]
+[gd_scene load_steps=3 format=3 uid="uid://ryho63sf8hsw"]
 
 [ext_resource type="Script" uid="uid://b4k40g47pwn0s" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[sub_resource type="FontVariation" id="FontVariation_28flt"]
+variation_embolden = 0.5
+spacing_glyph = 7
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.41568628, 0.35686275, 1)
+color = Color(0.0010009271, 0.25771585, 0.8740937, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -33,10 +37,11 @@ offset_right = 442.0
 offset_bottom = -116.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0.8, 0.35686275, 1)
+theme_override_colors/font_color = Color(0.05882353, 0.16470589, 0.40784314, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 60
-text = "The Warrant"
+theme_override_fonts/font = SubResource("FontVariation_28flt")
+theme_override_font_sizes/font_size = 66
+text = "THE DEVOLTION"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
@@ -66,7 +71,7 @@ offset_right = 100.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0.8, 0.35686275, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
@@ -83,7 +88,7 @@ offset_right = 100.0
 offset_bottom = 163.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0.8, 0.35686275, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "QUIT
 "
