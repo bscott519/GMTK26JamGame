@@ -31,7 +31,7 @@ var current_health: int
 @export var swing_position_offset: Vector3 = Vector3(-0.6, 0, 0)
 
 @export_group("Firearm Settings")
-var current_gun_ammo : int = 15
+var current_gun_ammo : int = 10
 var is_holding_gun : bool = false
 @onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
  
