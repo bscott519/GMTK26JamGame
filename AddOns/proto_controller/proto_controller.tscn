@@ -33,7 +33,8 @@ material = SubResource("StandardMaterial3D_g2uji")
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_wr06p"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h60nn"]
+radius = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr06p"]
 albedo_color = Color(6.256998e-07, 0.41627133, 0.35804656, 1)
@@ -56,6 +57,7 @@ bg_color = Color(0.024612911, 0, 0.8937173, 1)
 [node name="ProtoController" type="CharacterBody3D" groups=["player"]]
 collision_mask = 17
 script = ExtResource("1_ucva2")
+jump_velocity = 4.0
 grapple_line_radius = 0.05
 punch_knockback_force = 5.0
 swing_angle = 140.0
@@ -106,8 +108,8 @@ mesh = SubResource("CylinderMesh_wr06p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2077603)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PunchArea"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1, 2.3705285)
-shape = SubResource("SphereShape3D_wr06p")
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 2.3705285)
+shape = SubResource("CapsuleShape3D_h60nn")
 
 [node name="Eyeball" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15988839, 1.301737, -0.33882928)
