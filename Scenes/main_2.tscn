@@ -1005,7 +1005,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone2" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163, 3, 41)
@@ -1013,7 +1012,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone2"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone3" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244, 3, 41)
@@ -1021,7 +1019,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone3"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone4" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -347, 3, 41)
@@ -1029,7 +1026,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone4"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone5" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -446, 3, 41)
@@ -1037,7 +1033,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone5"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone6" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -571, 3, 41)
@@ -1045,7 +1040,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone6"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone7" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 41)
@@ -1053,7 +1047,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone7"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone8" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 137)
@@ -1061,7 +1054,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone8"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone9" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 294)
@@ -1069,7 +1061,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone9"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone10" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 379)
@@ -1077,7 +1068,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone10"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone11" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 574)
@@ -1085,7 +1075,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone11"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone12" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 718)
@@ -1093,7 +1082,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone12"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone13" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 818)
@@ -1101,7 +1089,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone13"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone14" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 947)
@@ -1109,7 +1096,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone14"]
-size = Vector3(5, 5, 5)
 
 [node name="EnemyZone15" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 1098)
@@ -1117,4 +1103,3 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone15"]
-size = Vector3(5, 5, 5)
