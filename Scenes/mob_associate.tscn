@@ -24,7 +24,7 @@ material = SubResource("StandardMaterial3D_wr06p")
 radius = 0.1
 height = 0.2
 
-[node name="alien" type="CharacterBody3D"]
+[node name="mob_associate" type="CharacterBody3D"]
 script = ExtResource("1_mdm8w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
