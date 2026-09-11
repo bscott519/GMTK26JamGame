@@ -40,8 +40,8 @@ var next_shot_is_left: bool = false
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $Collider
 @onready var mesh: MeshInstance3D = $Mesh
-@onready var left_hand: Marker3D = $Mesh/LeftHand
-@onready var right_hand: Marker3D = $Mesh/RightHand
+@onready var left_hand: Marker3D = $Head/LeftHand
+@onready var right_hand: Marker3D = $Head/RightHand
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var grapple_line: MeshInstance3D = $StretchedArm
@@ -214,16 +214,17 @@ func apply_screen_shake(intensity: float):
 	tween.tween_property($Head/Camera3D, "v_offset", 0, 0.05)
  
 func _try_start_grapple() -> void:
+	var cam := get_viewport().get_camera_3d()
 	var space_state := get_world_3d().direct_space_state
-	var from := left_hand.global_position
-	var aim_dir := -camera.global_transform.basis.z
+	var from := cam.global_position
+	var aim_dir := -cam.global_transform.basis.z
 	var to := from + aim_dir * grapple_range
  
 	var query := PhysicsRayQueryParameters3D.create(from, to)
 	query.exclude = [self.get_rid()]
 	query.collision_mask = grapple_collision_mask
 	var result := space_state.intersect_ray(query)
- 
+
 	if result:
 		grapple_target = result.position
 		is_grappling = true
