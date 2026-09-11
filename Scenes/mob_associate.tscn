@@ -12,9 +12,7 @@ height = 1.8
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhrgm"]
 height = 1.8
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mdm8w"]
-radius = 0.6
-height = 1.8
+[sub_resource type="SphereShape3D" id="SphereShape3D_3jkay"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr06p"]
 albedo_color = Color(0.3744262, 0.0793645, 0.08180954, 1)
@@ -34,10 +32,10 @@ mesh = SubResource("CapsuleMesh_mdm8w")
 shape = SubResource("CapsuleShape3D_fhrgm")
 
 [node name="HitArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013732791, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6762643, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
-shape = SubResource("CapsuleShape3D_mdm8w")
+shape = SubResource("SphereShape3D_3jkay")
 
 [node name="Eyeball" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.43, 0.404, 0.179)
