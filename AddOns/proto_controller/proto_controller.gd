@@ -144,7 +144,7 @@ func _physics_process(delta: float) -> void:
  
 func rotate_look(rot_input: Vector2) -> void:
 	look_rotation.x -= rot_input.y * mouse_sensitivity
-	look_rotation.x = clamp(look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
+	look_rotation.x = clamp(look_rotation.x, deg_to_rad(-45), deg_to_rad(60))
 	look_rotation.y -= rot_input.x * mouse_sensitivity
 	transform.basis = Basis()
 	rotate_y(look_rotation.y)
