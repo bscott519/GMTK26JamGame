@@ -77,9 +77,6 @@ transparency = 0.12
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
-[node name="LeftHand" type="Marker3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332, 0.112, -0.589)
-
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
@@ -100,6 +97,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010749698, 0, -0.26616395
 [node name="BatonAxe" type="MeshInstance3D" parent="Head/RightHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33493602, 0)
 mesh = SubResource("CapsuleMesh_h60nn")
+
+[node name="LeftHand" type="Marker3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332, -0.6880001, -0.589)
+
+[node name="Pistol2" type="MeshInstance3D" parent="Head/LeftHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036, 0, -0.164)
+visible = false
+mesh = SubResource("BoxMesh_5hfox")
+skeleton = NodePath("../../RightHand")
+
+[node name="MuzzleFlash" parent="Head/LeftHand/Pistol2" instance=ExtResource("2_6dqce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010749698, 0, -0.26616395)
 
 [node name="StretchedArm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.9303732, 0)

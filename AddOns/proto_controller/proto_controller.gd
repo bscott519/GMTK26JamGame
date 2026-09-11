@@ -34,6 +34,8 @@ var current_health: int
 var current_gun_ammo : int = 10
 var is_holding_gun : bool = false
 @onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
+@onready var pistol_2: MeshInstance3D = $Head/LeftHand/Pistol2
+var next_shot_is_left: bool = false
  
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $Collider
@@ -151,32 +153,36 @@ func rotate_look(rot_input: Vector2) -> void:
 
 func shoot_gun():
 	current_gun_ammo -= 1
-	var flash = get_node_or_null("Head/RightHand/Pistol/MuzzleFlash")
-	
+
+	var flash_path := "Head/LeftHand/Pistol2/MuzzleFlash" if next_shot_is_left else "Head/RightHand/Pistol/MuzzleFlash"
+	var flash = get_node_or_null(flash_path)
+	print("Looking for: ", flash_path, " | found: ", flash)
 	if flash:
 		flash.restart()
 		flash.emitting = true
+
+	next_shot_is_left = not next_shot_is_left  # alternate for next shot
+
 	print("Gun Fired! Ammo left: ", current_gun_ammo)
-	
-	# 1. Raycast for the bullet
+
+	# raycast stays camera-based regardless of which hand visually fired,
+	# so aim accuracy doesn't depend on which pistol's turn it is
 	var cam = get_viewport().get_camera_3d()
 	var space_state = get_world_3d().direct_space_state
 	var ray_origin = cam.global_position
 	var ray_end = ray_origin + -cam.global_transform.basis.z * 50.0
-	
+
 	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
 	query.exclude = [self.get_rid()]
 	var result = space_state.intersect_ray(query)
-	
+
 	if result:
-		# This calls your function to spawn a SEPARATE impact scene
 		spawn_impact_effect(result.position, result.normal)
 		if result.collider.has_method("take_dmg"):
 			result.collider.take_dmg(40, Vector3.ZERO)
 		if result.collider.has_method("take_hit"):
 			result.collider.take_hit(0.3)
-	
-	# 2. Visuals
+
 	apply_screen_shake(0.05)
 	if current_gun_ammo == 0:
 		print("OUT OF AMMO")
@@ -315,11 +321,15 @@ func _equip_weapon() -> void:
 		baton_axe.visible = true
 	if pistol:
 		pistol.visible = false
+	if pistol_2:
+		pistol_2.visible = false
 
 func _equip_gun() -> void:
 	is_holding_gun = true
 	if pistol:
 		pistol.visible = true
+	if pistol_2:
+		pistol_2.visible = true
 	if baton_axe:
 		baton_axe.visible = false
 
