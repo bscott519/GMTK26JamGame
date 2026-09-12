@@ -11,7 +11,7 @@ enum State { CHASE, LUNGE, RETREAT }
  
 @export_group("Attack Pattern")
 @export var attack_range: float = 2.0       # distance at which the enemy lunges
-@export var lunge_speed: float = 12.0
+@export var lunge_speed: float = 9.0
 @export var lunge_duration: float = 0.3     # how long the lunge (and hurtbox) lasts
 @export var retreat_speed: float = 4.0
 @export var retreat_duration: float = 1.5   # how long it backs off before chasing again
