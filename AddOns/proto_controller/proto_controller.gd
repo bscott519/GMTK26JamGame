@@ -10,6 +10,10 @@ signal died
 @export_group("Health")
 @export var max_health: int = 150
 var current_health: int
+
+@export_group("Gravity Feel")
+@export var gravity_multiplier: float = 2.5      # overall gravity strength while ascending
+@export var fall_gravity_multiplier: float = 4.0
  
 @export_group("Grapple Dash")
 @export var grapple_range: float = 30.0
@@ -36,7 +40,13 @@ var is_holding_gun : bool = false
 @onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
 @onready var pistol_2: MeshInstance3D = $Head/LeftHand/Pistol2
 var next_shot_is_left: bool = false
- 
+
+@export_group("Roll")
+@export var roll_speed: float = 18.0
+@export var roll_duration: float = 0.25
+@export var roll_cooldown: float = 0.6
+@export var roll_invincible: bool = true
+
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $Collider
 @onready var mesh: MeshInstance3D = $Mesh
@@ -64,6 +74,10 @@ var _punch_arm_active: bool = false
  
 var _jump_requested: bool = false
 var _grapple_requested: bool = false
+
+var is_rolling: bool = false
+var can_roll: bool = true
+var is_invincible: bool = false
  
 func _ready() -> void:
 	current_health = max_health
@@ -91,6 +105,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			_equip_weapon()
 		if event.physical_keycode == KEY_2:
 			_equip_gun()
+		if event.physical_keycode == KEY_SHIFT:
+			_try_roll()
 	if event is InputEventMouseButton and event.pressed:
 		if not mouse_captured:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -109,9 +125,14 @@ func _physics_process(delta: float) -> void:
  
 	if is_grappling:
 		_update_grapple()
+	elif is_rolling:
+		pass
 	else:
 		if not is_on_floor():
-			velocity += get_gravity() * delta
+			if velocity.y < 0:
+				velocity += get_gravity() * fall_gravity_multiplier * delta
+			else:
+				velocity += get_gravity() * gravity_multiplier * delta
  
 		if _jump_requested and is_on_floor():
 			velocity.y = jump_velocity
@@ -142,6 +163,39 @@ func _physics_process(delta: float) -> void:
 	if target_scale != base_scale and mesh.scale.distance_to(target_scale) < 0.02:
 		target_scale = base_scale
  
+func _try_roll() -> void:
+	if not can_roll or is_rolling or is_grappling:
+		return
+
+	var move := Vector2.ZERO
+	if Input.is_physical_key_pressed(KEY_W): move.y -= 1
+	if Input.is_physical_key_pressed(KEY_S): move.y += 1
+	if Input.is_physical_key_pressed(KEY_A): move.x -= 1
+	if Input.is_physical_key_pressed(KEY_D): move.x += 1
+	move = move.normalized()
+
+	# no input held -> roll forward (facing direction) instead of standing still
+	var roll_dir: Vector3
+	if move:
+		roll_dir = (transform.basis * Vector3(move.x, 0, move.y)).normalized()
+	else:
+		roll_dir = -transform.basis.z
+
+	is_rolling = true
+	can_roll = false
+	if roll_invincible:
+		is_invincible = true
+
+	velocity.x = roll_dir.x * roll_speed
+	velocity.z = roll_dir.z * roll_speed
+
+	await get_tree().create_timer(roll_duration).timeout
+	is_rolling = false
+	is_invincible = false
+
+	await get_tree().create_timer(roll_cooldown - roll_duration).timeout
+	can_roll = true
+
 func rotate_look(rot_input: Vector2) -> void:
 	look_rotation.x -= rot_input.y * mouse_sensitivity
 	look_rotation.x = clamp(look_rotation.x, deg_to_rad(-45), deg_to_rad(60))
@@ -335,6 +389,8 @@ func _equip_gun() -> void:
 		baton_axe.visible = false
 
 func take_damage(amount: int) -> void:
+	if is_invincible:
+		return
 	if current_health <= 0:
 		return
 	current_health -= amount
