@@ -60,6 +60,7 @@ collision_mask = 17
 script = ExtResource("1_ucva2")
 jump_velocity = 4.0
 grapple_line_radius = 0.05
+punch_cooldown = 0.2
 punch_knockback_force = 5.0
 swing_angle = 140.0
 swing_duration = 0.3

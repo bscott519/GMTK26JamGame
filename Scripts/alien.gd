@@ -99,7 +99,7 @@ func _process_chase() -> void:
 func _face_direction(dir: Vector3) -> void:
 	if dir.length() < 0.01:
 		return
-	var target_rotation := atan2(dir.x, dir.z)
+	var target_rotation := atan2(-dir.x, -dir.z) + PI / 2.0
 	rotation.y = lerp_angle(rotation.y, target_rotation, 0.15)
  
 func _start_lunge() -> void:
