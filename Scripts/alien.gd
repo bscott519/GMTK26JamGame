@@ -20,6 +20,7 @@ var cur_health: int
 var player: Node3D
 var stun_timer: float = 0.0
 var is_dying: bool = false
+var has_attack_slot: bool = false
  
 var state: State = State.CHASE
 var state_timer: float = 0.0
@@ -42,6 +43,7 @@ func take_dmg(amount: int, knockback: Vector3) -> void:
  
 func die() -> void:
 	is_dying = true
+	_release_attack_slot()
 	hit_area.set_deferred("monitoring", false)
 	await get_tree().create_timer(death_delay).timeout
 	queue_free()
@@ -55,6 +57,7 @@ func apply_knockback(impulse: Vector3) -> void:
 	stun_timer = knockback_stun_duration
 	# a knockback interrupts whatever attack state it was in
 	state = State.CHASE
+	_release_attack_slot()
  
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -84,7 +87,13 @@ func _process_chase() -> void:
 	var dist := global_position.distance_to(player.global_position)
 
 	if dist <= attack_range:
-		_start_lunge()
+		if AttackSlots.request_slot():
+			has_attack_slot = true
+			_start_lunge()
+		else:
+			velocity.x = 0.0
+			velocity.z = 0.0
+		return
 	elif dist < detect_range:
 		var dir := (player.global_position - global_position)
 		dir.y = 0
@@ -102,6 +111,11 @@ func _face_direction(dir: Vector3) -> void:
 	var target_rotation := atan2(-dir.x, -dir.z) + PI / 2.0
 	rotation.y = lerp_angle(rotation.y, target_rotation, 0.15)
  
+func _release_attack_slot() -> void:
+	if has_attack_slot:
+		AttackSlots.release_slot()
+		has_attack_slot = false
+
 func _start_lunge() -> void:
 	if not player:
 		return
@@ -132,6 +146,7 @@ func _process_retreat(delta: float) -> void:
 	state_timer -= delta
 	if state_timer <= 0.0:
 		state = State.CHASE
+		_release_attack_slot()
 		velocity.x = 0.0
 		velocity.z = 0.0
 		return

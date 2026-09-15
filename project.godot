@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalTimer="*res://Scripts/globaltimer.gd"
 MusicPlayer="*res://Scenes/music_player.tscn"
+AttackSlots="*res://Scripts/attack_slots.gd"
 
 [input]
 

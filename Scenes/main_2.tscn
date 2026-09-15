@@ -1149,6 +1149,3 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone15"]
-
-[node name="armed_mobster" parent="." instance=ExtResource("5_5lrfp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 2)
