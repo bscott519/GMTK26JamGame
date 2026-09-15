@@ -1003,105 +1003,150 @@ height = 10.0
 [node name="EnemyZone" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 3, 41)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone"]
 
 [node name="EnemyZone2" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163, 3, 41)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone2"]
 
 [node name="EnemyZone3" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244, 3, 41)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone3"]
 
 [node name="EnemyZone4" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -347, 3, 41)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone4"]
 
 [node name="EnemyZone5" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -446, 3, 41)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone5"]
 
 [node name="EnemyZone6" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -571, 3, 41)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone6"]
 
 [node name="EnemyZone7" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 41)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone7"]
 
 [node name="EnemyZone8" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 137)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone8"]
 
 [node name="EnemyZone9" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 294)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone9"]
 
 [node name="EnemyZone10" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 379)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone10"]
 
 [node name="EnemyZone11" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 574)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone11"]
 
 [node name="EnemyZone12" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 718)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone12"]
 
 [node name="EnemyZone13" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 818)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone13"]
 
 [node name="EnemyZone14" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 947)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone14"]
 
 [node name="EnemyZone15" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 1098)
 script = ExtResource("4_ya2e4")
-mob_assoc_scene = ExtResource("3_6sl1r")
+ranged_chance = 0.3
+melee_scene = ExtResource("3_6sl1r")
+ranged_scene = ExtResource("5_5lrfp")
+use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone15"]
 

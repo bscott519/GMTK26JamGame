@@ -10,7 +10,7 @@ extends CharacterBody3D
  
 @export_group("Shooting")
 @export var bullet_scene: PackedScene
-@export var shoot_cooldown: float = 1.5
+@export var shoot_cooldown: float = 2.5
  
 @onready var gun_muzzle: Marker3D = $Gun/GunMuzzle
  
