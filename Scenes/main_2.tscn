@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=4 uid="uid://s0d73ntjqyfw"]
+[gd_scene load_steps=25 format=4 uid="uid://s0d73ntjqyfw"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_y2yxb"]
 [ext_resource type="PackedScene" uid="uid://cdf4bb85sgflt" path="res://Scenes/mob_associate.tscn" id="3_6sl1r"]
 [ext_resource type="Texture2D" uid="uid://c07pg7s8j4jqu" path="res://Assets/Cars (GLB format)/Textures/colormap.png" id="3_ya2e4"]
 [ext_resource type="Script" uid="uid://cn5vgnyo8db5j" path="res://Scripts/enemy_zone.gd" id="4_ya2e4"]
+[ext_resource type="PackedScene" uid="uid://cy3nr58mat3vk" path="res://Scenes/armed_mobster.tscn" id="5_5lrfp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y2yxb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -1103,3 +1104,6 @@ script = ExtResource("4_ya2e4")
 mob_assoc_scene = ExtResource("3_6sl1r")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone15"]
+
+[node name="armed_mobster" parent="." instance=ExtResource("5_5lrfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 2)

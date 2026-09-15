@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy3nr58mat3vk"]
+[gd_scene load_steps=9 format=3 uid="uid://cy3nr58mat3vk"]
 
-[ext_resource type="Script" uid="uid://roensbqeapbx" path="res://Scenes/armed_mobster.gd" id="1_bxl17"]
+[ext_resource type="Script" uid="uid://roensbqeapbx" path="res://Scripts/armed_mobster.gd" id="1_bxl17"]
+[ext_resource type="PackedScene" uid="uid://ca03vvy65ydj8" path="res://Scenes/bullet.tscn" id="2_sj71h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3h60"]
-albedo_color = Color(1, 0.3541287, 0.41598913, 1)
+albedo_color = Color(0.5560883, 0, 0.14403817, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mdm8w"]
 material = SubResource("StandardMaterial3D_b3h60")
@@ -20,8 +21,12 @@ material = SubResource("StandardMaterial3D_wr06p")
 radius = 0.1
 height = 0.2
 
-[node name="mob_associate" type="CharacterBody3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_sj71h"]
+size = Vector3(0.2, 0.1, 0.4)
+
+[node name="armed_mobster" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_bxl17")
+bullet_scene = ExtResource("2_sj71h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_mdm8w")
@@ -36,3 +41,10 @@ mesh = SubResource("SphereMesh_mdm8w")
 [node name="Eyeball2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.430154, 0.4035629, -0.13857639)
 mesh = SubResource("SphereMesh_mdm8w")
+
+[node name="Gun" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.40671945, 0, 0.5120858)
+mesh = SubResource("BoxMesh_sj71h")
+
+[node name="GunMuzzle" type="Marker3D" parent="Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.17805293)

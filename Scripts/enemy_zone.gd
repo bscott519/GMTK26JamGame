@@ -1,6 +1,6 @@
 extends Marker3D
 
-@export var mob_assoc_scene: PackedScene  # your enemy scene, drag it in the Inspector
+@export var mob_assoc_scene: PackedScene
 @export_range(1, 8) var min_enemies: int = 3
 @export_range(1, 8) var max_enemies: int = 8
 @export var spawn_radius: float = 8.0
