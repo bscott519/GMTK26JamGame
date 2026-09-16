@@ -8,7 +8,7 @@ signal health_changed(current: int, max: int)
 signal died
 
 @export_group("Health")
-@export var max_health: int = 200
+@export var max_health: int = 300
 var current_health: int
 
 @export_group("Gravity Feel")
@@ -44,7 +44,7 @@ var _weapon_rest_position: Vector3
 var _current_swing_tween: Tween
 
 @export_group("Firearm Settings")
-var current_gun_ammo : int = 10
+var current_gun_ammo : int = 100
 var is_holding_gun : bool = false
 @onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
 @onready var pistol_2: MeshInstance3D = $Head/LeftHand/Pistol2
@@ -115,7 +115,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_equip_weapon()
 		if event.physical_keycode == KEY_2:
 			_equip_gun()
-		if event.physical_keycode == KEY_SHIFT:
+		if event.physical_keycode == KEY_ENTER:
 			_try_roll()
 	if event is InputEventMouseButton and event.pressed:
 		if not mouse_captured:
