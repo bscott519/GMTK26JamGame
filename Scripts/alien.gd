@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum State { CHASE, LUNGE, RETREAT }
+enum State { CHASE, LUNGE, RETREAT, WINDUP }
  
 @export var speed: float = 3.0
 @export var detect_range: float = 15.0
@@ -8,7 +8,9 @@ enum State { CHASE, LUNGE, RETREAT }
 @export var knockback_stun_duration: float = 0.5
 @export var death_delay: float = 1.0
 @export var max_health: int = 100
- 
+@export var attack_windup_time: float = 0.4
+@onready var mesh: MeshInstance3D = $MeshInstance3D
+
 @export_group("Attack Pattern")
 @export var attack_range: float = 2.0       # distance at which the enemy lunges
 @export var lunge_speed: float = 9.0
@@ -57,7 +59,10 @@ func apply_knockback(impulse: Vector3) -> void:
 	stun_timer = knockback_stun_duration
 	# a knockback interrupts whatever attack state it was in
 	state = State.CHASE
+	hit_area.monitoring = false
 	_release_attack_slot()
+	if mesh:
+		mesh.scale = Vector3.ONE 
  
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -75,6 +80,8 @@ func _physics_process(delta: float) -> void:
 				_process_lunge(delta)
 			State.RETREAT:
 				_process_retreat(delta)
+			State.WINDUP:
+				_process_windup(delta)
  
 	move_and_slide()
  
@@ -89,7 +96,7 @@ func _process_chase() -> void:
 	if dist <= attack_range:
 		if AttackSlots.request_slot():
 			has_attack_slot = true
-			_start_lunge()
+			_start_windup()
 		else:
 			velocity.x = 0.0
 			velocity.z = 0.0
@@ -116,6 +123,20 @@ func _release_attack_slot() -> void:
 		AttackSlots.release_slot()
 		has_attack_slot = false
 
+func _start_windup() -> void:
+	state = State.WINDUP
+	state_timer = attack_windup_time
+	velocity.x = 0.0
+	velocity.z = 0.0
+	if mesh:
+		var tween := create_tween()
+		tween.tween_property(mesh, "scale", Vector3(1.15, 0.8, 1.15), attack_windup_time)
+
+func _process_windup(delta: float) -> void:
+	state_timer -= delta
+	if state_timer <= 0.0:
+		_start_lunge()
+
 func _start_lunge() -> void:
 	if not player:
 		return
@@ -131,6 +152,8 @@ func _start_lunge() -> void:
 	_face_direction(dir)
 	
 	hit_area.monitoring = true
+	if mesh:
+		mesh.scale = Vector3.ONE
  
 func _process_lunge(delta: float) -> void:
 	state_timer -= delta
