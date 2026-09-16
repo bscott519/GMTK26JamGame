@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://s0d73ntjqyfw"]
+[gd_scene load_steps=26 format=4 uid="uid://s0d73ntjqyfw"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_y2yxb"]
 [ext_resource type="PackedScene" uid="uid://cdf4bb85sgflt" path="res://Scenes/mob_associate.tscn" id="3_6sl1r"]
 [ext_resource type="Texture2D" uid="uid://c07pg7s8j4jqu" path="res://Assets/Cars (GLB format)/Textures/colormap.png" id="3_ya2e4"]
 [ext_resource type="Script" uid="uid://cn5vgnyo8db5j" path="res://Scripts/enemy_zone.gd" id="4_ya2e4"]
 [ext_resource type="PackedScene" uid="uid://cy3nr58mat3vk" path="res://Scenes/armed_mobster.tscn" id="5_5lrfp"]
+[ext_resource type="Script" uid="uid://cix8k5enxarl" path="res://Scripts/game_manager.gd" id="6_f6la0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y2yxb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -1149,3 +1150,43 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone15"]
+
+[node name="WinLossScreen" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("6_f6la0")
+
+[node name="WinLabel" type="Label" parent="WinLossScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.8, 0.35686275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="LossLabel" type="Label" parent="WinLossScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.3529412, 0.41568628, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1

@@ -8,7 +8,7 @@ signal health_changed(current: int, max: int)
 signal died
 
 @export_group("Health")
-@export var max_health: int = 150
+@export var max_health: int = 200
 var current_health: int
 
 @export_group("Gravity Feel")
@@ -33,6 +33,15 @@ var current_health: int
 @export var swing_angle: float = 90.0
 @export var swing_duration: float = 0.15
 @export var swing_position_offset: Vector3 = Vector3(-0.6, 0, 0)
+@export var swing_reach: float = 0.6
+@export var hip_height: float = -0.4
+@export var shoulder_height: float = 0.5
+@export var combo_reset_time: float = 0.8
+
+var combo_index: int = 0
+var _combo_reset_timer: float = 0.0
+var _weapon_rest_position: Vector3
+var _current_swing_tween: Tween
 
 @export_group("Firearm Settings")
 var current_gun_ammo : int = 10
@@ -88,6 +97,7 @@ func _ready() -> void:
 	base_scale = mesh.scale
 	target_scale = base_scale
 	_setup_grapple_line()
+	_weapon_rest_position = baton_axe.position
  
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and mouse_captured:
@@ -162,6 +172,14 @@ func _physics_process(delta: float) -> void:
  
 	if target_scale != base_scale and mesh.scale.distance_to(target_scale) < 0.02:
 		target_scale = base_scale
+	
+	if combo_index > 0:
+		_combo_reset_timer -= delta
+		if _combo_reset_timer <= 0.0:
+			combo_index = 0
+			if baton_axe and (not _current_swing_tween or not _current_swing_tween.is_valid()):
+				baton_axe.position = _weapon_rest_position
+				baton_axe.rotation = Vector3.ZERO
  
 func _try_roll() -> void:
 	if not can_roll or is_rolling or is_grappling:
@@ -360,15 +378,60 @@ func _apply_knockback(body: Node3D) -> void:
 		body.velocity += impulse
 		
 func _swing_melee_weapon() -> void:
-	print("swing called, baton_axe = ", baton_axe)
 	if not baton_axe:
 		return
-	var rest_position := baton_axe.position
-	var swing_position := rest_position + swing_position_offset
+
+	if _current_swing_tween and _current_swing_tween.is_valid():
+		_current_swing_tween.kill()
+
+	var rest_position := _weapon_rest_position
+	var right_hip := rest_position + Vector3(swing_reach, hip_height, 0)
+	var left_shoulder := rest_position + Vector3(-swing_reach, shoulder_height, 0)
+	var left_hip := rest_position + Vector3(-swing_reach, hip_height, 0)
+
+	var start_pos: Vector3
+	var end_pos: Vector3
+	var start_rot_z: float
+	var end_rot_z: float
+
+	match combo_index:
+		0:  # right hip -> left shoulder (upward diagonal)
+			start_pos = right_hip
+			end_pos = left_shoulder
+			start_rot_z = deg_to_rad(-45)
+			end_rot_z = deg_to_rad(45)
+		1:  # left shoulder -> right hip (downward diagonal)
+			start_pos = left_shoulder
+			end_pos = right_hip
+			start_rot_z = deg_to_rad(45)
+			end_rot_z = deg_to_rad(-45)
+		2:  # right hip -> left hip (horizontal sweep)
+			start_pos = right_hip
+			end_pos = left_hip
+			start_rot_z = deg_to_rad(-20)
+			end_rot_z = deg_to_rad(20)
+
+	var start_rotation := baton_axe.rotation
+	start_rotation.z = start_rot_z
+	var end_rotation := baton_axe.rotation
+	end_rotation.z = end_rot_z
 
 	var tween := create_tween()
-	tween.tween_property(baton_axe, "position", swing_position, swing_duration * 0.5)
-	tween.tween_property(baton_axe, "position", rest_position, swing_duration * 0.5)
+	tween.set_parallel(true)
+	tween.tween_property(baton_axe, "position", start_pos, swing_duration * 0.15)
+	tween.tween_property(baton_axe, "rotation", start_rotation, swing_duration * 0.15)
+
+	tween.chain().set_parallel(true)
+	tween.tween_property(baton_axe, "position", end_pos, swing_duration * 0.5)
+	tween.tween_property(baton_axe, "rotation", end_rotation, swing_duration * 0.5)
+
+	tween.chain().set_parallel(true)
+	tween.tween_property(baton_axe, "position", rest_position, swing_duration * 0.35)
+	tween.tween_property(baton_axe, "rotation", baton_axe.rotation, swing_duration * 0.35)
+
+	_current_swing_tween = tween
+	combo_index = (combo_index + 1) % 3
+	_combo_reset_timer = combo_reset_time
 
 func _equip_weapon() -> void:
 	is_holding_gun = false

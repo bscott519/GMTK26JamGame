@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=18 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
@@ -12,7 +12,7 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
-albedo_color = Color(0, 0.8, 0.35686275, 1)
+albedo_color = Color(0, 0.24705882, 0.9372549, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
 radius = 0.4
@@ -34,16 +34,7 @@ top_radius = 0.05
 bottom_radius = 0.05
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h60nn"]
-radius = 0.6
-height = 1.8
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr06p"]
-albedo_color = Color(6.256998e-07, 0.41627133, 0.35804656, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_5hfox"]
-material = SubResource("StandardMaterial3D_wr06p")
-radius = 0.1
-height = 0.2
+radius = 0.7
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6dqce"]
 shader = ExtResource("3_5hfox")
@@ -124,14 +115,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2077603)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PunchArea"]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 2.3705285)
 shape = SubResource("CapsuleShape3D_h60nn")
-
-[node name="Eyeball" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15988839, 1.301737, -0.33882928)
-mesh = SubResource("SphereMesh_5hfox")
-
-[node name="Eyeball2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16, 1.302, -0.339)
-mesh = SubResource("SphereMesh_5hfox")
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wr06p")
