@@ -1204,6 +1204,30 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 
+[node name="PauseMenu" type="Control" parent="WinLossScreen"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseLabel" type="Label" parent="WinLossScreen/PauseMenu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PAUSED"
+
+[node name="MainMenuButton" type="Button" parent="WinLossScreen/PauseMenu"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Main Menu"
+
+[node name="ControlsButton" type="Button" parent="WinLossScreen/PauseMenu"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Controls"
+
 [node name="Countdown" parent="." instance=ExtResource("7_djkp1")]
 
 [node name="FinishLine" type="Area3D" parent="."]
