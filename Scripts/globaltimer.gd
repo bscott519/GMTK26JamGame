@@ -4,10 +4,10 @@ signal time_changed(time_left: float)
 signal time_out
 signal damage_taken
  
-const START_TIME: float = 180.0
+const START_TIME: float = 600.0
  
 var time_left: float = START_TIME
-var running: bool = true
+var running: bool = false
  
 func _process(delta: float) -> void:
 	if running and time_left > 0.0:
