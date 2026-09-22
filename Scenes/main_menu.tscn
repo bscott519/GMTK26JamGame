@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ryho63sf8hsw"]
+[gd_scene load_steps=4 format=3 uid="uid://ryho63sf8hsw"]
 
 [ext_resource type="Script" uid="uid://b4k40g47pwn0s" path="res://Scripts/main_menu.gd" id="1_28flt"]
 
 [sub_resource type="FontVariation" id="FontVariation_28flt"]
 variation_embolden = 0.5
 spacing_glyph = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
+bg_color = Color(0.05882353, 0.16470589, 0.40784314, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -76,6 +79,24 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
+[node name="MainControlsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 70.0
+offset_right = 100.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+text = "CONTROLS
+"
+
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -84,9 +105,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 83.0
+offset_top = 177.0
 offset_right = 100.0
-offset_bottom = 163.0
+offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -94,5 +115,49 @@ theme_override_font_sizes/font_size = 50
 text = "QUIT
 "
 
+[node name="ControlsPanel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="ControlsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.25882354, 0.8745098, 1)
+
+[node name="ControlsListing" type="Label" parent="ControlsPanel"]
+layout_mode = 1
+offset_left = 260.0
+offset_top = 68.0
+offset_right = 939.0
+offset_bottom = 529.0
+theme_override_font_sizes/font_size = 40
+text = "WASD/Arrow Keys - Move
+Left Click - Swing Sword/Fire Pistols
+Space - Jump
+Tab - Fire Grapple
+Enter/Return - Dodge
+1 - Equip Sword
+2 - Equip Pistols
+P - Pause/Unpause"
+
+[node name="CloseControlsButton" type="Button" parent="ControlsPanel"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 576.0
+offset_right = 700.0
+offset_bottom = 626.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+text = "Close"
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainControlsButton" to="." method="_on_main_controls_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

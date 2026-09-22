@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://s0d73ntjqyfw"]
+[gd_scene load_steps=33 format=4 uid="uid://s0d73ntjqyfw"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_y2yxb"]
 [ext_resource type="PackedScene" uid="uid://cdf4bb85sgflt" path="res://Scenes/mob_associate.tscn" id="3_6sl1r"]
@@ -238,6 +238,15 @@ shadow_mesh = SubResource("ArrayMesh_cfutt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sl1r"]
 albedo_color = Color(0.6039216, 0.56078434, 0.5921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djkp1"]
+bg_color = Color(0.05882353, 0.16470589, 0.40784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ay0lb"]
+bg_color = Color(0.05882353, 0.16470589, 0.40784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmkph"]
+bg_color = Color(0.05882353, 0.16470589, 0.40784314, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_djkp1"]
 radius = 5.0
@@ -1164,6 +1173,8 @@ use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone15"]
 
+[node name="Countdown" parent="." instance=ExtResource("7_djkp1")]
+
 [node name="WinLossScreen" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("6_f6la0")
@@ -1206,29 +1217,92 @@ horizontal_alignment = 1
 
 [node name="PauseMenu" type="Control" parent="WinLossScreen"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="WinLossScreen/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(7.906679e-05, 0.06280566, 0.29067525, 0.56078434)
 
 [node name="PauseLabel" type="Label" parent="WinLossScreen/PauseMenu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+offset_left = 445.0
+offset_top = 129.0
+offset_right = 715.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 70
 text = "PAUSED"
 
-[node name="MainMenuButton" type="Button" parent="WinLossScreen/PauseMenu"]
+[node name="PauseMainMenuButton" type="Button" parent="WinLossScreen/PauseMenu"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 477.0
+offset_top = 400.0
+offset_right = 677.0
+offset_bottom = 480.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_djkp1")
 text = "Main Menu"
 
 [node name="ControlsButton" type="Button" parent="WinLossScreen/PauseMenu"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 477.0
+offset_top = 281.0
+offset_right = 677.0
+offset_bottom = 361.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ay0lb")
 text = "Controls"
 
-[node name="Countdown" parent="." instance=ExtResource("7_djkp1")]
+[node name="ControlsPanel" type="Control" parent="WinLossScreen"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="WinLossScreen/ControlsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(7.906679e-05, 0.06280566, 0.29067525, 0.56078434)
+
+[node name="ControlsListing" type="Label" parent="WinLossScreen/ControlsPanel"]
+layout_mode = 1
+offset_left = 260.0
+offset_top = 68.0
+offset_right = 939.0
+offset_bottom = 529.0
+theme_override_font_sizes/font_size = 40
+text = "WASD/Arrow Keys - Move
+Left Click - Swing Sword/Fire Pistols
+Space - Jump
+Tab - Fire Grapple
+Enter/Return - Dodge
+1 - Equip Sword
+2 - Equip Pistols
+P - Pause/Unpause"
+
+[node name="CloseControlsButton" type="Button" parent="WinLossScreen/ControlsPanel"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 576.0
+offset_right = 700.0
+offset_bottom = 626.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmkph")
+text = "Close"
 
 [node name="FinishLine" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -674.16504, 0, 1138)
@@ -1241,3 +1315,7 @@ shape = SubResource("SphereShape3D_djkp1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 3, -2)
 transparency = 0.7
 mesh = SubResource("SphereMesh_ay0lb")
+
+[connection signal="pressed" from="WinLossScreen/PauseMenu/PauseMainMenuButton" to="WinLossScreen" method="_on_pause_main_menu_pressed"]
+[connection signal="pressed" from="WinLossScreen/PauseMenu/ControlsButton" to="WinLossScreen" method="_on_controls_pressed"]
+[connection signal="pressed" from="WinLossScreen/ControlsPanel/CloseControlsButton" to="WinLossScreen" method="_on_close_controls_pressed"]
