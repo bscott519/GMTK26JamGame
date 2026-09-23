@@ -273,7 +273,7 @@ data = PackedVector3Array(-0.87, 0.17999999, -0.159, -0.89, 0.17999999, -0.139, 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nmkph"]
 data = PackedVector3Array(0.5, 0.02, -0.39999998, 0.5, 0.01, -0.39999998, -0.5, 0.01, -0.39999998, -0.5, 0.01, -0.39999998, -0.5, 0.02, -0.39999998, 0.5, 0.02, -0.39999998, -0.5, 0.02, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0.02, -0.5, -0.5, 0.02, -0.5, -0.5, 0.02, 0.39999998, -0.5, 0.01, 0.39999998, 0.5, 0.01, 0.39999998, 0.5, 0.01, 0.39999998, 0.5, 0.02, 0.39999998, -0.5, 0.02, 0.39999998, -0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.02, -0.5, 0.5, 0.02, -0.5, 0.5, 0.02, -0.39999998, 0.5, 0.02, -0.39999998, -0.5, 0.02, -0.39999998, -0.5, 0.02, -0.5, 0.5, 0.02, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0.02, 0.5, 0.5, 0.02, 0.5, -0.5, 0.02, 0.39999998, 0.5, 0.02, 0.39999998, 0.5, 0.02, 0.5, 0.5, 0.02, 0.5, -0.5, 0.02, 0.5, -0.5, 0.02, 0.39999998, 0.5, 0.02, 0.5, 0.5, 0.02, 0.39999998, 0.5, 0.01, 0.39999998, 0.5, 0, 0.5, 0.5, 0.02, 0.5, 0.5, 0.01, 0.39999998, 0.5, 0, 0.5, 0.5, 0.01, 0.39999998, 0.5, 0.01, 0.29999998, 0.5, 0, 0.5, 0.5, 0.01, 0.29999998, 0.5, 0.01, 0.01, 0.5, 0, 0.5, 0.5, 0.01, 0.01, 0.5, 0.01, -0.01, 0.5, 0, 0.5, 0.5, 0.01, -0.01, 0.5, 0.01, -0.29999998, 0.5, 0, 0.5, 0.5, 0.01, -0.29999998, 0.5, 0.01, -0.39999998, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0.01, -0.39999998, 0.5, 0, -0.5, 0.5, 0.01, -0.39999998, 0.5, 0.02, -0.39999998, 0.5, 0.02, -0.39999998, 0.5, 0.02, -0.5, 0.5, 0, -0.5, -0.5, 0.02, 0.39999998, -0.5, 0.02, 0.5, -0.5, 0, 0.5, -0.5, 0.01, 0.39999998, -0.5, 0.02, 0.39999998, -0.5, 0, 0.5, -0.5, 0.01, 0.29999998, -0.5, 0.01, 0.39999998, -0.5, 0, 0.5, -0.5, 0.01, 0.01, -0.5, 0.01, 0.29999998, -0.5, 0, 0.5, -0.5, 0.01, -0.01, -0.5, 0.01, 0.01, -0.5, 0, 0.5, -0.5, 0.01, -0.29999998, -0.5, 0.01, -0.01, -0.5, 0, 0.5, -0.5, 0.01, -0.39999998, -0.5, 0.01, -0.29999998, -0.5, 0, 0.5, -0.5, 0.01, -0.39999998, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0.02, -0.5, -0.5, 0.01, -0.39999998, -0.5, 0.02, -0.39999998, -0.5, 0.01, -0.39999998, -0.5, 0.02, -0.5, 0.5, 0.01, 0.01, 0.5, 0.01, 0.29999998, -0.5, 0.01, 0.29999998, -0.5, 0.01, 0.29999998, -0.5, 0.01, 0.01, 0.5, 0.01, 0.01, -0.5, 0.01, -0.29999998, 0.5, 0.01, -0.29999998, 0.5, 0.01, -0.01, 0.5, 0.01, -0.01, -0.5, 0.01, -0.01, -0.5, 0.01, -0.29999998, -0.5, 0.01, -0.39999998, 0.5, 0.01, -0.39999998, 0.5, 0.01, -0.29999998, 0.5, 0.01, -0.29999998, -0.5, 0.01, -0.29999998, -0.5, 0.01, -0.39999998, -0.5, 0.01, 0.29999998, 0.5, 0.01, 0.29999998, 0.5, 0.01, 0.39999998, 0.5, 0.01, 0.39999998, -0.5, 0.01, 0.39999998, -0.5, 0.01, 0.29999998, -0.5, 0.01, -0.01, 0.5, 0.01, -0.01, 0.5, 0.01, 0.01, 0.5, 0.01, 0.01, -0.5, 0.01, 0.01, -0.5, 0.01, -0.01)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_87gun"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8wnqf"]
 data = PackedVector3Array(0.39999998, 0.01, 0.5, 0.39999998, 0.02, 0.5, 0.5, 0.02, 0.5, 0.39999998, 0.01, 0.5, 0.5, 0.02, 0.5, 0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.39999998, 0.01, 0.5, -0.5, 0, 0.5, 0.29999998, 0.01, 0.5, 0.39999998, 0.01, 0.5, -0.29999998, 0.01, 0.5, 0.29999998, 0.01, 0.5, -0.5, 0, 0.5, -0.29999998, 0.01, 0.5, 0.01, 0.01, 0.5, 0.29999998, 0.01, 0.5, -0.29999998, 0.01, 0.5, -0.01, 0.01, 0.5, 0.01, 0.01, 0.5, -0.39999998, 0.01, 0.5, -0.29999998, 0.01, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0.02, 0.5, -0.39999998, 0.01, 0.5, -0.5, 0.02, 0.5, -0.39999998, 0.02, 0.5, -0.39999998, 0.01, 0.5, -0.5, 0.02, 0.39999998, -0.5, 0.02, 0.5, -0.5, 0, 0.5, -0.5, 0.01, 0.39999998, -0.5, 0.02, 0.39999998, -0.5, 0, 0.5, -0.5, 0.01, 0.29999998, -0.5, 0.01, 0.39999998, -0.5, 0, 0.5, -0.5, 0.01, 0.01, -0.5, 0.01, 0.29999998, -0.5, 0, 0.5, -0.5, 0.01, -0.01, -0.5, 0.01, 0.01, -0.5, 0, 0.5, -0.5, 0.01, -0.29999998, -0.5, 0.01, -0.01, -0.5, 0, 0.5, -0.5, 0.01, -0.39999998, -0.5, 0.01, -0.29999998, -0.5, 0, 0.5, -0.5, 0.01, -0.39999998, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0.02, -0.5, -0.5, 0.01, -0.39999998, -0.5, 0.02, -0.39999998, -0.5, 0.01, -0.39999998, -0.5, 0.02, -0.5, 0.5, 0.02, 0.5, 0.5, 0.02, 0.39999998, 0.5, 0.01, 0.39999998, 0.5, 0.01, 0.39999998, 0.5, 0, 0.5, 0.5, 0.02, 0.5, 0.5, 0, 0.5, 0.5, 0.01, 0.39999998, 0.5, 0.01, 0.29999998, 0.5, 0, 0.5, 0.5, 0.01, 0.29999998, 0.5, 0.01, 0.01, 0.5, 0, 0.5, 0.5, 0.01, 0.01, 0.5, 0.01, -0.01, 0.5, 0, 0.5, 0.5, 0.01, -0.01, 0.5, 0.01, -0.29999998, 0.5, 0, 0.5, 0.5, 0.01, -0.29999998, 0.5, 0.01, -0.39999998, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0.01, -0.39999998, 0.5, 0, -0.5, 0.5, 0.01, -0.39999998, 0.5, 0.02, -0.39999998, 0.5, 0.02, -0.39999998, 0.5, 0.02, -0.5, 0.5, 0, -0.5, -0.5, 0.01, -0.29999998, 0.5, 0.01, -0.29999998, 0.5, 0.01, -0.01, 0.5, 0.01, -0.01, -0.5, 0.01, -0.01, -0.5, 0.01, -0.29999998, 0.5, 0.01, 0.01, 0.5, 0.01, 0.29999998, 0.29999998, 0.01, 0.29999998, 0.29999998, 0.01, 0.29999998, 0.01, 0.01, 0.01, 0.5, 0.01, 0.01, 0.29999998, 0.01, 0.29999998, 0.29999998, 0.01, 0.5, 0.01, 0.01, 0.01, 0.29999998, 0.01, 0.5, 0.01, 0.01, 0.5, 0.01, 0.01, 0.01, -0.5, 0.01, 0.01, -0.01, 0.01, 0.01, -0.01, 0.01, 0.5, -0.01, 0.01, 0.5, -0.29999998, 0.01, 0.29999998, -0.5, 0.01, 0.01, -0.29999998, 0.01, 0.29999998, -0.5, 0.01, 0.29999998, -0.5, 0.01, 0.01, -0.29999998, 0.01, 0.5, -0.29999998, 0.01, 0.29999998, -0.01, 0.01, 0.5, -0.5, 0.02, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0.02, -0.5, -0.5, 0.02, -0.5, -0.5, 0.02, -0.5, 0.5, 0.02, -0.5, 0.5, 0.02, -0.39999998, 0.5, 0.02, -0.39999998, -0.5, 0.02, -0.39999998, -0.5, 0.02, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.02, 0.39999998, -0.5, 0.01, 0.39999998, -0.39999998, 0.01, 0.39999998, -0.39999998, 0.01, 0.39999998, -0.39999998, 0.02, 0.39999998, -0.5, 0.02, 0.39999998, 0.5, 0.02, -0.39999998, 0.5, 0.01, -0.39999998, -0.5, 0.01, -0.39999998, -0.5, 0.01, -0.39999998, -0.5, 0.02, -0.39999998, 0.5, 0.02, -0.39999998, -0.39999998, 0.02, 0.5, -0.39999998, 0.02, 0.39999998, -0.39999998, 0.01, 0.39999998, -0.39999998, 0.01, 0.39999998, -0.39999998, 0.01, 0.5, -0.39999998, 0.02, 0.5, -0.5, 0.02, 0.39999998, -0.39999998, 0.02, 0.39999998, -0.39999998, 0.02, 0.5, -0.39999998, 0.02, 0.5, -0.5, 0.02, 0.5, -0.5, 0.02, 0.39999998, 0.39999998, 0.02, 0.39999998, 0.5, 0.02, 0.39999998, 0.5, 0.02, 0.5, 0.5, 0.02, 0.5, 0.39999998, 0.02, 0.5, 0.39999998, 0.02, 0.39999998, 0.39999998, 0.02, 0.39999998, 0.39999998, 0.01, 0.39999998, 0.5, 0.01, 0.39999998, 0.5, 0.01, 0.39999998, 0.5, 0.02, 0.39999998, 0.39999998, 0.02, 0.39999998, 0.39999998, 0.01, 0.5, 0.39999998, 0.01, 0.39999998, 0.39999998, 0.02, 0.39999998, 0.39999998, 0.02, 0.39999998, 0.39999998, 0.02, 0.5, 0.39999998, 0.01, 0.5, -0.5, 0.01, -0.01, 0.5, 0.01, -0.01, 0.5, 0.01, 0.01, 0.5, 0.01, 0.01, 0.01, 0.01, 0.01, -0.5, 0.01, -0.01, 0.01, 0.01, 0.01, -0.01, 0.01, 0.01, -0.5, 0.01, -0.01, -0.01, 0.01, 0.01, -0.5, 0.01, 0.01, -0.5, 0.01, -0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.5, -0.01, 0.01, 0.01, -0.01, 0.01, 0.5, -0.01, 0.01, 0.01, 0.01, 0.01, 0.5, -0.5, 0.01, 0.29999998, -0.29999998, 0.01, 0.29999998, -0.29999998, 0.01, 0.5, -0.29999998, 0.01, 0.5, -0.39999998, 0.01, 0.39999998, -0.5, 0.01, 0.29999998, -0.39999998, 0.01, 0.39999998, -0.5, 0.01, 0.39999998, -0.5, 0.01, 0.29999998, -0.39999998, 0.01, 0.5, -0.39999998, 0.01, 0.39999998, -0.29999998, 0.01, 0.5, 0.29999998, 0.01, 0.29999998, 0.5, 0.01, 0.29999998, 0.5, 0.01, 0.39999998, 0.5, 0.01, 0.39999998, 0.39999998, 0.01, 0.39999998, 0.29999998, 0.01, 0.29999998, 0.39999998, 0.01, 0.39999998, 0.39999998, 0.01, 0.5, 0.29999998, 0.01, 0.29999998, 0.39999998, 0.01, 0.5, 0.29999998, 0.01, 0.5, 0.29999998, 0.01, 0.29999998, -0.5, 0.01, -0.39999998, 0.5, 0.01, -0.39999998, 0.5, 0.01, -0.29999998, 0.5, 0.01, -0.29999998, -0.5, 0.01, -0.29999998, -0.5, 0.01, -0.39999998)
 
 [node name="Main2" type="Node3D"]
@@ -286,36 +286,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6sl1r")
-
-[node name="Road5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215, 0, 40)
-use_collision = true
-size = Vector3(70, 0.5, 20)
-material = SubResource("StandardMaterial3D_y2yxb")
-
-[node name="Road6" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -285, 0, 40)
-use_collision = true
-size = Vector3(70, 0.5, 20)
-material = SubResource("StandardMaterial3D_y2yxb")
-
-[node name="Road7" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -355, 0, 40)
-use_collision = true
-size = Vector3(70, 0.5, 20)
-material = SubResource("StandardMaterial3D_y2yxb")
-
-[node name="Road8" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -475, 0, 40)
-use_collision = true
-size = Vector3(170, 0.5, 20)
-material = SubResource("StandardMaterial3D_y2yxb")
-
-[node name="Road9" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -610, 0, 40)
-use_collision = true
-size = Vector3(100, 0.5, 20)
-material = SubResource("StandardMaterial3D_y2yxb")
 
 [node name="Road13" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -624, 0, -20)
@@ -866,6 +836,12 @@ use_collision = true
 size = Vector3(70, 0.5, 100)
 material = SubResource("StandardMaterial3D_6sl1r")
 
+[node name="Sidewalk17" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 150, 0, -5)
+use_collision = true
+size = Vector3(70, 0.5, 100)
+material = SubResource("StandardMaterial3D_6sl1r")
+
 [node name="Wall" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 51)
 use_collision = true
@@ -1320,26 +1296,95 @@ transform = Transform3D(-40, 0, -1.7484556e-06, 0, 20, 0, 3.4969112e-06, 0, -20,
 shape = SubResource("ConcavePolygonShape3D_ay0lb")
 
 [node name="road-straight2" parent="." instance=ExtResource("9_nmkph")]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 21, 49.816, 0.2, 40.108)
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, 30, 0.2, 40)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="road-straight2/road-straight" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight2/road-straight/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nmkph")
 
-[node name="road-straight4" parent="." instance=ExtResource("9_nmkph")]
-transform = Transform3D(148, 0, 0, 0, 1, 0, 0, 0, 21, -95.184, 0.2, 40.108)
+[node name="road-straight7" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, 90, 0.2, 40)
 
-[node name="road-straight" parent="road-straight4" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0068493485, 0, 0)
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight7/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight7/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
+[node name="road-straight4" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, -50, 0.20000005, 40)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="road-straight4/road-straight" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight4/road-straight/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nmkph")
 
+[node name="road-straight5" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, -110, 0.20000005, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight5/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight5/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
+[node name="road-straight8" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, -218, 0.20000005, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight8/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight8/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
+[node name="road-straight9" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, -278, 0.20000005, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight9/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight9/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
+[node name="road-straight10" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, -338, 0.20000005, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight10/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight10/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
+[node name="road-straight11" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, -398, 0.20000005, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight11/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight11/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
+[node name="road-straight12" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, -458, 0.20000005, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight12/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight12/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
+[node name="road-straight13" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, -518, 0.20000005, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight13/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight13/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
+[node name="road-straight6" parent="." instance=ExtResource("9_nmkph")]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 20, -154, 0.20000005, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-straight6/road-straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-straight6/road-straight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nmkph")
+
 [node name="road-straight3" parent="." instance=ExtResource("9_nmkph")]
-transform = Transform3D(-4.371139e-06, 0, 21, 0, 1, 0, -100, 0, -9.1793913e-07, -10, 0.2, -20)
+transform = Transform3D(-2.6226833e-06, 0, 20, 0, 1, 0, -60, 0, -8.742278e-07, -10, 0.2, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="road-straight3/road-straight" index="0"]
 
@@ -1347,16 +1392,20 @@ transform = Transform3D(-4.371139e-06, 0, 21, 0, 1, 0, -100, 0, -9.1793913e-07, 
 shape = SubResource("ConcavePolygonShape3D_nmkph")
 
 [node name="road-intersection-line2" parent="." instance=ExtResource("10_8wnqf")]
-transform = Transform3D(-20, 0, -3.019916e-06, 0, 20, 0, 3.019916e-06, 0, -20, -10, 0, 40)
-
-[node name="road-intersection-line" parent="road-intersection-line2" index="0"]
-transform = Transform3D(1, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 1, 0, 0, 0)
+transform = Transform3D(-20, 0, -3.019916e-06, 0, 1, 0, 3.019916e-06, 0, -20, -10, 0.2, 40)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="road-intersection-line2/road-intersection-line" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="road-intersection-line2/road-intersection-line/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.047619104)
-shape = SubResource("ConcavePolygonShape3D_87gun")
+shape = SubResource("ConcavePolygonShape3D_8wnqf")
+
+[node name="road-intersection-line3" parent="." instance=ExtResource("10_8wnqf")]
+transform = Transform3D(-20, 0, -3.019916e-06, 0, 1, 0, 3.019916e-06, 0, -20, -178, 0.2, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road-intersection-line3/road-intersection-line" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road-intersection-line3/road-intersection-line/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8wnqf")
 
 [connection signal="pressed" from="WinLossScreen/PauseMenu/PauseMainMenuButton" to="WinLossScreen" method="_on_pause_main_menu_pressed"]
 [connection signal="pressed" from="WinLossScreen/PauseMenu/ControlsButton" to="WinLossScreen" method="_on_controls_pressed"]
@@ -1364,6 +1413,16 @@ shape = SubResource("ConcavePolygonShape3D_87gun")
 
 [editable path="building-s2"]
 [editable path="road-straight2"]
+[editable path="road-straight7"]
 [editable path="road-straight4"]
+[editable path="road-straight5"]
+[editable path="road-straight8"]
+[editable path="road-straight9"]
+[editable path="road-straight10"]
+[editable path="road-straight11"]
+[editable path="road-straight12"]
+[editable path="road-straight13"]
+[editable path="road-straight6"]
 [editable path="road-straight3"]
 [editable path="road-intersection-line2"]
+[editable path="road-intersection-line3"]
