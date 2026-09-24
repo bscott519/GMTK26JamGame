@@ -467,7 +467,3 @@ func heal(amount: int) -> void:
 		return
 	current_health = min(current_health + amount, max_health)
 	health_changed.emit(current_health, max_health)
-
-
-func _on_pause_main_menu_pressed() -> void:
-	pass # Replace with function body.
