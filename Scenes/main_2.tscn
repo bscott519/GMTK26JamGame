@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://s0d73ntjqyfw"]
+[gd_scene load_steps=83 format=4 uid="uid://s0d73ntjqyfw"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_y2yxb"]
 [ext_resource type="PackedScene" uid="uid://cdf4bb85sgflt" path="res://Scenes/mob_associate.tscn" id="3_6sl1r"]
@@ -28,6 +28,12 @@
 [ext_resource type="PackedScene" uid="uid://bilt0mk0wv1u2" path="res://Assets/City Buildings (GLB format)/low-detail-building-a.glb" id="26_axuel"]
 [ext_resource type="PackedScene" uid="uid://c86closv3f660" path="res://Assets/City Buildings (GLB format)/low-detail-building-b.glb" id="27_ncmf3"]
 [ext_resource type="PackedScene" uid="uid://ddms6egf0twnp" path="res://Assets/City Buildings (GLB format)/building-g.glb" id="28_ncmf3"]
+[ext_resource type="PackedScene" uid="uid://bbld3epibk4w" path="res://Assets/City Buildings (GLB format)/building-skyscraper-a.glb" id="29_u5i0y"]
+[ext_resource type="PackedScene" uid="uid://4kev48llhiob" path="res://Assets/City Buildings (GLB format)/low-detail-building-wide-b.glb" id="30_qas6s"]
+[ext_resource type="PackedScene" uid="uid://dsiyreg4tj7uu" path="res://Assets/City Buildings (GLB format)/low-detail-building-k.glb" id="31_37jld"]
+[ext_resource type="PackedScene" uid="uid://b7lmiornhwfgr" path="res://Assets/City Buildings (GLB format)/low-detail-building-wide-a.glb" id="32_37jld"]
+[ext_resource type="PackedScene" uid="uid://d2t8wsobj8y55" path="res://Assets/City Buildings (GLB format)/low-detail-building-d.glb" id="33_0o7lx"]
+[ext_resource type="PackedScene" uid="uid://btd6timx237ad" path="res://Assets/City Buildings (GLB format)/low-detail-building-e.glb" id="34_6y6hv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y2yxb"]
 sky_top_color = Color(0.019607844, 0.03137255, 0.078431375, 1)
@@ -281,7 +287,10 @@ radius = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynf5e"]
 transparency = 1
-albedo_color = Color(0, 0.3764706, 0.9137255, 1)
+albedo_color = Color(1.92523e-07, 0.34057334, 0.8331312, 1)
+emission_enabled = true
+emission = Color(0.03166609, 0.23996133, 0.49143112, 1)
+emission_energy_multiplier = 3.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_ay0lb"]
 material = SubResource("StandardMaterial3D_ynf5e")
@@ -422,93 +431,14 @@ visible = false
 use_collision = true
 size = Vector3(30, 180, 60)
 
-[node name="Warehouse12" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -747.724, 38.7611, 352)
-use_collision = true
-size = Vector3(30, 80, 60)
-
-[node name="Warehouse14" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -747.724, 38.7611, 414)
-use_collision = true
-size = Vector3(30, 80, 60)
-
-[node name="Warehouse17" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -747.724, 38.7611, 646)
-use_collision = true
-size = Vector3(30, 80, 60)
-
-[node name="Warehouse18" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -747.724, 38.7611, 708)
-use_collision = true
-size = Vector3(30, 80, 60)
-
 [node name="Warehouse19" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -747.724, 38.7611, 770)
 use_collision = true
 size = Vector3(30, 80, 60)
 
-[node name="Warehouse23" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -672.724, 31.7611, 759)
-use_collision = true
-size = Vector3(30, 60, 60)
-
-[node name="Warehouse24" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -672.724, 16.7611, 639)
-use_collision = true
-size = Vector3(30, 30, 60)
-
-[node name="Warehouse20" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -747.724, 23.7611, 868)
-use_collision = true
-size = Vector3(30, 50, 60)
-
-[node name="Church" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -656.724, 55.7611, 920.8311)
-use_collision = true
-size = Vector3(60, 110, 150)
-
-[node name="Warehouse15" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -747.724, 26.7611, 476)
-use_collision = true
-size = Vector3(50, 50, 40)
-
-[node name="Warehouse16" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -747.724, 38.7611, 538)
-use_collision = true
-size = Vector3(30, 80, 60)
-
-[node name="Park3" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -611.724, -0.23889923, 1133)
-use_collision = true
-size = Vector3(150, 5, 150)
-
-[node name="Park5" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -611.724, 27.2611, 1059)
-use_collision = true
-size = Vector3(150, 50, 2)
-
-[node name="Park6" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -611.724, 27.2611, 1207)
-use_collision = true
-size = Vector3(150, 50, 2)
-
-[node name="Park7" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -537.724, 27.2611, 1133)
-use_collision = true
-size = Vector3(146, 50, 2)
-
-[node name="Park4" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -611.724, 54.7611, 1133)
-use_collision = true
-size = Vector3(150, 5, 150)
-
-[node name="Warehouse11" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -746.724, 24.7611, 184)
-use_collision = true
-size = Vector3(30, 50, 185)
-
 [node name="Warehouse9" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -672.724, 25.7611, 184)
+visible = false
 use_collision = true
 size = Vector3(30, 50, 185)
 
@@ -726,9 +656,9 @@ size = Vector3(70, 0.5, 426)
 material = SubResource("StandardMaterial3D_vvmd2")
 
 [node name="Sidewalk16" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -61, 0, 85)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 381, 0, 84.999985)
 use_collision = true
-size = Vector3(70, 0.5, 426)
+size = Vector3(70, 0.5, 1310)
 material = SubResource("StandardMaterial3D_per8v")
 
 [node name="Sidewalk5" type="CSGBox3D" parent="."]
@@ -810,9 +740,9 @@ size = Vector3(105, 0.5, 100)
 material = SubResource("StandardMaterial3D_6sl1r")
 
 [node name="Sidewalk17" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 150, 0, -5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 563.5, 0, -5.0000176)
 use_collision = true
-size = Vector3(70, 0.5, 100)
+size = Vector3(70, 0.5, 927)
 material = SubResource("StandardMaterial3D_6sl1r")
 
 [node name="Wall" type="CSGBox3D" parent="."]
@@ -1249,7 +1179,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nmkph")
 text = "Close"
 
 [node name="FinishLine" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -670.16504, 0, 1138)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -670.16504, 0, 1126)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FinishLine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.462433, 3.704359, -2.0420265)
@@ -1293,7 +1223,7 @@ transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, 30, 0.2, 40)
 shape = SubResource("ConcavePolygonShape3D_nmkph")
 
 [node name="road-straight7" parent="." instance=ExtResource("9_nmkph")]
-transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 20, 90, 0.2, 40)
+transform = Transform3D(800, 0, 0, 0, 1, 0, 0, 0, 20, 460, 0.2, 40)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="road-straight7/road-straight" index="0"]
 
@@ -1994,8 +1924,115 @@ transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -
 [node name="CollisionShape3D" type="CollisionShape3D" parent="building-j5/building-j/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_uot50")
 
+[node name="building-j6" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -675, 0, 109)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j6/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j6/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j7" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -675, 0, 151)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j7/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j7/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j8" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -675, 0, 193)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j8/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j8/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j9" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -675, 0, 235)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j9/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j9/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j10" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -741, 0, 109)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j10/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j10/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j11" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -741, 0, 151)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j11/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j11/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j12" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -741, 0, 193)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j12/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j12/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j17" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -736, 0, 895)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j17/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j17/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j18" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -736, 0, 851)
+
+[node name="building-j" parent="building-j18" index="0"]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1, -0.099998474, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j18/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j18/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j13" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -741, 0, 235)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j13/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j13/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j14" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -741, 0, 637)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j14/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j14/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j15" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -741, 0, 679)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j15/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j15/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
+[node name="building-j16" parent="." instance=ExtResource("14_vvmd2")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -741, 0, 721)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-j16/building-j" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-j16/building-j/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uot50")
+
 [node name="building-skyscraper-b2" parent="." instance=ExtResource("15_l0sm3")]
-transform = Transform3D(-1.3113416e-06, 0, 30, 0, 30, 0, -30, 0, -1.3113416e-06, -667, 0, 701)
+transform = Transform3D(-1.3113416e-06, 0, 30, 0, 30, 0, -30, 0, -1.3113416e-06, -677, 0, 701)
 
 [node name="building-skyscraper-c2" parent="." instance=ExtResource("17_go1jf")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -769, 0, 238)
@@ -2009,7 +2046,7 @@ transform = Transform3D(-1.3113416e-06, 0, 30, 0, 30, 0, -30, 0, -1.3113416e-06,
 shape = SubResource("ConcavePolygonShape3D_3p5r5")
 
 [node name="building-skyscraper-e2" parent="." instance=ExtResource("18_1v8r1")]
-transform = Transform3D(-1.3113416e-06, 0, 30, 0, 30, 0, -30, 0, -1.3113416e-06, -671, 0, 535)
+transform = Transform3D(-1.3113416e-06, 0, 30, 0, 30, 0, -30, 0, -1.3113416e-06, -671, 0, 545)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="building-skyscraper-e2/building-skyscraper-e" index="0"]
 
@@ -2090,6 +2127,38 @@ transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -
 [node name="StaticBody3D" type="StaticBody3D" parent="building-l3/building-l" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="building-l3/building-l/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ncmf3")
+
+[node name="building-l5" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -683, 0, -14)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-l5/building-l" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-l5/building-l/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ncmf3")
+
+[node name="building-l6" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -683, 0, -44)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-l6/building-l" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-l6/building-l/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ncmf3")
+
+[node name="building-l7" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(2.3849762e-07, 0, -20, 0, 20, 0, 20, 0, 2.3849762e-07, -649, 0, -17)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-l7/building-l" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-l7/building-l/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ncmf3")
+
+[node name="building-l8" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(2.3849762e-07, 0, -20, 0, 20, 0, 20, 0, 2.3849762e-07, -649, 0, -47)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building-l8/building-l" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-l8/building-l/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ncmf3")
 
 [node name="building-i2" parent="." instance=ExtResource("23_3p5r5")]
@@ -2620,15 +2689,6 @@ mesh = SubResource("ArrayMesh_l3237")
 [node name="StaticBody3D" type="StaticBody3D" parent="building-k62/building-k" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="building-k62/building-k/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_qas6s")
-
-[node name="building-k2" type="MeshInstance3D" parent="building-k62"]
-mesh = SubResource("ArrayMesh_l3237")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="building-k62/building-k2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building-k62/building-k2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qas6s")
 
 [node name="building-k63" parent="." instance=ExtResource("13_per8v")]
@@ -3246,14 +3306,101 @@ shape = SubResource("ConcavePolygonShape3D_qas6s")
 [node name="building-l4" parent="." instance=ExtResource("21_n5n48")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -632, 0, 65)
 
+[node name="building-l13" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1197)
+
+[node name="building-l14" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1167)
+
+[node name="building-l15" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1138)
+
+[node name="building-l16" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1108)
+
+[node name="building-l17" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1079)
+
+[node name="building-l18" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1049)
+
+[node name="building-l9" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -671, 0, 65)
+
+[node name="building-l10" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -675, 0, 271)
+
+[node name="building-l12" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -683, 0, 587)
+
+[node name="building-l11" parent="." instance=ExtResource("21_n5n48")]
+transform = Transform3D(2.3849762e-07, 0, -20, 0, 20, 0, 20, 0, 2.3849762e-07, -739, 0, 271)
+
 [node name="low-detail-building-a2" parent="." instance=ExtResource("26_axuel")]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -767, 0, 137)
 
 [node name="low-detail-building-b2" parent="." instance=ExtResource("27_ncmf3")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -651, 0, 12)
 
+[node name="low-detail-building-b3" parent="." instance=ExtResource("27_ncmf3")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -662, 0, 914)
+
 [node name="building-g2" parent="." instance=ExtResource("28_ncmf3")]
 transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -686, 0, 14)
+
+[node name="building-skyscraper-c3" parent="." instance=ExtResource("17_go1jf")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -743, 0, 334)
+
+[node name="building-skyscraper-a2" parent="." instance=ExtResource("29_u5i0y")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -746, 0, 364)
+
+[node name="building-skyscraper-c4" parent="." instance=ExtResource("17_go1jf")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -743, 0, 394)
+
+[node name="building-skyscraper-a3" parent="." instance=ExtResource("29_u5i0y")]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -746, 0, 424)
+
+[node name="building-skyscraper-c5" parent="." instance=ExtResource("17_go1jf")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -674, 0, 381)
+
+[node name="building-skyscraper-a4" parent="." instance=ExtResource("29_u5i0y")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -677, 0, 411)
+
+[node name="building-skyscraper-c6" parent="." instance=ExtResource("17_go1jf")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -674, 0, 441)
+
+[node name="building-skyscraper-a5" parent="." instance=ExtResource("29_u5i0y")]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -677, 0, 471)
+
+[node name="low-detail-building-wide-b2" parent="." instance=ExtResource("30_qas6s")]
+transform = Transform3D(-2.1855694e-06, 0, 50, 0, 50, 0, -50, 0, -2.1855694e-06, -733, 0, 470)
+
+[node name="low-detail-building-wide-b3" parent="." instance=ExtResource("30_qas6s")]
+transform = Transform3D(-2.4041265e-06, 0, 55, 0, 55, 0, -55, 0, -2.4041265e-06, -684, 0, 639)
+
+[node name="low-detail-building-wide-b4" parent="." instance=ExtResource("30_qas6s")]
+transform = Transform3D(-6.5567083e-06, 0, 100, 0, 60, 0, -150, 0, -4.371139e-06, -666, 0, 1118)
+
+[node name="low-detail-building-k2" parent="." instance=ExtResource("31_37jld")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -677, 0, 504)
+
+[node name="low-detail-building-wide-a2" parent="." instance=ExtResource("32_37jld")]
+transform = Transform3D(-3.059797e-06, 0, 70, 0, 70, 0, -70, 0, -3.059797e-06, -739, 0, 539)
+
+[node name="low-detail-building-wide-a4" parent="." instance=ExtResource("32_37jld")]
+transform = Transform3D(-5.2453665e-06, 0, 100, 0, 50, 0, -120, 0, -4.371139e-06, -669, 0, 917)
+
+[node name="low-detail-building-wide-a3" parent="." instance=ExtResource("32_37jld")]
+transform = Transform3D(-2.6226833e-06, 0, 60, 0, 60, 0, -60, 0, -2.6226833e-06, -683, 0, 760)
+
+[node name="low-detail-building-d2" parent="." instance=ExtResource("33_0o7lx")]
+transform = Transform3D(-1.7484556e-06, 0, -40, 0, 40, 0, 40, 0, -1.7484556e-06, -680, 0, 851)
+
+[node name="low-detail-building-d3" parent="." instance=ExtResource("33_0o7lx")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -680, 0, 983)
+
+[node name="low-detail-building-e2" parent="." instance=ExtResource("34_6y6hv")]
+transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, -736, 0, 935)
 
 [connection signal="pressed" from="WinLossScreen/PauseMenu/PauseMainMenuButton" to="WinLossScreen" method="_on_pause_main_menu_pressed"]
 [connection signal="pressed" from="WinLossScreen/PauseMenu/ControlsButton" to="WinLossScreen" method="_on_controls_pressed"]
@@ -3349,6 +3496,19 @@ transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -
 [editable path="building-j3"]
 [editable path="building-j4"]
 [editable path="building-j5"]
+[editable path="building-j6"]
+[editable path="building-j7"]
+[editable path="building-j8"]
+[editable path="building-j9"]
+[editable path="building-j10"]
+[editable path="building-j11"]
+[editable path="building-j12"]
+[editable path="building-j17"]
+[editable path="building-j18"]
+[editable path="building-j13"]
+[editable path="building-j14"]
+[editable path="building-j15"]
+[editable path="building-j16"]
 [editable path="building-skyscraper-d2"]
 [editable path="building-skyscraper-e2"]
 [editable path="building-skyscraper-e3"]
@@ -3360,6 +3520,10 @@ transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -
 [editable path="building-k9"]
 [editable path="building-l2"]
 [editable path="building-l3"]
+[editable path="building-l5"]
+[editable path="building-l6"]
+[editable path="building-l7"]
+[editable path="building-l8"]
 [editable path="building-i2"]
 [editable path="building-i3"]
 [editable path="building-d2"]
