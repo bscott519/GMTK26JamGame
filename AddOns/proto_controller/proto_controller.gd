@@ -37,6 +37,7 @@ var current_health: int
 @export var hip_height: float = -0.4
 @export var shoulder_height: float = 0.5
 @export var combo_reset_time: float = 0.8
+@export var hitstop_duration: float = 0.08
 
 var combo_index: int = 0
 var _combo_reset_timer: float = 0.0
@@ -68,6 +69,7 @@ var next_shot_is_left: bool = false
 @onready var jump_sfx: AudioStreamPlayer = $JumpSFX
 @export var impact_effect_scene: PackedScene
 @onready var baton_axe: MeshInstance3D = $Head/RightHand/BatonAxe
+@export var blood_splatter_scene: PackedScene
 
 var mouse_captured: bool = true
 var look_rotation: Vector2
@@ -367,7 +369,7 @@ func _apply_knockback(body: Node3D) -> void:
 	dir.y = 0.0
 	dir = dir.normalized()
 	var impulse := dir * punch_knockback_force + Vector3.UP * punch_knockback_upward
- 
+
 	if body.has_method("take_dmg"):
 		body.take_dmg(punch_damage, impulse)
 	elif body.has_method("apply_knockback"):
@@ -376,6 +378,17 @@ func _apply_knockback(body: Node3D) -> void:
 		body.apply_central_impulse(impulse)
 	elif body is CharacterBody3D:
 		body.velocity += impulse
+
+	if blood_splatter_scene:
+		var splatter := blood_splatter_scene.instantiate()
+		get_tree().current_scene.add_child.call_deferred(splatter)
+		splatter.global_position = body.global_position
+
+	Engine.time_scale = 0.05
+	get_tree().create_timer(hitstop_duration, true, false, true).timeout.connect(func():
+		Engine.time_scale = 1.0
+	)
+	apply_screen_shake(0.08)
 		
 func _swing_melee_weapon() -> void:
 	if not baton_axe:
