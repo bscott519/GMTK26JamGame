@@ -96,8 +96,6 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
-	base_scale = mesh.scale
-	target_scale = base_scale
 	_setup_grapple_line()
 	_weapon_rest_position = baton_axe.position
  
@@ -380,6 +378,7 @@ func _apply_knockback(body: Node3D) -> void:
 		body.velocity += impulse
 
 	if blood_splatter_scene:
+		print("blood_splatter_scene = ", blood_splatter_scene)
 		var splatter := blood_splatter_scene.instantiate()
 		get_tree().current_scene.add_child.call_deferred(splatter)
 		splatter.global_position = body.global_position

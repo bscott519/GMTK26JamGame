@@ -17,6 +17,7 @@ albedo_color = Color(0.54509807, 0, 0, 1)
 material = SubResource("StandardMaterial3D_ww3pp")
 
 [node name="BloodSplatterEffect" type="GPUParticles3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 emitting = false
 lifetime = 0.05
 one_shot = true

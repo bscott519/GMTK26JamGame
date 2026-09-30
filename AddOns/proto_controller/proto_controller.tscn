@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=18 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
@@ -6,16 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://bfwuobcdhyb6b" path="res://Sounds/350906__cabled_mess__jump_c_04.wav" id="2_wr06p"]
 [ext_resource type="Shader" uid="uid://dq4rbs3lt7h1p" path="res://addons/proto_controller/proto_controller.gdshader" id="3_5hfox"]
 [ext_resource type="PackedScene" uid="uid://rekp6j1f8m4c" path="res://Scenes/blood_splatter_effect.tscn" id="3_ujot4"]
+[ext_resource type="PackedScene" uid="uid://d3gf7iq5kqy5r" path="res://Assets/Idle.fbx" id="4_1tksx"]
 [ext_resource type="Script" uid="uid://ckpu6iuyedi0l" path="res://addons/proto_controller/health_bar.gd" id="6_h60nn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.4
-height = 1.8
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
-albedo_color = Color(0, 0.24705882, 0.9372549, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
 radius = 0.4
 height = 1.8
 
@@ -67,12 +61,8 @@ blood_splatter_scene = ExtResource("3_ujot4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_iof21")
-transparency = 0.12
-cast_shadow = 0
-mesh = SubResource("CapsuleMesh_ucva2")
+[node name="Idle" parent="." instance=ExtResource("4_1tksx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
@@ -81,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0.856959, 0.6444912, 2.3642058)
 
 [node name="RightHand" type="Marker3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332, -0.688, -0.589)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7042017, -0.54883313, 0.28107786)
 
 [node name="Pistol" type="MeshInstance3D" parent="Head/RightHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03622845, 0, -0.16444772)
@@ -151,3 +141,5 @@ max_value = 150.0
 value = 150.0
 show_percentage = false
 script = ExtResource("6_h60nn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
