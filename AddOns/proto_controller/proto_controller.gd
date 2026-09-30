@@ -68,9 +68,14 @@ var next_shot_is_left: bool = false
 @onready var punch_area: Area3D = $PunchArea
 @onready var jump_sfx: AudioStreamPlayer = $JumpSFX
 @export var impact_effect_scene: PackedScene
-@onready var baton_axe: MeshInstance3D = $Head/RightHand/BatonAxe
+@onready var sword: MeshInstance3D = $Head/RightHand/Sword
 @export var blood_splatter_scene: PackedScene
-@onready var animation_player: AnimationPlayer = $Idle/AnimationPlayer
+@onready var idle_model: Node3D = $Idle
+@onready var idle_animation_player: AnimationPlayer = $Idle/AnimationPlayer
+@onready var jumping_model: Node3D = $Jumping
+@onready var jump_animation_player: AnimationPlayer = $Jumping/AnimationPlayer
+@onready var run_model: Node3D = $Running
+@onready var run_animation_player: AnimationPlayer = $Running/AnimationPlayer
 
 var mouse_captured: bool = true
 var look_rotation: Vector2
@@ -83,7 +88,8 @@ var grapple_target: Vector3
  
 var can_punch: bool = true
 var _punch_arm_active: bool = false
- 
+
+var is_jumping: bool = false 
 var _jump_requested: bool = false
 var _grapple_requested: bool = false
 
@@ -98,9 +104,9 @@ func _ready() -> void:
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 	_setup_grapple_line()
-	_weapon_rest_position = baton_axe.position
-	print("char_anim_player = ",animation_player)
-	animation_player.play("mixamo_com")
+	_weapon_rest_position = sword.position
+	print("char_anim_player = ", idle_animation_player)
+	idle_animation_player.play("mixamo_com")
  
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and mouse_captured:
@@ -130,7 +136,29 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif not is_holding_gun:
 				_try_punch()
 				
- 
+
+var current_char_state: String = ""
+
+func _update_character_animation() -> void:
+	var new_state := "idle"
+	if is_jumping:
+		new_state = "jump"
+	elif velocity.length() > 0.5:
+		new_state = "running"
+
+	if new_state == current_char_state:
+		return
+	current_char_state = new_state
+
+	idle_model.visible = new_state == "idle"
+	run_model.visible = new_state == "running"
+	jumping_model.visible = new_state == "jump"
+
+	match new_state:
+		"idle": idle_animation_player.play("mixamo_com")
+		"running": run_animation_player.play("mixamo_com")
+		"jump": jump_animation_player.play("mixamo_com")
+
 func _physics_process(delta: float) -> void:
 	if _grapple_requested and not is_grappling:
 		_try_start_grapple()
@@ -146,11 +174,15 @@ func _physics_process(delta: float) -> void:
 				velocity += get_gravity() * fall_gravity_multiplier * delta
 			else:
 				velocity += get_gravity() * gravity_multiplier * delta
- 
+ 		
+		if is_jumping and is_on_floor():
+			is_jumping = false
+		
 		if _jump_requested and is_on_floor():
 			velocity.y = jump_velocity
 			jump_sfx.play()
- 
+			is_jumping = true
+			
 		var move := Vector2.ZERO
 		if Input.is_physical_key_pressed(KEY_W): move.y -= 1
 		if Input.is_physical_key_pressed(KEY_S): move.y += 1
@@ -170,7 +202,8 @@ func _physics_process(delta: float) -> void:
  
 	var was_on_floor := is_on_floor()
 	move_and_slide()
- 
+	
+	_update_character_animation()
 	_update_grapple_line()
  
 	if target_scale != base_scale and mesh.scale.distance_to(target_scale) < 0.02:
@@ -180,9 +213,9 @@ func _physics_process(delta: float) -> void:
 		_combo_reset_timer -= delta
 		if _combo_reset_timer <= 0.0:
 			combo_index = 0
-			if baton_axe and (not _current_swing_tween or not _current_swing_tween.is_valid()):
-				baton_axe.position = _weapon_rest_position
-				baton_axe.rotation = Vector3.ZERO
+			if sword and (not _current_swing_tween or not _current_swing_tween.is_valid()):
+				sword.position = _weapon_rest_position
+				sword.rotation = Vector3.ZERO
  
 func _try_roll() -> void:
 	if not can_roll or is_rolling or is_grappling:
@@ -393,7 +426,7 @@ func _apply_knockback(body: Node3D) -> void:
 	apply_screen_shake(0.08)
 		
 func _swing_melee_weapon() -> void:
-	if not baton_axe:
+	if not sword:
 		return
 
 	if _current_swing_tween and _current_swing_tween.is_valid():
@@ -426,23 +459,23 @@ func _swing_melee_weapon() -> void:
 			start_rot_z = deg_to_rad(-20)
 			end_rot_z = deg_to_rad(20)
 
-	var start_rotation := baton_axe.rotation
+	var start_rotation := sword.rotation
 	start_rotation.z = start_rot_z
-	var end_rotation := baton_axe.rotation
+	var end_rotation := sword.rotation
 	end_rotation.z = end_rot_z
 
 	var tween := create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(baton_axe, "position", start_pos, swing_duration * 0.15)
-	tween.tween_property(baton_axe, "rotation", start_rotation, swing_duration * 0.15)
+	tween.tween_property(sword, "position", start_pos, swing_duration * 0.15)
+	tween.tween_property(sword, "rotation", start_rotation, swing_duration * 0.15)
 
 	tween.chain().set_parallel(true)
-	tween.tween_property(baton_axe, "position", end_pos, swing_duration * 0.5)
-	tween.tween_property(baton_axe, "rotation", end_rotation, swing_duration * 0.5)
+	tween.tween_property(sword, "position", end_pos, swing_duration * 0.5)
+	tween.tween_property(sword, "rotation", end_rotation, swing_duration * 0.5)
 
 	tween.chain().set_parallel(true)
-	tween.tween_property(baton_axe, "position", rest_position, swing_duration * 0.35)
-	tween.tween_property(baton_axe, "rotation", baton_axe.rotation, swing_duration * 0.35)
+	tween.tween_property(sword, "position", rest_position, swing_duration * 0.35)
+	tween.tween_property(sword, "rotation", sword.rotation, swing_duration * 0.35)
 
 	_current_swing_tween = tween
 	combo_index = (combo_index + 1) % 3
@@ -450,8 +483,8 @@ func _swing_melee_weapon() -> void:
 
 func _equip_weapon() -> void:
 	is_holding_gun = false
-	if baton_axe:
-		baton_axe.visible = true
+	if sword:
+		sword.visible = true
 	if pistol:
 		pistol.visible = false
 	if pistol_2:
@@ -463,8 +496,8 @@ func _equip_gun() -> void:
 		pistol.visible = true
 	if pistol_2:
 		pistol_2.visible = true
-	if baton_axe:
-		baton_axe.visible = false
+	if sword:
+		sword.visible = false
 
 func take_damage(amount: int) -> void:
 	if is_invincible:
