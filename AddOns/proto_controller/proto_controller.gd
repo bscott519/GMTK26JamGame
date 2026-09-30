@@ -51,6 +51,7 @@ var is_holding_gun : bool = false
 @onready var pistol_2: MeshInstance3D = $Head/LeftHand/Pistol2
 var next_shot_is_left: bool = false
 
+
 @export_group("Roll")
 @export var roll_speed: float = 18.0
 @export var roll_duration: float = 0.25
@@ -67,6 +68,8 @@ var next_shot_is_left: bool = false
 @onready var grapple_line: MeshInstance3D = $StretchedArm
 @onready var punch_area: Area3D = $PunchArea
 @onready var jump_sfx: AudioStreamPlayer = $JumpSFX
+@onready var gun_sfx: AudioStreamPlayer = $GunSFX
+@onready var sword_sfx: AudioStreamPlayer = $SwordSFX
 @export var impact_effect_scene: PackedScene
 @onready var sword: MeshInstance3D = $Head/RightHand/Sword
 @export var blood_splatter_scene: PackedScene
@@ -261,7 +264,8 @@ func rotate_look(rot_input: Vector2) -> void:
 
 func shoot_gun():
 	current_gun_ammo -= 1
-
+	gun_sfx.play()
+	
 	var flash_path := "Head/LeftHand/Pistol2/MuzzleFlash" if next_shot_is_left else "Head/RightHand/Pistol/MuzzleFlash"
 	var flash = get_node_or_null(flash_path)
 	print("Looking for: ", flash_path, " | found: ", flash)
@@ -413,6 +417,8 @@ func _apply_knockback(body: Node3D) -> void:
 	elif body is CharacterBody3D:
 		body.velocity += impulse
 
+	sword_sfx.play()
+	
 	if blood_splatter_scene:
 		print("blood_splatter_scene = ", blood_splatter_scene)
 		var splatter := blood_splatter_scene.instantiate()

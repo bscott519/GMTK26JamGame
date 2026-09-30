@@ -1804,6 +1804,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone"]
+visible = false
 
 [node name="EnemyZone2" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163, 3, 41)
@@ -1814,6 +1815,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone2"]
+visible = false
 
 [node name="EnemyZone3" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244, 3, 41)
@@ -1824,6 +1826,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone3"]
+visible = false
 
 [node name="EnemyZone4" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -347, 3, 41)
@@ -1834,6 +1837,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone4"]
+visible = false
 
 [node name="EnemyZone5" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -446, 3, 41)
@@ -1844,6 +1848,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone5"]
+visible = false
 
 [node name="EnemyZone6" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -571, 3, 41)
@@ -1854,6 +1859,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone6"]
+visible = false
 
 [node name="EnemyZone7" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 41)
@@ -1864,6 +1870,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone7"]
+visible = false
 
 [node name="EnemyZone8" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 137)
@@ -1874,6 +1881,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone8"]
+visible = false
 
 [node name="EnemyZone9" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 294)
@@ -1884,6 +1892,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone9"]
+visible = false
 
 [node name="EnemyZone10" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 379)
@@ -1894,6 +1903,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone10"]
+visible = false
 
 [node name="EnemyZone11" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 574)
@@ -1904,6 +1914,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone11"]
+visible = false
 
 [node name="EnemyZone12" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 718)
@@ -1914,6 +1925,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone12"]
+visible = false
 
 [node name="EnemyZone13" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 818)
@@ -1924,6 +1936,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone13"]
+visible = false
 
 [node name="EnemyZone14" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 947)
@@ -1934,6 +1947,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone14"]
+visible = false
 
 [node name="EnemyZone15" type="Marker3D" parent="." groups=["EnemyZone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709, 3, 1098)
@@ -1944,6 +1958,7 @@ ranged_scene = ExtResource("5_5lrfp")
 use_weighted_mix = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnemyZone15"]
+visible = false
 
 [node name="Countdown" parent="." instance=ExtResource("7_djkp1")]
 

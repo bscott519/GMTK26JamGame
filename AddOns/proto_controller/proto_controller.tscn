@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=24 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://ckpu6iuyedi0l" path="res://addons/proto_controller/health_bar.gd" id="6_h60nn"]
 [ext_resource type="PackedScene" uid="uid://phfm2eeidrcl" path="res://Assets/Jumping (1).fbx" id="6_ue3g7"]
 [ext_resource type="PackedScene" uid="uid://ujvmmi62qp8r" path="res://Assets/Standard Run (1).fbx" id="7_ue3g7"]
+[ext_resource type="AudioStream" uid="uid://37poe23tktee" path="res://Sounds/392229__morganpurkis__single-pistol-gunshot-33.wav" id="9_q1ipm"]
+[ext_resource type="AudioStream" uid="uid://bgshc67anlcb6" path="res://Sounds/SwordHit.wav" id="10_ue3g7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -576,7 +578,15 @@ shape = SubResource("CapsuleShape3D_h60nn")
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wr06p")
-volume_db = -12.881
+volume_db = 5.0
+
+[node name="GunSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_q1ipm")
+volume_db = -10.0
+
+[node name="SwordSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ue3g7")
+volume_db = -1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

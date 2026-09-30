@@ -11,6 +11,7 @@ extends CharacterBody3D
 @export_group("Shooting")
 @export var bullet_scene: PackedScene
 @export var shoot_cooldown: float = 2.5
+@onready var gun_sfx: AudioStreamPlayer = $GunSFX
  
 @onready var gun_muzzle: Marker3D = $Gun/GunMuzzle
  
@@ -117,3 +118,5 @@ func _shoot() -> void:
 	bullet.position = spawn_pos
 	if bullet.has_method("launch"):
 		bullet.call_deferred("launch", target_dir, self)
+	
+	gun_sfx.play()
