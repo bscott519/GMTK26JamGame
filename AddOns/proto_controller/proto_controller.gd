@@ -70,6 +70,7 @@ var next_shot_is_left: bool = false
 @export var impact_effect_scene: PackedScene
 @onready var baton_axe: MeshInstance3D = $Head/RightHand/BatonAxe
 @export var blood_splatter_scene: PackedScene
+@onready var animation_player: AnimationPlayer = $Idle/AnimationPlayer
 
 var mouse_captured: bool = true
 var look_rotation: Vector2
@@ -98,6 +99,8 @@ func _ready() -> void:
 	look_rotation.x = head.rotation.x
 	_setup_grapple_line()
 	_weapon_rest_position = baton_axe.position
+	print("char_anim_player = ",animation_player)
+	animation_player.play("mixamo_com")
  
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and mouse_captured:
