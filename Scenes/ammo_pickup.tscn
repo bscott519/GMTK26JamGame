@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://kpvbqmkjnfah"]
+
+[ext_resource type="Script" uid="uid://d1ousjrs3brb0" path="res://Scripts/pickup.gd" id="1_suvf0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_suvf0"]
+size = Vector3(0.2, 0.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suvf0"]
+albedo_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3c0c"]
+material = SubResource("StandardMaterial3D_suvf0")
+size = Vector3(0.2, 0.4, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3c0c"]
+albedo_color = Color(0.7411765, 0.7372549, 0, 1)
+emission_enabled = true
+emission = Color(0.7411765, 0.7372549, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_suvf0"]
+material = SubResource("StandardMaterial3D_d3c0c")
+radius = 0.03
+height = 0.2
+
+[node name="AmmoPickup" type="Area3D"]
+script = ExtResource("1_suvf0")
+pickup_type = 1
+amount = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_suvf0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_d3c0c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.19591704, 0)
+mesh = SubResource("CapsuleMesh_suvf0")

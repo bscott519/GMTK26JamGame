@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy3nr58mat3vk"]
+[gd_scene load_steps=13 format=3 uid="uid://cy3nr58mat3vk"]
 
 [ext_resource type="Script" uid="uid://roensbqeapbx" path="res://Scripts/armed_mobster.gd" id="1_bxl17"]
 [ext_resource type="PackedScene" uid="uid://ca03vvy65ydj8" path="res://Scenes/bullet.tscn" id="2_sj71h"]
 [ext_resource type="AudioStream" uid="uid://37poe23tktee" path="res://Sounds/392229__morganpurkis__single-pistol-gunshot-33.wav" id="3_51fsp"]
+[ext_resource type="PackedScene" uid="uid://kpvbqmkjnfah" path="res://Scenes/ammo_pickup.tscn" id="3_w71h8"]
+[ext_resource type="PackedScene" uid="uid://c3um7fopq3k71" path="res://Scenes/health_pickup.tscn" id="4_thpj6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3h60"]
 albedo_color = Color(0.5560883, 0, 0.14403817, 1)
@@ -32,6 +34,8 @@ size = Vector3(0.2, 0.1, 0.4)
 [node name="armed_mobster" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_bxl17")
 bullet_scene = ExtResource("2_sj71h")
+ammo_pickup_scene = ExtResource("3_w71h8")
+health_pickup_scene = ExtResource("4_thpj6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_mdm8w")

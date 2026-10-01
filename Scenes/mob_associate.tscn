@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdf4bb85sgflt"]
+[gd_scene load_steps=9 format=3 uid="uid://cdf4bb85sgflt"]
 
 [ext_resource type="Script" uid="uid://dkcjtlf7s7742" path="res://Scripts/alien.gd" id="1_mdm8w"]
+[ext_resource type="PackedScene" uid="uid://c3um7fopq3k71" path="res://Scenes/health_pickup.tscn" id="2_vq0oy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3h60"]
 albedo_color = Color(1, 0.3541287, 0.41598913, 1)
@@ -29,6 +30,8 @@ knockback_stun_duration = 1.0
 attack_windup_time = 0.7
 attack_range = 3.5
 lunge_speed = 12.0
+health_pickup_scene = ExtResource("2_vq0oy")
+health_drop_chance = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_mdm8w")

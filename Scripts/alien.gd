@@ -17,7 +17,11 @@ enum State { CHASE, LUNGE, RETREAT, WINDUP }
 @export var lunge_duration: float = 0.3     # how long the lunge (and hurtbox) lasts
 @export var retreat_speed: float = 4.0
 @export var retreat_duration: float = 1.5   # how long it backs off before chasing again
- 
+
+@export_group("Drops")
+@export var health_pickup_scene: PackedScene
+@export_range(0.0, 1.0) var health_drop_chance: float = 0.15
+
 var cur_health: int
 var player: Node3D
 var stun_timer: float = 0.0
@@ -45,11 +49,18 @@ func take_dmg(amount: int, knockback: Vector3) -> void:
  
 func die() -> void:
 	is_dying = true
+	if health_pickup_scene and randf() < health_drop_chance:
+		spawn_drop(health_pickup_scene, Vector3.ZERO)
 	_release_attack_slot()
 	hit_area.set_deferred("monitoring", false)
 	await get_tree().create_timer(death_delay).timeout
 	queue_free()
  
+func spawn_drop(scene: PackedScene, offset: Vector3) -> void:
+	var drop := scene.instantiate()
+	drop.position = global_position + offset + Vector3(0, 0.5, 0)
+	get_tree().current_scene.add_child.call_deferred(drop)
+
 func apply_knockback(impulse: Vector3) -> void:
 	if is_dying:
 		return

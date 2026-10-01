@@ -12,6 +12,11 @@ extends CharacterBody3D
 @export var bullet_scene: PackedScene
 @export var shoot_cooldown: float = 2.5
 @onready var gun_sfx: AudioStreamPlayer = $GunSFX
+
+@export_group("Drops")
+@export var ammo_pickup_scene: PackedScene
+@export var health_pickup_scene: PackedScene
+@export_range(0.0, 1.0) var health_drop_chance: float = 0.15
  
 @onready var gun_muzzle: Marker3D = $Gun/GunMuzzle
  
@@ -36,9 +41,18 @@ func take_dmg(amount: int, knockback: Vector3) -> void:
  
 func die() -> void:
 	is_dying = true
+	if ammo_pickup_scene:
+		spawn_drop(ammo_pickup_scene, Vector3.ZERO)
+	if health_pickup_scene and randf() < health_drop_chance:
+		spawn_drop(health_pickup_scene, Vector3(0.8, 0, 0))
 	await get_tree().create_timer(death_delay).timeout
 	queue_free()
  
+func spawn_drop(scene: PackedScene, offset: Vector3) -> void:
+	var drop := scene.instantiate()
+	drop.position = global_position + offset + Vector3(0, 0.5, 0)
+	get_tree().current_scene.add_child.call_deferred(drop)
+
 func apply_knockback(impulse: Vector3) -> void:
 	if is_dying:
 		return

@@ -45,7 +45,8 @@ var _weapon_rest_position: Vector3
 var _current_swing_tween: Tween
 
 @export_group("Firearm Settings")
-var current_gun_ammo : int = 100
+var current_gun_ammo : int = 20
+@export var max_gun_ammo: int = 60
 var is_holding_gun : bool = false
 @onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
 @onready var pistol_2: MeshInstance3D = $Head/LeftHand/Pistol2
@@ -521,3 +522,6 @@ func heal(amount: int) -> void:
 		return
 	current_health = min(current_health + amount, max_health)
 	health_changed.emit(current_health, max_health)
+
+func add_ammo(amount: int) -> void:
+	current_gun_ammo = min(current_gun_ammo + amount, max_gun_ammo)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=4 uid="uid://s0d73ntjqyfw"]
+[gd_scene load_steps=129 format=4 uid="uid://s0d73ntjqyfw"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_y2yxb"]
 [ext_resource type="PackedScene" uid="uid://cdf4bb85sgflt" path="res://Scenes/mob_associate.tscn" id="3_6sl1r"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://bbqhjsxskc7y8" path="res://Assets/City Buildings (GLB format)/building-e.glb" id="35_ee1k8"]
 [ext_resource type="PackedScene" uid="uid://d37hnsgrq210e" path="res://Assets/City Buildings (GLB format)/low-detail-building-g.glb" id="36_76u2v"]
 [ext_resource type="PackedScene" uid="uid://c3um7fopq3k71" path="res://Scenes/health_pickup.tscn" id="38_630qq"]
+[ext_resource type="PackedScene" uid="uid://kpvbqmkjnfah" path="res://Scenes/ammo_pickup.tscn" id="39_gaafq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y2yxb"]
 sky_top_color = Color(0.019607844, 0.03137255, 0.078431375, 1)
@@ -4601,6 +4602,9 @@ omni_range = 15.0
 
 [node name="HealthPickup" parent="." instance=ExtResource("38_630qq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 4)
+
+[node name="AmmoPickup" parent="." instance=ExtResource("39_gaafq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1059537, 0.9963269, 3.917057)
 
 [connection signal="pressed" from="WinLossScreen/PauseMenu/PauseMainMenuButton" to="WinLossScreen" method="_on_pause_main_menu_pressed"]
 [connection signal="pressed" from="WinLossScreen/PauseMenu/ControlsButton" to="WinLossScreen" method="_on_controls_pressed"]
