@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm1rfomgg1egb"
 path.s3tc="res://.godot/imported/Maria WProp J J Ong_2.png-c6a69ba6c988dc6f30ff2630dbd29977.s3tc.ctex"
+path.etc2="res://.godot/imported/Maria WProp J J Ong_2.png-c6a69ba6c988dc6f30ff2630dbd29977.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Maria WProp J J Ong_2.png"
-dest_files=["res://.godot/imported/Maria WProp J J Ong_2.png-c6a69ba6c988dc6f30ff2630dbd29977.s3tc.ctex"]
+dest_files=["res://.godot/imported/Maria WProp J J Ong_2.png-c6a69ba6c988dc6f30ff2630dbd29977.s3tc.ctex", "res://.godot/imported/Maria WProp J J Ong_2.png-c6a69ba6c988dc6f30ff2630dbd29977.etc2.ctex"]
 
 [params]
 
