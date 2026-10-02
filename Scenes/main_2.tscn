@@ -533,7 +533,7 @@ shadow_enabled = true
 environment = SubResource("Environment_6sl1r")
 
 [node name="ProtoController" parent="." instance=ExtResource("1_y2yxb")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -725.824, 0.25, 61.939873)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.176025, 0.25, -0.9182739)
 
 [node name="alien" parent="." instance=ExtResource("3_6sl1r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.193152, 1.15, -2.2833567)
@@ -1104,6 +1104,15 @@ light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
+[node name="light-curved158" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 70)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved158"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
 [node name="light-curved107" parent="." instance=ExtResource("4_wy0uv")]
 transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 22)
 
@@ -1545,6 +1554,24 @@ light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
+[node name="light-curved108" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 324)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved108"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved109" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 324)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved109"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
 [node name="light-curved72" parent="." instance=ExtResource("4_wy0uv")]
 transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 336)
 
@@ -1617,10 +1644,64 @@ light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
+[node name="light-curved110" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 410)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved110"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved111" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 410)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved111"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
 [node name="light-curved76" parent="." instance=ExtResource("4_wy0uv")]
-transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 451)
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 438)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="light-curved76"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved113" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 438)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved113"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved112" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 451)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved112"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved114" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 466)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved114"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved115" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 466)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved115"]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
@@ -1630,6 +1711,24 @@ omni_range = 15.0
 transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 481)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="light-curved77"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved116" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 497)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved116"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved117" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 497)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved117"]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
@@ -1653,6 +1752,42 @@ light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
+[node name="light-curved120" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 552)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved120"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved121" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 552)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved121"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved118" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 526)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved118"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved119" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 526)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved119"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
 [node name="light-curved80" parent="." instance=ExtResource("4_wy0uv")]
 transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 562)
 
@@ -1662,10 +1797,28 @@ light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
+[node name="light-curved122" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 577)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved122"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
 [node name="light-curved81" parent="." instance=ExtResource("4_wy0uv")]
-transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 592)
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 609)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="light-curved81"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved125" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 609)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved125"]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
@@ -1680,10 +1833,64 @@ light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
+[node name="light-curved123" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 639)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved123"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved124" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 639)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved124"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
 [node name="light-curved83" parent="." instance=ExtResource("4_wy0uv")]
 transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 654)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="light-curved83"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved126" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 672)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved126"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved127" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 672)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved127"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved128" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 699)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved128"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved129" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 699)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved129"]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
@@ -1711,6 +1918,132 @@ omni_range = 15.0
 transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 731)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="light-curved86"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved130" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 745)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved130"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved131" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 745)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved131"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved132" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 794)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved132"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved133" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 794)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved133"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved134" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 845)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved134"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved135" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 845)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved135"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved136" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 897)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved136"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved137" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 897)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved137"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved138" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 926)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved138"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved139" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 926)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved139"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved140" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 956)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved140"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved141" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 956)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved141"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved142" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 987)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved142"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved143" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 987)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved143"]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
@@ -1828,6 +2161,132 @@ omni_range = 15.0
 transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 1086)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="light-curved99"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved144" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 1103)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved144"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved145" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 1103)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved145"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved146" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 1132)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved146"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved147" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 1132)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved147"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved154" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 1165)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved154"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved155" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 1165)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved155"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved156" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 1194)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved156"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved157" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 1194)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved157"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved148" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 1069)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved148"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved149" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 1069)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved149"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved150" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 1045)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved150"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved151" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 1045)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved151"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved152" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -699, 0, 1116)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved152"]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="light-curved153" parent="." instance=ExtResource("4_wy0uv")]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -721, 0, 1116)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light-curved153"]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0.0128548145, 0.44390857, -0.15472257)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
@@ -2424,7 +2883,7 @@ transform = Transform3D(-2.7975289e-06, 0, 20, 0, 1, 0, -64, 0, -8.742278e-07, -
 shape = SubResource("ConcavePolygonShape3D_nmkph")
 
 [node name="road-straight42" parent="." instance=ExtResource("9_nmkph")]
-transform = Transform3D(-2.7975289e-06, 0, 20, 0, 1, 0, -64, 0, -8.742278e-07, -710, 0.20000005, 1190)
+transform = Transform3D(-2.9723744e-06, 0, 20, 0, 1, 0, -68, 0, -8.742278e-07, -710, 0.20000005, 1192)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="road-straight42/road-straight" index="0"]
 
@@ -4277,7 +4736,7 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -632, 0, 65)
 shape = SubResource("ConcavePolygonShape3D_630qq")
 
 [node name="building-l13" parent="." instance=ExtResource("21_n5n48")]
-transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1197)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -737, 0, 1197)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="building-l13/building-l" index="0"]
 
@@ -4285,7 +4744,7 @@ transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -
 shape = SubResource("ConcavePolygonShape3D_djmp0")
 
 [node name="building-l14" parent="." instance=ExtResource("21_n5n48")]
-transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1167)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -737, 0, 1167)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="building-l14/building-l" index="0"]
 
@@ -4293,7 +4752,7 @@ transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -
 shape = SubResource("ConcavePolygonShape3D_wkwug")
 
 [node name="building-l15" parent="." instance=ExtResource("21_n5n48")]
-transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1138)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -737, 0, 1138)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="building-l15/building-l" index="0"]
 
@@ -4301,7 +4760,7 @@ transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -
 shape = SubResource("ConcavePolygonShape3D_w5ut2")
 
 [node name="building-l16" parent="." instance=ExtResource("21_n5n48")]
-transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1108)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -737, 0, 1108)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="building-l16/building-l" index="0"]
 
@@ -4309,7 +4768,7 @@ transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -
 shape = SubResource("ConcavePolygonShape3D_d4iat")
 
 [node name="building-l17" parent="." instance=ExtResource("21_n5n48")]
-transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1079)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -737, 0, 1079)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="building-l17/building-l" index="0"]
 
@@ -4317,7 +4776,7 @@ transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -
 shape = SubResource("ConcavePolygonShape3D_y7asl")
 
 [node name="building-l18" parent="." instance=ExtResource("21_n5n48")]
-transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -734, 0, 1049)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -737, 0, 1049)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="building-l18/building-l" index="0"]
 
@@ -4453,7 +4912,7 @@ transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -
 shape = SubResource("ConcavePolygonShape3D_pegen")
 
 [node name="low-detail-building-wide-b2" parent="." instance=ExtResource("30_qas6s")]
-transform = Transform3D(-2.1855694e-06, 0, 50, 0, 50, 0, -50, 0, -2.1855694e-06, -733, 0, 470)
+transform = Transform3D(-2.1855694e-06, 0, 50, 0, 50, 0, -50, 0, -2.1855694e-06, -735, 0, 470)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="low-detail-building-wide-b2/low-detail-building-wide-b" index="0"]
 
@@ -4583,61 +5042,19 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -746
 shape = SubResource("BoxShape3D_gaafq")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -451.8072, 6.6586285, 30.679161)
-light_color = Color(1, 0.73333335, 0.26666668, 1)
-light_energy = 3.0
-omni_range = 15.0
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -468.8072, 6.6586285, 30.679161)
-light_color = Color(1, 0.73333335, 0.26666668, 1)
-light_energy = 3.0
-omni_range = 15.0
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -488.8072, 6.6586285, 30.679161)
-light_color = Color(1, 0.73333335, 0.26666668, 1)
-light_energy = 3.0
-omni_range = 15.0
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -509.8072, 6.6586285, 30.679161)
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -443.8072, 6.6586285, 30.679161)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -433.8072, 6.6586285, 30.679161)
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -432.8072, 6.6586285, 30.679161)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
-[node name="OmniLight3D7" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -451.8072, 6.6586285, 48.67916)
-light_color = Color(1, 0.73333335, 0.26666668, 1)
-light_energy = 3.0
-omni_range = 15.0
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -468.8072, 6.6586285, 48.67916)
-light_color = Color(1, 0.73333335, 0.26666668, 1)
-light_energy = 3.0
-omni_range = 15.0
-
-[node name="OmniLight3D9" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -488.8072, 6.6586285, 48.67916)
-light_color = Color(1, 0.73333335, 0.26666668, 1)
-light_energy = 3.0
-omni_range = 15.0
-
-[node name="OmniLight3D10" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -509.8072, 6.6586285, 48.67916)
-light_color = Color(1, 0.73333335, 0.26666668, 1)
-light_energy = 3.0
-omni_range = 15.0
-
-[node name="OmniLight3D11" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -433.8072, 6.6586285, 48.67916)
+[node name="OmniLight3D14" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -452.8072, 6.6586285, 30.679161)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
@@ -4648,8 +5065,110 @@ light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
 
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -479.8072, 6.6586285, 30.679161)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -468.8072, 6.6586285, 30.679161)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -488.8072, 6.6586285, 30.679161)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -459.8072, 6.6586285, 30.679161)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -516.8072, 6.6586285, 30.679161)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -505.8072, 6.6586285, 30.679161)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D20" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -496.8072, 6.6586285, 30.679161)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -443.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -432.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -452.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
 [node name="OmniLight3D13" type="OmniLight3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -423.8072, 6.6586285, 48.67916)
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -423.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -479.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -468.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D19" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -488.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D21" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -459.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -516.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D22" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -505.8072, 6.6586285, 49.67916)
+light_color = Color(1, 0.73333335, 0.26666668, 1)
+light_energy = 3.0
+omni_range = 15.0
+
+[node name="OmniLight3D23" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -496.8072, 6.6586285, 49.67916)
 light_color = Color(1, 0.73333335, 0.26666668, 1)
 light_energy = 3.0
 omni_range = 15.0
