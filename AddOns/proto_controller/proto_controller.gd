@@ -305,6 +305,7 @@ func shoot_gun():
 		spawn_impact_effect(result.position, result.normal)
 		if result.collider.has_method("take_dmg"):
 			result.collider.take_dmg(40, Vector3.ZERO)
+			_spawn_blood(result.position + result.normal * 0.1)
 		if result.collider.has_method("take_hit"):
 			result.collider.take_hit(0.3)
 
@@ -432,11 +433,7 @@ func _apply_knockback(body: Node3D) -> void:
 
 	sword_sfx.play()
 	
-	if blood_splatter_scene:
-		print("blood_splatter_scene = ", blood_splatter_scene)
-		var splatter := blood_splatter_scene.instantiate()
-		get_tree().current_scene.add_child.call_deferred(splatter)
-		splatter.global_position = body.global_position
+	_spawn_blood(body.global_position - dir * 0.6 + Vector3.UP * 0.5)
 
 	Engine.time_scale = 0.05
 	get_tree().create_timer(hitstop_duration, true, false, true).timeout.connect(func():
@@ -546,3 +543,10 @@ func _start_reload() -> void:
 	shots_since_reload = 0
 	is_reloading = false
 	reloading_changed.emit(false)
+
+func _spawn_blood(pos: Vector3) -> void:
+	if not blood_splatter_scene:
+		return
+	var splatter := blood_splatter_scene.instantiate()
+	splatter.position = pos
+	get_tree().current_scene.add_child.call_deferred(splatter)
