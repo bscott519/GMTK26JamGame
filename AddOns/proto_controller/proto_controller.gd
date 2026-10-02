@@ -6,6 +6,8 @@ extends CharacterBody3D
 
 signal health_changed(current: int, max: int)
 signal died
+signal ammo_changed(current: int, mag_size: int)
+signal reloading_changed(is_reloading: bool)
 
 @export_group("Health")
 @export var max_health: int = 300
@@ -47,6 +49,10 @@ var _current_swing_tween: Tween
 @export_group("Firearm Settings")
 var current_gun_ammo : int = 20
 @export var max_gun_ammo: int = 60
+@export var mag_size: int = 20
+@export var reload_time: float = 2.0
+var shots_since_reload: int = 0
+var is_reloading: bool = false
 var is_holding_gun : bool = false
 @onready var pistol: MeshInstance3D = $Head/RightHand/Pistol
 @onready var pistol_2: MeshInstance3D = $Head/LeftHand/Pistol2
@@ -135,7 +141,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			mouse_captured = true
 		elif event.button_index == MOUSE_BUTTON_LEFT:
-			if is_holding_gun and current_gun_ammo > 0:
+			if is_holding_gun and current_gun_ammo > 0 and not is_reloading:
 				shoot_gun()
 			elif not is_holding_gun:
 				_try_punch()
@@ -265,6 +271,12 @@ func rotate_look(rot_input: Vector2) -> void:
 
 func shoot_gun():
 	current_gun_ammo -= 1
+	shots_since_reload += 1
+	ammo_changed.emit(current_gun_ammo, mag_size)
+	if current_gun_ammo == 0:
+		shots_since_reload = 0  # nothing left to reload
+	elif shots_since_reload >= mag_size:
+		_start_reload()
 	gun_sfx.play()
 	
 	var flash_path := "Head/LeftHand/Pistol2/MuzzleFlash" if next_shot_is_left else "Head/RightHand/Pistol/MuzzleFlash"
@@ -525,3 +537,12 @@ func heal(amount: int) -> void:
 
 func add_ammo(amount: int) -> void:
 	current_gun_ammo = min(current_gun_ammo + amount, max_gun_ammo)
+	ammo_changed.emit(current_gun_ammo, mag_size)
+	
+func _start_reload() -> void:
+	is_reloading = true
+	reloading_changed.emit(true)
+	await get_tree().create_timer(reload_time, false).timeout
+	shots_since_reload = 0
+	is_reloading = false
+	reloading_changed.emit(false)

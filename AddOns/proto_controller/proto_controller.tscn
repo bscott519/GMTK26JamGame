@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=25 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ujvmmi62qp8r" path="res://Assets/Standard Run (1).fbx" id="7_ue3g7"]
 [ext_resource type="AudioStream" uid="uid://37poe23tktee" path="res://Sounds/392229__morganpurkis__single-pistol-gunshot-33.wav" id="9_q1ipm"]
 [ext_resource type="AudioStream" uid="uid://bgshc67anlcb6" path="res://Sounds/SwordHit.wav" id="10_ue3g7"]
+[ext_resource type="Script" uid="uid://dxc0cnrr2shb8" path="res://addons/proto_controller/ammo_label.gd" id="13_2yh8o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -617,6 +618,30 @@ max_value = 150.0
 value = 150.0
 show_percentage = false
 script = ExtResource("6_h60nn")
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -92.0
+offset_right = -67.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+script = ExtResource("13_2yh8o")
+
+[node name="ReloadingLabel" type="Label" parent="CanvasLayer/AmmoLabel"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -54.0
+offset_right = 127.0
+offset_bottom = 1.0
+theme_override_font_sizes/font_size = 40
+text = "Reloading..."
 
 [editable path="Idle"]
 [editable path="Jumping"]
