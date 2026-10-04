@@ -9,7 +9,15 @@ enum State { CHASE, LUNGE, RETREAT, WINDUP }
 @export var death_delay: float = 1.0
 @export var max_health: int = 100
 @export var attack_windup_time: float = 0.4
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh: Node3D = $Model
+
+@onready var mobster_idle: Node3D = $"Model/Mobster Idle (1)"
+@onready var standing_walk_forward: Node3D = $"Model/Standing Walk Forward"
+@onready var punching: Node3D = $Model/Punching
+@onready var mobster_idle_anim: AnimationPlayer = $"Model/Mobster Idle (1)/AnimationPlayer"
+@onready var mobster_punch_anim: AnimationPlayer = $Model/Punching/AnimationPlayer
+@onready var walk_forward_anim: AnimationPlayer = $"Model/Standing Walk Forward/AnimationPlayer"
+var current_anim_state: String = ""
 
 @export_group("Attack Pattern")
 @export var attack_range: float = 2.0       # distance at which the enemy lunges
@@ -95,6 +103,7 @@ func _physics_process(delta: float) -> void:
 				_process_windup(delta)
  
 	move_and_slide()
+	_update_animation()
  
 func _process_chase() -> void:
 	if not player:
@@ -195,3 +204,25 @@ func _process_retreat(delta: float) -> void:
 func _on_hit_area_body_entered(body: Node3D) -> void:
 	if not is_dying and body.is_in_group("player"):
 		player.take_damage(int(contact_damage))
+
+func _update_animation() -> void:
+	var new_state := "idle"
+	if state == State.WINDUP or state == State.LUNGE:
+		new_state = "attack"
+	elif Vector2(velocity.x, velocity.z).length() > 0.5:
+		new_state = "walk"
+
+	if new_state == current_anim_state:
+		return
+	current_anim_state = new_state
+
+	mobster_idle.visible = new_state == "idle"
+	standing_walk_forward.visible = new_state == "walk"
+	punching.visible = new_state == "attack"
+
+	match new_state:
+		"idle": mobster_idle_anim.play("mixamo_com")
+		"walk": walk_forward_anim.play("mixamo_com")
+		"attack":
+			mobster_punch_anim.stop()
+			mobster_punch_anim.play("mixamo_com")

@@ -1,27 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdf4bb85sgflt"]
+[gd_scene load_steps=8 format=3 uid="uid://cdf4bb85sgflt"]
 
 [ext_resource type="Script" uid="uid://dkcjtlf7s7742" path="res://Scripts/alien.gd" id="1_mdm8w"]
 [ext_resource type="PackedScene" uid="uid://c3um7fopq3k71" path="res://Scenes/health_pickup.tscn" id="2_vq0oy"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3h60"]
-albedo_color = Color(1, 0.3541287, 0.41598913, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mdm8w"]
-material = SubResource("StandardMaterial3D_b3h60")
-height = 1.8
+[ext_resource type="PackedScene" uid="uid://dyevfxlua6vp4" path="res://Assets/Mobster Idle (1).fbx" id="3_4aw7v"]
+[ext_resource type="PackedScene" uid="uid://6f5dkwa8bkmh" path="res://Assets/Punching.fbx" id="4_4a0ni"]
+[ext_resource type="PackedScene" uid="uid://bbapcvb3ke24a" path="res://Assets/Standing Walk Forward.fbx" id="5_f6usj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhrgm"]
+radius = 0.3
 height = 1.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3jkay"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr06p"]
-albedo_color = Color(0.3744262, 0.0793645, 0.08180954, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_mdm8w"]
-material = SubResource("StandardMaterial3D_wr06p")
-radius = 0.1
-height = 0.2
 
 [node name="mob_associate" type="CharacterBody3D"]
 script = ExtResource("1_mdm8w")
@@ -33,10 +22,19 @@ lunge_speed = 12.0
 health_pickup_scene = ExtResource("2_vq0oy")
 health_drop_chance = 0.2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_mdm8w")
+[node name="Model" type="Node3D" parent="."]
+
+[node name="Mobster Idle (1)" parent="Model" instance=ExtResource("3_4aw7v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -1, 0)
+
+[node name="Punching" parent="Model" instance=ExtResource("4_4a0ni")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -1, 0)
+
+[node name="Standing Walk Forward" parent="Model" instance=ExtResource("5_f6usj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14251983, 0)
 shape = SubResource("CapsuleShape3D_fhrgm")
 
 [node name="HitArea" type="Area3D" parent="."]
@@ -45,10 +43,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6762643, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
 shape = SubResource("SphereShape3D_3jkay")
 
-[node name="Eyeball" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.43, 0.404, 0.179)
-mesh = SubResource("SphereMesh_mdm8w")
-
-[node name="Eyeball2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.430154, 0.4035629, -0.13857639)
-mesh = SubResource("SphereMesh_mdm8w")
+[editable path="Model/Mobster Idle (1)"]
+[editable path="Model/Punching"]
+[editable path="Model/Standing Walk Forward"]
