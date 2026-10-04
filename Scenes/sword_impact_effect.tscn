@@ -29,25 +29,35 @@ radius = 0.02
 height = 0.35
 
 [sub_resource type="Curve" id="Curve_8xa5x"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0.59767896), 0.0, 0.0, 0, 0, Vector2(0.49248123, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_mp16x"]
 curve = SubResource("Curve_8xa5x")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8xa5x"]
+angle_min = 1.0728835e-05
+angle_max = 360.00003
 gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.79999995
 scale_curve = SubResource("CurveTexture_mp16x")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0l3j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xa5x"]
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.8117647, 0.93333334, 1, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[sub_resource type="SphereMesh" id="SphereMesh_f4raf"]
-material = SubResource("StandardMaterial3D_n0l3j")
-radius = 0.2
-height = 0.4
+[sub_resource type="SphereMesh" id="SphereMesh_n0l3j"]
+material = SubResource("StandardMaterial3D_8xa5x")
+radius = 0.05
+height = 0.8
+radial_segments = 4
+rings = 2
 
 [node name="SwordImpactEffect" type="Node3D"]
 
@@ -62,9 +72,9 @@ draw_pass_1 = SubResource("SphereMesh_mp16x")
 
 [node name="Flash" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 1
+amount = 4
 lifetime = 0.15000000000000002
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_8xa5x")
-draw_pass_1 = SubResource("SphereMesh_f4raf")
+draw_pass_1 = SubResource("SphereMesh_n0l3j")
