@@ -8,6 +8,8 @@ extends CharacterBody3D
 @export var knockback_stun_duration: float = 0.5
 @export var death_delay: float = 1.0
  
+
+
 @export_group("Shooting")
 @export var bullet_scene: PackedScene
 @export var shoot_cooldown: float = 2.5

@@ -40,6 +40,7 @@ var current_health: int
 @export var shoulder_height: float = 0.5
 @export var combo_reset_time: float = 0.8
 @export var hitstop_duration: float = 0.08
+@export var hit_shake_intensity: float = 0.2
 
 var combo_index: int = 0
 var _combo_reset_timer: float = 0.0
@@ -523,6 +524,7 @@ func take_damage(amount: int) -> void:
 	if current_health <= 0:
 		return
 	current_health -= amount
+	apply_screen_shake(hit_shake_intensity)
 	health_changed.emit(current_health, max_health)
 	if current_health <= 0:
 		current_health = 0

@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy3nr58mat3vk"]
+[gd_scene load_steps=14 format=3 uid="uid://cy3nr58mat3vk"]
 
 [ext_resource type="Script" uid="uid://roensbqeapbx" path="res://Scripts/armed_mobster.gd" id="1_bxl17"]
 [ext_resource type="PackedScene" uid="uid://ca03vvy65ydj8" path="res://Scenes/bullet.tscn" id="2_sj71h"]
 [ext_resource type="AudioStream" uid="uid://37poe23tktee" path="res://Sounds/392229__morganpurkis__single-pistol-gunshot-33.wav" id="3_51fsp"]
 [ext_resource type="PackedScene" uid="uid://kpvbqmkjnfah" path="res://Scenes/ammo_pickup.tscn" id="3_w71h8"]
 [ext_resource type="PackedScene" uid="uid://c3um7fopq3k71" path="res://Scenes/health_pickup.tscn" id="4_thpj6"]
+[ext_resource type="PackedScene" uid="uid://cpa17xfwroxw4" path="res://Assets/Hit Reaction.fbx" id="5_vmr2m"]
+[ext_resource type="PackedScene" uid="uid://d5de6n4fr28e" path="res://Assets/Pistol Idle.fbx" id="6_x3uf7"]
+[ext_resource type="PackedScene" uid="uid://dd66wgb4pe7yr" path="res://Assets/Pistol Walk.fbx" id="7_7bk0p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3h60"]
 albedo_color = Color(0.5560883, 0, 0.14403817, 1)
@@ -15,14 +18,6 @@ height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhrgm"]
 height = 1.8
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr06p"]
-albedo_color = Color(0.3744262, 0.0793645, 0.08180954, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_mdm8w"]
-material = SubResource("StandardMaterial3D_wr06p")
-radius = 0.1
-height = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sj71h"]
 albedo_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
@@ -37,19 +32,23 @@ bullet_scene = ExtResource("2_sj71h")
 ammo_pickup_scene = ExtResource("3_w71h8")
 health_pickup_scene = ExtResource("4_thpj6")
 
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Hit Reaction" parent="Node3D" instance=ExtResource("5_vmr2m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -1, 0)
+
+[node name="Pistol Idle" parent="Node3D" instance=ExtResource("6_x3uf7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -1, 0)
+
+[node name="Pistol Walk" parent="Node3D" instance=ExtResource("7_7bk0p")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -1, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_mdm8w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_fhrgm")
-
-[node name="Eyeball" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.43, 0.404, 0.179)
-mesh = SubResource("SphereMesh_mdm8w")
-
-[node name="Eyeball2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.430154, 0.4035629, -0.13857639)
-mesh = SubResource("SphereMesh_mdm8w")
 
 [node name="Gun" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.40671945, 0, 0.5120858)
@@ -61,3 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.17805293)
 [node name="GunSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_51fsp")
 volume_db = -10.0
+
+[editable path="Node3D/Hit Reaction"]
+[editable path="Node3D/Pistol Idle"]
+[editable path="Node3D/Pistol Walk"]
