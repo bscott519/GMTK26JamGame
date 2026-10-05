@@ -539,7 +539,7 @@ bones/63/scale = Vector3(1.0000005, 0.9999998, 1.0000001)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0.856959, 0.6444912, 2.3642058)
+transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0, 0.8952217, 2.6287427)
 
 [node name="RightHand" type="Marker3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44142616, -0.549, -0.4399471)
@@ -557,7 +557,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33493602, 0)
 mesh = SubResource("CapsuleMesh_h60nn")
 
 [node name="LeftHand" type="Marker3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59457386, -0.6880001, -0.589)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.595, -0.549, -0.44)
 
 [node name="Pistol2" type="MeshInstance3D" parent="Head/LeftHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036, 0, -0.164)

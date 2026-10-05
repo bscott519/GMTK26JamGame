@@ -25,6 +25,8 @@ var current_anim_state: String = ""
 @export var lunge_duration: float = 0.3     # how long the lunge (and hurtbox) lasts
 @export var retreat_speed: float = 4.0
 @export var retreat_duration: float = 1.5   # how long it backs off before chasing again
+@export var punch_start_time: float = 0.3  # seconds into the clip where the arm starts extending
+@export var attack_anim_speed: float = 1.5
 
 @export_group("Drops")
 @export var health_pickup_scene: PackedScene
@@ -207,7 +209,7 @@ func _on_hit_area_body_entered(body: Node3D) -> void:
 
 func _update_animation() -> void:
 	var new_state := "idle"
-	if state == State.WINDUP or state == State.LUNGE:
+	if state == State.LUNGE or (current_anim_state == "attack" and mobster_punch_anim.is_playing() and stun_timer <= 0.0):
 		new_state = "attack"
 	elif Vector2(velocity.x, velocity.z).length() > 0.5:
 		new_state = "walk"
@@ -225,4 +227,5 @@ func _update_animation() -> void:
 		"walk": walk_forward_anim.play("mixamo_com")
 		"attack":
 			mobster_punch_anim.stop()
-			mobster_punch_anim.play("mixamo_com")
+			mobster_punch_anim.play("mixamo_com", -1, attack_anim_speed)
+			mobster_punch_anim.seek(punch_start_time, true)
