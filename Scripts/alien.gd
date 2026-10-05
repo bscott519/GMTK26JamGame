@@ -14,9 +14,11 @@ enum State { CHASE, LUNGE, RETREAT, WINDUP }
 @onready var mobster_idle: Node3D = $"Model/Mobster Idle (1)"
 @onready var standing_walk_forward: Node3D = $"Model/Standing Walk Forward"
 @onready var punching: Node3D = $Model/Punching
+@onready var death_model: Node3D = $"Model/Standing Death Backward 01"
 @onready var mobster_idle_anim: AnimationPlayer = $"Model/Mobster Idle (1)/AnimationPlayer"
 @onready var mobster_punch_anim: AnimationPlayer = $Model/Punching/AnimationPlayer
 @onready var walk_forward_anim: AnimationPlayer = $"Model/Standing Walk Forward/AnimationPlayer"
+@onready var death_anim: AnimationPlayer = $"Model/Standing Death Backward 01/AnimationPlayer"
 var current_anim_state: String = ""
 
 @export_group("Attack Pattern")
@@ -59,6 +61,7 @@ func take_dmg(amount: int, knockback: Vector3) -> void:
  
 func die() -> void:
 	is_dying = true
+	set_deferred("collision_layer", 0)
 	if health_pickup_scene and randf() < health_drop_chance:
 		spawn_drop(health_pickup_scene, Vector3.ZERO)
 	_release_attack_slot()
@@ -90,7 +93,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= 20.0 * delta
  
 	if is_dying:
-		pass
+		velocity.x = move_toward(velocity.x, 0.0, 20.0 * delta)
+		velocity.z = move_toward(velocity.z, 0.0, 20.0 * delta)
 	elif stun_timer > 0.0:
 		stun_timer -= delta
 	else:
@@ -209,7 +213,9 @@ func _on_hit_area_body_entered(body: Node3D) -> void:
 
 func _update_animation() -> void:
 	var new_state := "idle"
-	if state == State.LUNGE or (current_anim_state == "attack" and mobster_punch_anim.is_playing() and stun_timer <= 0.0):
+	if is_dying:
+		new_state = "death"
+	elif state == State.LUNGE or (current_anim_state == "attack" and mobster_punch_anim.is_playing() and stun_timer <= 0.0):
 		new_state = "attack"
 	elif Vector2(velocity.x, velocity.z).length() > 0.5:
 		new_state = "walk"
@@ -221,6 +227,7 @@ func _update_animation() -> void:
 	mobster_idle.visible = new_state == "idle"
 	standing_walk_forward.visible = new_state == "walk"
 	punching.visible = new_state == "attack"
+	death_model.visible = new_state == "death"
 
 	match new_state:
 		"idle": mobster_idle_anim.play("mixamo_com")
@@ -229,3 +236,4 @@ func _update_animation() -> void:
 			mobster_punch_anim.stop()
 			mobster_punch_anim.play("mixamo_com", -1, attack_anim_speed)
 			mobster_punch_anim.seek(punch_start_time, true)
+		"death": death_anim.play("mixamo_com")
