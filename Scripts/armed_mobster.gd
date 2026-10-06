@@ -8,7 +8,15 @@ extends CharacterBody3D
 @export var knockback_stun_duration: float = 0.5
 @export var death_delay: float = 1.0
  
-
+@onready var hit_reaction_model: Node3D = $"Node3D/Hit Reaction"
+@onready var pistol_idle_model: Node3D = $"Node3D/Pistol Idle"
+@onready var pistol_walk_model: Node3D = $"Node3D/Pistol Walk"
+@onready var death_gunner_model: Node3D = $"Node3D/Standing Death Backward 01 (Gunner)"
+@onready var hit_reaction_anim_player: AnimationPlayer = $"Node3D/Hit Reaction/AnimationPlayer"
+@onready var pistol_idle_anim_player: AnimationPlayer = $"Node3D/Pistol Idle/AnimationPlayer"
+@onready var pistol_walk_anim_player: AnimationPlayer = $"Node3D/Pistol Walk/AnimationPlayer"
+@onready var death_anim_player: AnimationPlayer = $"Node3D/Standing Death Backward 01 (Gunner)/AnimationPlayer"
+var current_anim_state: String = ""
 
 @export_group("Shooting")
 @export var bullet_scene: PackedScene
@@ -136,3 +144,23 @@ func _shoot() -> void:
 		bullet.call_deferred("launch", target_dir, self)
 	
 	gun_sfx.play()
+
+func _update_animation() -> void:
+	var new_state := "idle"
+	if Vector2(velocity.x, velocity.z).length() > 0.5:
+		new_state = "walk"
+	elif player and global_position.distance_to(player.global_position) < detect_range:
+		new_state = "attack"
+
+	if new_state == current_anim_state:
+		return
+	current_anim_state = new_state
+
+	pistol_idle_model.visible = new_state == "idle"
+	pistol_walk_model.visible = new_state == "walk"
+	attack_model.visible = new_state == "attack"
+
+	match new_state:
+		"idle": idle_anim.play("Take 001")
+		"walk": walk_anim.play("Take 001")
+		"attack": attack_anim.play("Take 001")
