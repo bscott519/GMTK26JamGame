@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=28 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
@@ -54,6 +54,12 @@ bg_color = Color(0.58103323, 0.5810329, 0.5810329, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h60nn"]
 bg_color = Color(0.024612911, 0, 0.8937173, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cisnj"]
+bg_color = Color(0.5803922, 0.5803922, 0.5803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxq8o"]
+bg_color = Color(0.24705882, 0.6627451, 1, 1)
 
 [node name="ProtoController" type="CharacterBody3D" groups=["player"]]
 collision_mask = 17
@@ -644,6 +650,13 @@ offset_right = 127.0
 offset_bottom = 1.0
 theme_override_font_sizes/font_size = 40
 text = "Reloading..."
+
+[node name="FocusBar" type="ProgressBar" parent="CanvasLayer"]
+offset_right = 4.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cisnj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gxq8o")
+show_percentage = false
 
 [editable path="Idle"]
 [editable path="Jumping"]

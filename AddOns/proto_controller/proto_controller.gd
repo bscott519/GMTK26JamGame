@@ -8,6 +8,7 @@ signal health_changed(current: int, max: int)
 signal died
 signal ammo_changed(current: int, mag_size: int)
 signal reloading_changed(is_reloading: bool)
+signal focus_changed(current: int, max_focus: int)
 
 @export_group("Health")
 @export var max_health: int = 300
@@ -41,6 +42,12 @@ var current_health: int
 @export var combo_reset_time: float = 0.8
 @export var hitstop_duration: float = 0.08
 @export var hit_shake_intensity: float = 0.2
+
+@export_group("Focus")
+@export var focus_max: int = 6
+@export var special_radius: float = 8.0
+@export var special_scene: PackedScene
+var current_focus: int = 0
 
 var combo_index: int = 0
 var _combo_reset_timer: float = 0.0
