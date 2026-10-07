@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var max_distance: float = 14.0   # too far -> approach
 @export var move_speed: float = 4.0
 @export var detect_range: float = 20.0
-@export var max_health: int = 80
+@export var max_health: int = 100
 @export var knockback_stun_duration: float = 0.5
 @export var death_delay: float = 1.0
  
@@ -46,11 +46,13 @@ func take_dmg(amount: int, knockback: Vector3) -> void:
 		return
 	cur_health -= amount
 	apply_knockback(knockback)
+	current_anim_state = ""
 	if cur_health <= 0:
 		die()
  
 func die() -> void:
 	is_dying = true
+	set_deferred("collision_layer", 0)
 	if ammo_pickup_scene:
 		spawn_drop(ammo_pickup_scene, Vector3.ZERO)
 	if health_pickup_scene and randf() < health_drop_chance:
@@ -76,13 +78,15 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= 20.0 * delta
  
 	if is_dying:
-		pass
+		velocity.x = move_toward(velocity.x, 0.0, 20.0 * delta)
+		velocity.z = move_toward(velocity.z, 0.0, 20.0 * delta)
 	elif stun_timer > 0.0:
 		stun_timer -= delta
 	else:
 		_process_kite_and_shoot(delta)
  
 	move_and_slide()
+	update_animation()
  
 func _process_kite_and_shoot(delta: float) -> void:
 	if not player:
@@ -145,12 +149,14 @@ func _shoot() -> void:
 	
 	gun_sfx.play()
 
-func _update_animation() -> void:
+func update_animation() -> void:
 	var new_state := "idle"
-	if Vector2(velocity.x, velocity.z).length() > 0.5:
+	if is_dying:
+		new_state = "death"
+	elif stun_timer > 0.0:
+		new_state = "hit"
+	elif Vector2(velocity.x, velocity.z).length() > 0.5:
 		new_state = "walk"
-	elif player and global_position.distance_to(player.global_position) < detect_range:
-		new_state = "attack"
 
 	if new_state == current_anim_state:
 		return
@@ -158,9 +164,13 @@ func _update_animation() -> void:
 
 	pistol_idle_model.visible = new_state == "idle"
 	pistol_walk_model.visible = new_state == "walk"
-	pistol_idle_model.visible = new_state == "attack"
+	hit_reaction_model.visible = new_state == "hit"
+	death_gunner_model.visible = new_state == "death"
 
 	match new_state:
 		"idle": pistol_idle_anim_player.play("mixamo_com")
 		"walk": pistol_walk_anim_player.play("mixamo_com")
-		"attack": pistol_idle_anim_player.play("mixamo_com")
+		"hit":
+			hit_reaction_anim_player.stop()
+			hit_reaction_anim_player.play("mixamo_com")
+		"death": death_anim_player.play("mixamo_com")
