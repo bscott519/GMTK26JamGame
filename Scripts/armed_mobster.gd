@@ -158,9 +158,9 @@ func _update_animation() -> void:
 
 	pistol_idle_model.visible = new_state == "idle"
 	pistol_walk_model.visible = new_state == "walk"
-	attack_model.visible = new_state == "attack"
+	pistol_idle_model.visible = new_state == "attack"
 
 	match new_state:
-		"idle": idle_anim.play("Take 001")
-		"walk": walk_anim.play("Take 001")
-		"attack": attack_anim.play("Take 001")
+		"idle": pistol_idle_anim_player.play("mixamo_com")
+		"walk": pistol_walk_anim_player.play("mixamo_com")
+		"attack": pistol_idle_anim_player.play("mixamo_com")

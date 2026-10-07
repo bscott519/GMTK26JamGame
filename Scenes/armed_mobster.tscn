@@ -29,18 +29,9 @@ size = Vector3(0.2, 0.1, 0.4)
 
 [node name="armed_mobster" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_bxl17")
-min_distance = null
-max_distance = null
-move_speed = null
-detect_range = null
-max_health = null
-knockback_stun_duration = null
-death_delay = null
 bullet_scene = ExtResource("2_sj71h")
-shoot_cooldown = null
 ammo_pickup_scene = ExtResource("3_w71h8")
 health_pickup_scene = ExtResource("4_thpj6")
-health_drop_chance = null
 
 [node name="Node3D" type="Node3D" parent="."]
 
