@@ -142,7 +142,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_equip_weapon()
 		if event.physical_keycode == KEY_2:
 			_equip_gun()
-		if event.physical_keycode == KEY_ENTER:
+		if event.physical_keycode == KEY_E:
 			_try_roll()
 		if event.physical_keycode == KEY_F:
 			try_special()
@@ -535,6 +535,9 @@ func take_damage(amount: int) -> void:
 		return
 	current_health -= amount
 	apply_screen_shake(hit_shake_intensity)
+	if current_focus > 0:
+		current_focus -= 1
+		focus_changed.emit(current_focus, focus_max)
 	health_changed.emit(current_health, max_health)
 	if current_health <= 0:
 		current_health = 0
@@ -592,8 +595,8 @@ func try_special() -> void:
 	)
 
 	for enemy in get_tree().get_nodes_in_group("enemy"):
-		if enemy.global_position.distance_to(global_position) <= special_radius:
-			var push: Vector3 = enemy.global_position - global_position
-			push.y = 0
-			push = push.normalized() * punch_knockback_force + Vector3.UP * punch_knockback_upward
-			enemy.take_dmg(9999, push)
+			if enemy.global_position.distance_to(global_position + Vector3.UP) <= special_radius + 1.0:
+				var push: Vector3 = enemy.global_position - global_position
+				push.y = 0
+				push = push.normalized() * punch_knockback_force + Vector3.UP * punch_knockback_upward
+				enemy.take_dmg(9999, push)

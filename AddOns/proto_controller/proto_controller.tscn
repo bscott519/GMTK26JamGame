@@ -74,6 +74,7 @@ punch_knockback_force = 5.0
 swing_angle = 140.0
 swing_duration = 0.3
 swing_position_offset = Vector3(-1.2, 0, 0)
+special_radius = 5.0
 special_scene = ExtResource("2_f4vau")
 roll_speed = 25.0
 roll_duration = 0.15

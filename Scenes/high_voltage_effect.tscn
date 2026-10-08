@@ -18,8 +18,8 @@ albedo_color = Color(0.24705882, 0.6627451, 1, 0.5921569)
 
 [sub_resource type="SphereMesh" id="SphereMesh_hwlnj"]
 material = SubResource("StandardMaterial3D_qjoe6")
-radius = 8.0
-height = 16.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="Curve" id="Curve_bjqmn"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99624056, 0.0029498339), 0.0, 0.0, 0, 0]

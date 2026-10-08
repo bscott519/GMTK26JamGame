@@ -15,7 +15,7 @@ height = 1.8
 [sub_resource type="SphereShape3D" id="SphereShape3D_3jkay"]
 radius = 0.3
 
-[node name="mob_associate" type="CharacterBody3D"]
+[node name="mob_associate" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_mdm8w")
 detect_range = 20.0
 knockback_stun_duration = 1.0
