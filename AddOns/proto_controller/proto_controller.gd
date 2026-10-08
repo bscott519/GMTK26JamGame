@@ -144,6 +144,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			_equip_gun()
 		if event.physical_keycode == KEY_ENTER:
 			_try_roll()
+		if event.physical_keycode == KEY_F:
+			try_special()
 	if event is InputEventMouseButton and event.pressed:
 		if not mouse_captured:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -432,6 +434,7 @@ func _apply_knockback(body: Node3D) -> void:
 
 	if body.has_method("take_dmg"):
 		body.take_dmg(punch_damage, impulse)
+		add_focus()
 	elif body.has_method("apply_knockback"):
 		body.apply_knockback(impulse)
 	elif body is RigidBody3D:
@@ -567,3 +570,30 @@ func spawn_effect(scene: PackedScene, at: Vector3) -> void:
 			child.emitting = true
 	get_tree().current_scene.add_child.call_deferred(effect)
 	get_tree().create_timer(2.0).timeout.connect(effect.queue_free)
+
+func add_focus() -> void:
+	if current_focus >= focus_max:
+		return
+	current_focus += 1
+	focus_changed.emit(current_focus, focus_max)
+
+func try_special() -> void:
+	if current_focus < focus_max or current_health <= 0:
+		return
+	current_focus = 0
+	focus_changed.emit(current_focus, focus_max)
+
+	spawn_effect(special_scene, global_position + Vector3.UP)
+	sword_sfx.play()
+	apply_screen_shake(0.3)
+	Engine.time_scale = 0.05
+	get_tree().create_timer(0.15, true, false, true).timeout.connect(func():
+		Engine.time_scale = 1.0
+	)
+
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if enemy.global_position.distance_to(global_position) <= special_radius:
+			var push: Vector3 = enemy.global_position - global_position
+			push.y = 0
+			push = push.normalized() * punch_knockback_force + Vector3.UP * punch_knockback_upward
+			enemy.take_dmg(9999, push)

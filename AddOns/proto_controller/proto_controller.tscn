@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=30 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://btkacfexq1kj6" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://bl8if06tfld0e" path="res://Scenes/impact_effect.tscn" id="2_0rk7u"]
 [ext_resource type="PackedScene" uid="uid://bbr1noohbsck" path="res://Scenes/muzzle_flash.tscn" id="2_6dqce"]
+[ext_resource type="PackedScene" uid="uid://e5quv8psglmu" path="res://Scenes/high_voltage_effect.tscn" id="2_f4vau"]
 [ext_resource type="AudioStream" uid="uid://bfwuobcdhyb6b" path="res://Sounds/350906__cabled_mess__jump_c_04.wav" id="2_wr06p"]
 [ext_resource type="Shader" uid="uid://dq4rbs3lt7h1p" path="res://addons/proto_controller/proto_controller.gdshader" id="3_5hfox"]
 [ext_resource type="PackedScene" uid="uid://rekp6j1f8m4c" path="res://Scenes/blood_splatter_effect.tscn" id="3_ujot4"]
@@ -14,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://37poe23tktee" path="res://Sounds/392229__morganpurkis__single-pistol-gunshot-33.wav" id="9_q1ipm"]
 [ext_resource type="AudioStream" uid="uid://bgshc67anlcb6" path="res://Sounds/SwordHit.wav" id="10_ue3g7"]
 [ext_resource type="Script" uid="uid://dxc0cnrr2shb8" path="res://addons/proto_controller/ammo_label.gd" id="13_2yh8o"]
+[ext_resource type="Script" uid="uid://3os8qg3vhgk1" path="res://addons/proto_controller/focus_bar.gd" id="15_gxq8o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -72,6 +74,7 @@ punch_knockback_force = 5.0
 swing_angle = 140.0
 swing_duration = 0.3
 swing_position_offset = Vector3(-1.2, 0, 0)
+special_scene = ExtResource("2_f4vau")
 roll_speed = 25.0
 roll_duration = 0.15
 impact_effect_scene = ExtResource("2_0rk7u")
@@ -652,11 +655,27 @@ theme_override_font_sizes/font_size = 40
 text = "Reloading..."
 
 [node name="FocusBar" type="ProgressBar" parent="CanvasLayer"]
-offset_right = 4.0
-offset_bottom = 27.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -135.0
+offset_right = 331.0
+offset_bottom = -105.0
+grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_cisnj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_gxq8o")
 show_percentage = false
+script = ExtResource("15_gxq8o")
+
+[node name="SpecialLabel" type="Label" parent="CanvasLayer/FocusBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -38.0
+offset_right = 446.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 25
+text = "Special Ready - Press F!"
 
 [editable path="Idle"]
 [editable path="Jumping"]
