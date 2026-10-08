@@ -69,10 +69,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -475.0
-offset_top = -445.0
-offset_right = -370.0
-offset_bottom = -396.0
+offset_left = -105.0
+offset_top = -49.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/outline_size = 1
@@ -134,6 +132,7 @@ text = "QUIT
 "
 
 [node name="ControlsPanel" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
