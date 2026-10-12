@@ -602,6 +602,7 @@ stream = ExtResource("10_ue3g7")
 volume_db = -1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Reticle" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_6dqce")
