@@ -28,11 +28,11 @@ albedo_color = Color(0.17103916, 0.17103916, 0.17103916, 1)
 material = SubResource("StandardMaterial3D_q1ipm")
 size = Vector3(0.2, 0.1, 0.4)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x436g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4vau"]
 albedo_color = Color(0.2, 0.53333336, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_h60nn"]
-material = SubResource("StandardMaterial3D_x436g")
+material = SubResource("StandardMaterial3D_f4vau")
 radius = 0.04
 height = 1.2
 
@@ -602,7 +602,6 @@ stream = ExtResource("10_ue3g7")
 volume_db = -1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Reticle" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_6dqce")
